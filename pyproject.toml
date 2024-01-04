@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "sn-game-state"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+packages = [{include = "sn_gamestate"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+tracklab = {path = "../tracklab", develop = true}
+easyocr = "^1.7.1"
+soccernet = "^0.1.53"
+torch = "1.13.1"
+torchvision = "0.14.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins.tracklab_plugin]
+soccernet = "sn_gamestate.config_finder:ConfigFinder"

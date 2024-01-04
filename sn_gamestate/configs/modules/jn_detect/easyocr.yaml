@@ -1,0 +1,5 @@
+_target_: sn_gamestate.jersey.easyocr_api.EasyOCR
+cfg:
+  text_threshold: 0.5
+  link_threshold: 0.3
+batch_size: 256
