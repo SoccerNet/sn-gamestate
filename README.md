@@ -32,6 +32,23 @@ poetry install
 mim install mmcv-full
 ```
 
+### External dependencies
+
+- Get the **SoccerNet Tracking** dataset [here](https://github.com/SoccerNet/sn-tracking), rename the root folder as "SoccerNetMOT" and put it under the global dataset directory (specified under the `data_dir` config as explained below). Otherwise, you can modify the `dataset_path` config in [soccernet_mot.yaml](configs/dataset/soccernet_mot.yaml) with your custom SoccerNet dataset directory.
+- Download the pretrained model weights [here](https://drive.google.com/drive/folders/1MmDkSHWJ1S-V9YcLMkFOjm3zo65UELjJ?usp=drive_link) and put the "pretrained_models" directory under the main project directory (i.e. "/path/to/tracklab/pretrained_models").
+
+### Setup
+
+You will need to set up some variables before running the code : 
+
+1. In [soccernet.yaml](sn_gamestate/configs/soccernet.yaml) :
+   - `data_dir`: the directory where you will store the different datasets (must be an absolute path !)
+   - All the parameters under the "Machine configuration" header
+2. For the corresponding modules :
+   - The `batch_size`
+   - You might want to change the model hyperparameters
+
+
 ## Usage
 
 run TrackLab on the command line with `tracklab` or `python -m tracklab.main`. All the additional
