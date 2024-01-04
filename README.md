@@ -3,6 +3,8 @@
 ## Installation
 First git clone this repository, and the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab) *in adjacent directories* : 
 ```bash
+mkdir soccernet
+cd soccernet
 git clone https://github.com/SoccerNet/sn-game-state.git
 git clone https://github.com/TrackingLaboratory/tracklab.git
 ```
