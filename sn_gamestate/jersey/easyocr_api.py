@@ -21,7 +21,7 @@ class EasyOCR(DetectionLevelModule):
         self.reader = easyocr.Reader(['en'], gpu=True)
         self.cfg = cfg
 
-    def no_jursey_number(self):
+    def no_jersey_number(self):
         return [None, None, 0]
 
     @torch.no_grad()
@@ -48,14 +48,14 @@ class EasyOCR(DetectionLevelModule):
                 img_np = img.cpu().numpy()
                 result = self.reader.readtext(img_np, **self.cfg)
                 if result == []:
-                    jn = self.no_jursey_number()
+                    jn = self.no_jersey_number()
                 else:
                     result = result[0]  # only take the first result (highest confidence)
                     try:
                         # see if the result is a number
                         int(result[1])
                     except ValueError:
-                        jn = self.no_jursey_number()
+                        jn = self.no_jersey_number()
                     else:
                         jn = [result[0], result[1], result[2]]
 
@@ -65,14 +65,14 @@ class EasyOCR(DetectionLevelModule):
             results = self.reader.readtext_batched(images_np, n_width=64, n_height=128, workers=8, **self.cfg)
             for result in results:
                 if result == []:
-                    jn = self.no_jursey_number()
+                    jn = self.no_jersey_number()
                 else:
                     result = result[0] # only take the first result (highest confidence)
                     try:
                         # see if the result is a number
                         int(result[1])
                     except ValueError:
-                        jn = self.no_jursey_number()
+                        jn = self.no_jersey_number()
                     else:
                         jn = [result[0], result[1], result[2]]
 
