@@ -1,0 +1,6 @@
+defaults:
+  - default
+
+_target_: tracklab.wrappers.ExternalVideo
+
+video_path: "https://www.youtube.com/watch?v=jvvbqqM3k6g"
