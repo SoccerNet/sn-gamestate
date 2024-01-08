@@ -1,10 +1,9 @@
-# TrackLab config
+# TrackLab SoccerNet config
 
 # The defaults list contains the files that will be used
 # to create the final config file. This item *must* be
 # the first element in the file.
 defaults:
-  - _self_
   - dataset: soccernet_mot
   - eval: soccernet_mot
   - engine: offline
@@ -16,7 +15,7 @@ defaults:
   - modules/track: oc_sort
   - modules/jn_detect: easyocr
   - modules/jn_tracklet: voting
-
+  - _self_
 # Pipeline definition :
 # - Defines the order in which the modules will be called
 # - If loading a tracking state from disk, remove modules whose outputs are already provided in the loaded state
@@ -38,6 +37,14 @@ model_dir: "${project_dir}/pretrained_models"
 num_cores: 4
 use_wandb: False
 use_rich: True
+
+modules: # Allows module-specific batch_size and other configuration
+  bbox_detector: {batch_size: 8}
+  pose_bottomup: {batch_size: 8}
+  reid: {batch_size: 64}
+  track: {batch_size: 64}
+  jn_detect: {batch_size: 8}
+  jn_tracklet: {batch_size: 8}
 
 # Flags
 test_tracking: True
