@@ -44,7 +44,6 @@ modules: # Allows module-specific batch_size and other configuration
   reid: {batch_size: 64}
   track: {batch_size: 64}
   jn_detect: {batch_size: 8}
-  jn_tracklet: {batch_size: 8}
 
 # Flags
 test_tracking: True
