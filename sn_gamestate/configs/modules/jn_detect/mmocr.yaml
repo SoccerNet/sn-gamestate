@@ -1,3 +1,2 @@
 _target_: sn_gamestate.jersey.mmocr_api.MMOCR
-cfg:
-  batch_size: 32
+batch_size: 32

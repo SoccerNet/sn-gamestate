@@ -21,10 +21,10 @@ class MMOCR(DetectionLevelModule):
     output_columns = ["jersey_number", "jn_confidence"]
     collate_fn = default_collate
     
-    def __init__(self, cfg, device, tracking_dataset=None):
-        super().__init__(batch_size=cfg.batch_size)
+    def __init__(self, batch_size, device, tracking_dataset=None):
+        super().__init__(batch_size=batch_size)
         self.ocr = MMOCRInferencer(det='dbnet_resnet18_fpnc_1200e_icdar2015', rec='SAR')
-        self.cfg = cfg
+        self.batch_size = batch_size
         
         self.textdetinferencer = TextDetInferencer('dbnet_resnet18_fpnc_1200e_icdar2015', device=device)
         self.textrecinferencer = TextRecInferencer('SAR', device=device)
@@ -110,7 +110,7 @@ class MMOCR(DetectionLevelModule):
         result['det'] = self.textdetinferencer(
                         images_np,
                         return_datasamples=True,
-                        batch_size=self.cfg.batch_size,
+                        batch_size=self.batch_size,
                         progress_bar=False,
                         )['predictions']
 
@@ -133,7 +133,7 @@ class MMOCR(DetectionLevelModule):
                 self.textrecinferencer(
                     rec_inputs,
                     return_datasamples=True,
-                    batch_size=self.cfg.batch_size,
+                    batch_size=self.batch_size,
                     progress_bar=False)['predictions'])
         
         pred_results = [{} for _ in range(len(result['rec']))]
