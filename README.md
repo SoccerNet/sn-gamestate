@@ -29,7 +29,7 @@ mim install mmcv
 2. Install the dependencies : 
 ```bash
 poetry install
-mim install mmcv
+mim install mmcv==2.0.1
 ```
 
 ### External dependencies
