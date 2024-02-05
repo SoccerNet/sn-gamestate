@@ -6,12 +6,12 @@ More information about the dataset can be found on our [official website](https:
 
 ![Gamestate example](images/gamestate-example.jpg)
 
-## Installation
+## Installing TrackLab and the Gamestate baseline
 First git clone this repository, and the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab) *in adjacent directories* : 
 ```bash
 mkdir soccernet
 cd soccernet
-git clone https://github.com/SoccerNet/sn-game-state.git
+git clone https://github.com/SoccerNet/sn-gamestate.git
 git clone https://github.com/TrackingLaboratory/tracklab.git
 ```
 
