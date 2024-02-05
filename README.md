@@ -24,7 +24,7 @@ conda activate tracklab
 ```
 3. Install all the dependencies with : 
 ```bash
-cd sn-game-state
+cd sn-gamestate
 pip install -e .
 pip install -e ../tracklab # You don't need this if you don't plan to change files in tracklab
 mim install mmcv==2.0.1
@@ -34,6 +34,7 @@ mim install mmcv==2.0.1
 1. Install poetry : https://python-poetry.org/docs/#installing-with-the-official-installer
 2. Install the dependencies : 
 ```bash
+cd sn-gamestate
 poetry install
 mim install mmcv==2.0.1
 ```
