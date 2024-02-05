@@ -38,6 +38,17 @@ poetry install
 mim install mmcv==2.0.1
 ```
 
+### Setup
+
+You will need to set up some variables before running the code : 
+
+1. In [soccernet.yaml](sn_gamestate/configs/soccernet.yaml) :
+   - `data_dir`: the directory where you will store the different datasets (must be an absolute path !)
+   - All the parameters under the "Machine configuration" header
+2. For the corresponding modules :
+   - The `batch_size`
+   - You might want to change the model hyperparameters
+
 ## How to download SoccerNet-gamestate
 
 We provide a SoccerNet pip package to easily download the data and the annotations.
@@ -52,21 +63,21 @@ Then, to download the tracking data, enter the following commands:
 
 ```
 from SoccerNet.Downloader import SoccerNetDownloader
-mySoccerNetDownloader = SoccerNetDownloader(LocalDirectory="path/to/SoccerNet")
+mySoccerNetDownloader = SoccerNetDownloader(LocalDirectory="data/SoccerNet-GS")
 mySoccerNetDownloader.downloadDataTask(task="gamestate", split=["train","test","challenge"])
 mySoccerNetDownloader.downloadDataTask(task="gamestate-2024", split=["train", "test", "challenge"])
 ```
 
-### Setup
+After running this code, please unzip the folders, so that the data looks like : 
+```
+data/
+   SoccerNetGS/
+      train/
+      validation/
+      challenge/
+```
 
-You will need to set up some variables before running the code : 
 
-1. In [soccernet.yaml](sn_gamestate/configs/soccernet.yaml) :
-   - `data_dir`: the directory where you will store the different datasets (must be an absolute path !)
-   - All the parameters under the "Machine configuration" header
-2. For the corresponding modules :
-   - The `batch_size`
-   - You might want to change the model hyperparameters
 
 
 ## Usage
