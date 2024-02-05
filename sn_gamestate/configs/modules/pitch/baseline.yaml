@@ -1,0 +1,7 @@
+_target_: sn_gamestate.calibration.pitch.BaselinePitch
+mean_file: ${model_dir}/calibration/mean.npy
+std_file: ${model_dir}/calibration/std.npy
+model_weights: ${model_dir}/calibration/soccer_pitch_segmentation.pth
+resolution_width: 640
+resolution_height: 360
+batch_size: 2

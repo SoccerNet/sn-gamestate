@@ -1,0 +1,6 @@
+_target_: sn_gamestate.calibration.tvcalib.TVCalib
+image_width: 1920
+image_height: 1080
+lens_dist: False
+optim_steps: 2000
+batch_size: 256
