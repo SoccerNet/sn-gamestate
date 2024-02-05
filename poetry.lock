@@ -1600,6 +1600,26 @@ files = [
 ]
 
 [[package]]
+name = "kornia"
+version = "0.6.3"
+description = "Open Source Differentiable Computer Vision Library for PyTorch"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "kornia-0.6.3-py2.py3-none-any.whl", hash = "sha256:c82c77cbc2dfe4aa537f794fb55560a71a2e08ae4047470de4f3ba330143d8b7"},
+    {file = "kornia-0.6.3.tar.gz", hash = "sha256:0b689b5a47f55f2b08f61e6731760542cc3e3c09c3f0498164b934a3aef0bab3"},
+]
+
+[package.dependencies]
+packaging = "*"
+torch = ">=1.8.1"
+
+[package.extras]
+all = ["accelerate (==0.5.1)", "autopep8", "dataclasses", "flake8 (==3.9.2)", "isort", "numpy", "pre-commit (>=2.0)", "pydocstyle", "pytest (==6.2.5)", "pytest-cov (==3.0.0)", "pytest-flake8 (==1.0.7)", "pytest-mypy (==0.8.1)", "pytest-xdist (==2.5.0)", "scipy", "yapf"]
+dev = ["autopep8", "flake8 (==3.9.2)", "isort", "numpy", "pre-commit (>=2.0)", "pydocstyle", "pytest (==6.2.5)", "pytest-cov (==3.0.0)", "pytest-flake8 (==1.0.7)", "pytest-mypy (==0.8.1)", "pytest-xdist (==2.5.0)", "scipy", "yapf"]
+x = ["accelerate (==0.5.1)", "dataclasses"]
+
+[[package]]
 name = "lap"
 version = "0.5.dev0"
 description = "Linear Assignment Problem solver (LAPJV/LAPMOD)."
@@ -4816,9 +4836,9 @@ labels = ["detectron2 @ git+https://github.com/facebookresearch/detectron2.git",
 
 [package.source]
 type = "git"
-url = "https://github.com/victorjoos/bpbreid.git"
+url = "https://github.com/VlSomers/prtreid"
 reference = "HEAD"
-resolved_reference = "a8745ed7dc13f0219d9173303bbf7c06149a9a08"
+resolved_reference = "5204cae319923bf76d25a6e585d55ad207f93e35"
 
 [[package]]
 name = "torchvision"
@@ -4892,6 +4912,25 @@ type = "directory"
 url = "../tracklab/plugins/track"
 
 [[package]]
+name = "trackeval"
+version = "1.0.dev1"
+description = "Code for evaluating object tracking"
+optional = false
+python-versions = "*"
+files = []
+develop = true
+
+[package.dependencies]
+numpy = "*"
+scipy = "*"
+
+[package.source]
+type = "git"
+url = "https://github.com/SoccerNet/sn-trackeval.git"
+reference = "HEAD"
+resolved_reference = "c68fe6fe1cd1282b4aa68348d8b94a3a44c1eae1"
+
+[[package]]
 name = "tracklab"
 version = "1.1.2"
 description = ""
@@ -4904,6 +4943,7 @@ develop = true
 chumpy = "0.66"
 easyocr = "^1.7.1"
 filterpy = "^1.4.5"
+gdown = "^4.7.1"
 hydra-core = "^1.3"
 lap = {git = "https://github.com/PbTrack/lap"}
 lightning = "^2.0"
@@ -4924,15 +4964,32 @@ sphinx = "^7.2"
 sphinx_rtd_theme = "^2.0"
 timm = "^0.9.12"
 torch = "1.13.1"
-torchreid = {git = "https://github.com/victorjoos/bpbreid.git"}
+torchreid = {git = "https://github.com/VlSomers/prtreid"}
 torchvision = "0.14.1"
 track-bench-track = {path = "plugins/track", develop = true}
+trackeval = {git = "https://github.com/SoccerNet/sn-trackeval.git"}
 ultralytics = "8.0.61"
 yt-dlp = "^2023.12.30"
 
 [package.source]
 type = "directory"
 url = "../tracklab"
+
+[[package]]
+name = "tracklab-calibration"
+version = "1.0.2"
+description = ""
+optional = false
+python-versions = "^3.10"
+files = []
+develop = true
+
+[package.dependencies]
+kornia = "0.6.3"
+
+[package.source]
+type = "directory"
+url = "plugins/calibration"
 
 [[package]]
 name = "typing-extensions"
@@ -5369,4 +5426,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f7cb80f07238f81afebf95fbd0660c6d383528f1e7b7e21de7e367eb08d08837"
+content-hash = "1aadef885bcdbb70f5347e3c7242a18574b73268858530ef32294b274808143d"
