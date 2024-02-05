@@ -1,5 +1,11 @@
 # SoccerNet Game State Challenge
 
+Welcome to the SoccerNet Development Kit for the Game State task and Challenge.
+This kit is meant as a help to get started working with the data and the proposed task.
+More information about the dataset can be found on our [official website](https://www.soccer-net.org/).
+
+![Gamestate example](images/gamestate-example.jpg)
+
 ## Installation
 First git clone this repository, and the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab) *in adjacent directories* : 
 ```bash
@@ -32,10 +38,24 @@ poetry install
 mim install mmcv==2.0.1
 ```
 
-### External dependencies
+## How to download SoccerNet-gamestate
 
-- Get the **SoccerNet Tracking** dataset [here](https://github.com/SoccerNet/sn-tracking), rename the root folder as "SoccerNetMOT" and put it under the global dataset directory (specified under the `data_dir` config as explained below). Otherwise, you can modify the `dataset_path` config in [soccernet_mot.yaml](configs/dataset/soccernet_mot.yaml) with your custom SoccerNet dataset directory.
-- Download the pretrained model weights [here](https://drive.google.com/drive/folders/1MmDkSHWJ1S-V9YcLMkFOjm3zo65UELjJ?usp=drive_link) and put the "pretrained_models" directory under the main project directory (i.e. "/path/to/tracklab/pretrained_models").
+We provide a SoccerNet pip package to easily download the data and the annotations.
+
+To install the pip package simply run:
+
+```
+pip install SoccerNet
+```
+
+Then, to download the tracking data, enter the following commands:
+
+```
+from SoccerNet.Downloader import SoccerNetDownloader
+mySoccerNetDownloader = SoccerNetDownloader(LocalDirectory="path/to/SoccerNet")
+mySoccerNetDownloader.downloadDataTask(task="gamestate", split=["train","test","challenge"])
+mySoccerNetDownloader.downloadDataTask(task="gamestate-2024", split=["train", "test", "challenge"])
+```
 
 ### Setup
 
