@@ -5,16 +5,18 @@ This kit is meant as a help to get started working with the data and the propose
 More information about the dataset can be found on our [official website](https://www.soccer-net.org/).
 
 
-## News
+## 🚀 News
 This codebase is still under active development, please make sure to come back regularly to get recent updates!
-The official code for running the complete baseline pipeline will be released soon.
+The complete code for running the baseline pipeline will be released soon.
+Feel free to open a GitHub issue or interact with us on our official Discord channel if you encounter any issue: we will happy to help with detailed instructions.
 
-### Updates:
+#### Updates:
 - [2024.02.05] Public release
+
 
 ![Gamestate example](images/gamestate-example.jpg)
 
-## Installing TrackLab and the Gamestate baseline
+## Installing TrackLab and the GameState baseline
 First git clone this repository, and the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab) *in adjacent directories* : 
 ```bash
 mkdir soccernet
