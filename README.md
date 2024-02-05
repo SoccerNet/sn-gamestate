@@ -4,6 +4,14 @@ Welcome to the SoccerNet Development Kit for the Game State task and Challenge.
 This kit is meant as a help to get started working with the data and the proposed task.
 More information about the dataset can be found on our [official website](https://www.soccer-net.org/).
 
+
+## News
+This codebase is still under active development, please make sure to come back regularly to get recent updates!
+The official code for running the complete baseline pipeline will be released soon.
+
+### Updates:
+- [2024.02.05] Public release
+
 ![Gamestate example](images/gamestate-example.jpg)
 
 ## Installing TrackLab and the Gamestate baseline
