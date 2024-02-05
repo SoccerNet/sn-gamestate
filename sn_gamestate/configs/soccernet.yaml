@@ -14,7 +14,13 @@ defaults:
   - modules/reid: bpbreid
   - modules/track: oc_sort
   - modules/jersey_number_detect: mmocr
+  - modules/team: kmeans_embeddings
+  - modules/team_side: mean_position
+  - modules/tracklet_agg: voting_role_jn
+  - modules/pitch : tvcalib
+  - modules/calibration: tvcalib
   - _self_
+
 # Pipeline definition :
 # - Defines the order in which the modules will be called
 # - If loading a tracking state from disk, remove modules whose outputs are already provided in the loaded state
@@ -23,7 +29,11 @@ pipeline:
   - reid
   - track
   - jersey_number_detect
+  - team
+  - team_side
   - majority_voting
+  - pitch
+  - calibration
 
 # Experiment name
 experiment_name: "sn-gamestate"
