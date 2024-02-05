@@ -13,6 +13,7 @@ easyocr = "^1.7.1"
 soccernet = "^0.1.53"
 torch = "1.13.1"
 torchvision = "0.14.1"
+tracklab-calibration = {path = "plugins/calibration", develop = true}
 
 
 [build-system]
