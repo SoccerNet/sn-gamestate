@@ -27,7 +27,7 @@ conda activate tracklab
 cd sn-game-state
 pip install -e .
 pip install -e ../tracklab # You don't need this if you don't plan to change files in tracklab
-mim install mmcv
+mim install mmcv==2.0.1
 ```
 
 ### Install using Poetry
