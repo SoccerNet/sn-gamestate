@@ -28,12 +28,13 @@ pipeline:
   - bbox_detector
   - reid
   - track
+  - pitch
+  - calibration
   - jersey_number_detect
   - team
   - team_side
   - tracklet_agg
-  - pitch
-  - calibration
+
 
 # Experiment name
 experiment_name: "sn-gamestate"
