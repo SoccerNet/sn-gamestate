@@ -15,6 +15,15 @@ git clone https://github.com/SoccerNet/sn-gamestate.git
 git clone https://github.com/TrackingLaboratory/tracklab.git
 ```
 
+### Install using Poetry
+1. Install poetry : https://python-poetry.org/docs/#installing-with-the-official-installer
+2. Install the dependencies : 
+```bash
+cd sn-gamestate
+poetry install
+mim install mmcv==2.0.1
+```
+
 ### Install using conda
 1. Install conda : https://docs.conda.io/projects/miniconda/en/latest/
 2. Create a new conda environment : 
@@ -30,14 +39,7 @@ pip install -e ../tracklab # You don't need this if you don't plan to change fil
 mim install mmcv==2.0.1
 ```
 
-### Install using Poetry
-1. Install poetry : https://python-poetry.org/docs/#installing-with-the-official-installer
-2. Install the dependencies : 
-```bash
-cd sn-gamestate
-poetry install
-mim install mmcv==2.0.1
-```
+
 
 ### Setup
 
