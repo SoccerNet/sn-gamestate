@@ -1,0 +1,3 @@
+_target_: tracklab.wrappers.MajorityVoteTracklet
+cfg:
+  attributes: ["jersey_number", "role"]
