@@ -31,7 +31,7 @@ pipeline:
   - jersey_number_detect
   - team
   - team_side
-  - majority_voting
+  - tracklet_agg
   - pitch
   - calibration
 
