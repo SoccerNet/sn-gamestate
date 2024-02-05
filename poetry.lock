@@ -4355,13 +4355,13 @@ files = [
 
 [[package]]
 name = "soccernet"
-version = "0.1.53"
+version = "0.1.55"
 description = "SoccerNet SDK"
 optional = false
 python-versions = "*"
 files = [
-    {file = "SoccerNet-0.1.53-py3-none-any.whl", hash = "sha256:543e43896c04e340acd724cb0b6df4f36b5b5b9406f89c6c7b7d959e2771948b"},
-    {file = "SoccerNet-0.1.53.tar.gz", hash = "sha256:5754d7df607734f858272facda34090021e85cf982890a0f761763e6e4347207"},
+    {file = "SoccerNet-0.1.55-py3-none-any.whl", hash = "sha256:40a1484a73b0d8274406cc5914ad9336dd9b458baf348320dae39cf976efa990"},
+    {file = "SoccerNet-0.1.55.tar.gz", hash = "sha256:891a1d0e9a4980d7e658ce8d5c78c4b3af4d74273a6b8e391fc5a540acbe59fb"},
 ]
 
 [package.dependencies]
@@ -4941,7 +4941,6 @@ develop = true
 
 [package.dependencies]
 chumpy = "0.66"
-easyocr = "^1.7.1"
 filterpy = "^1.4.5"
 gdown = "^4.7.1"
 hydra-core = "^1.3"
@@ -4949,7 +4948,6 @@ lap = {git = "https://github.com/PbTrack/lap"}
 lightning = "^2.0"
 mmdet = "~3.1.0"
 mmengine = "^0.10.1"
-mmocr = "^1.0.1"
 mmpose = "^1.2.0"
 myst-parser = "^2.0"
 numpy = "^1.23.5"
@@ -5426,4 +5424,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "1aadef885bcdbb70f5347e3c7242a18574b73268858530ef32294b274808143d"
+content-hash = "5a8a8e644c1b02ec512cd51f15a9c76cc4e2d6879db14be702da2c05f49cd6e8"

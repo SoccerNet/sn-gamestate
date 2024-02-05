@@ -10,11 +10,12 @@ packages = [{include = "sn_gamestate"}]
 python = "^3.10"
 tracklab = {path = "../tracklab", develop = true}
 easyocr = "^1.7.1"
-soccernet = "^0.1.53"
+soccernet = "^0.1.55"
 torch = "1.13.1"
 torchvision = "0.14.1"
 tracklab-calibration = {path = "plugins/calibration", develop = true}
-
+mmocr = "^1.0.1"
+mmpose = "^1.2.0"
 
 [build-system]
 requires = ["poetry-core"]
