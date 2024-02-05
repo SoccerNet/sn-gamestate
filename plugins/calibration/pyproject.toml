@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "tracklab-calibration"
+version = "1.0.2"
+description = ""
+authors = ["Victor Joos <victor.joos@uclouvain.be>"]
+packages = [
+    {include = "sn_calibration_baseline"},
+    {include = "tvcalib"},
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+kornia = "0.6.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
