@@ -21,8 +21,12 @@ git clone https://github.com/TrackingLaboratory/tracklab.git
 ```bash
 cd sn-gamestate
 poetry install
-mim install mmcv==2.0.1
+poetry run mim install mmcv==2.0.1
+poetry shell
 ```
+
+To enter the virtual environment created by Poetry, you can either use `poetry shell`, or prefix all commands by
+`poetry run`.
 
 ### Install using conda
 1. Install conda : https://docs.conda.io/projects/miniconda/en/latest/
