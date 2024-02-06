@@ -74,7 +74,7 @@ You will need to set up some variables before running the code :
    - `data_dir`: the directory where you will store the different datasets (must be an absolute path !)
    - All the parameters under the "Machine configuration" header
 2. For the corresponding modules :
-   - The `batch_size`
+   - The `batch_size` (lower these values if you encounter memory issues)
    - You might want to change the model hyperparameters
 
 ## How to download SoccerNet-gamestate
