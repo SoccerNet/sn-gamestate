@@ -37,6 +37,9 @@ git clone https://github.com/SoccerNet/sn-gamestate.git
 git clone https://github.com/TrackingLaboratory/tracklab.git
 ```
 
+> [!NOTE]
+> If you are using Pycharm, we suggest creating a single project with `soccernet` as root directory.
+
 ### Install using Poetry
 1. Install poetry : https://python-poetry.org/docs/#installing-with-the-official-installer
 2. Install the dependencies : 
