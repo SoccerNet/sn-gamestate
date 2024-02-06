@@ -11,7 +11,7 @@ defaults:
   - visualization: save_videos
   - modules/bbox_detector: yolov8
   - modules/pose_bottomup: openpifpaf
-  - modules/reid: bpbreid
+  - modules/reid: prtreid
   - modules/track: oc_sort
   - modules/jersey_number_detect: mmocr
   - modules/team: kmeans_embeddings
