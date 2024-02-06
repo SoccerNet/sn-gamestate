@@ -111,13 +111,12 @@ data/
 
 
 
-
 ## Usage
 
 run TrackLab on the command line with `tracklab` or `python -m tracklab.main`. All the additional
 SoccerNet modules will be added automatically when installing this repository.
 
-You can find all possible configuration groups possible at the top when running the following command :  
+You can find all possible configuration groups at the top when running the following command :  
 ```bash
 python -m tracklab.main --help
 ```
@@ -129,6 +128,15 @@ python -m tracklab.main -cn soccernet
 ```
 
 You can change the values of this config in [soccernet.yaml](sn_gamestate/configs/soccernet.yaml).
+By default, this command will perform game state reconstruction on one SoccerNet validation sequence, display results in a .mp4 video saved on disk and print the final performance metric. 
+
+
+## How to get started
+
+We invite users to read carefully the following resources:
+1. [TrackLab README](https://github.com/TrackingLaboratory/tracklab/blob/main/README.md) for further instructions about the framework.
+2. [soccernet.yaml](sn_gamestate/configs/soccernet.yaml) for more information about the available configurations.
+3. [Hudra's tutorial](https://hydra.cc/docs/tutorials/intro/) to better understand how to configure TrackLab. 
 
 ## Adding a new module
 
