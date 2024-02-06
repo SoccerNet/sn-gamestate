@@ -42,7 +42,7 @@ experiment_name: "sn-gamestate"
 
 # Path definitions
 home_dir: "${oc.env:HOME}"
-data_dir: "${project_dir}/datasets/tracking"
+data_dir: "${project_dir}/data"
 model_dir: "${project_dir}/pretrained_models"
 
 # Machine configuration
