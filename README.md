@@ -24,7 +24,11 @@ be happy to help with detailed instructions.
 
 ![Gamestate example](images/gamestate-example.jpg)
 
-## Installing TrackLab and the GameState baseline
+## GameState Baseline
+For the purpose of this challenge, we use [TrackLab framework](https://github.com/TrackingLaboratory/tracklab), an open-source modular tracking framework. In the diagram below, you can see how each part of the framework is replaceable with different options thanks to TrackLab. This helps you be in charge of which task of the challenge you want to improve without worring about other tasks.
+
+![Tracklab diagram](images/tracklab_diag.jpg)
+## Installing TrackLab and the GameState baseline 
 First git clone this repository, and the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab) *in adjacent directories* : 
 ```bash
 mkdir soccernet
