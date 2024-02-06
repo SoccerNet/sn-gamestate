@@ -11,6 +11,13 @@ The complete code for running the baseline pipeline will be released soon.
 Feel free to open a GitHub issue or interact with us on our official Discord channel if you encounter any issue: we will 
 be happy to help with detailed instructions.
 
+#### Upcoming
+- [x] Release of the sn-gamestate repository
+- [ ] SoccerNet Game State Reconstruction dataset available for download
+- [ ] EvalAI servers open for evaluation and further details provided about the new Game State Reconstruction evaluation metric
+- [ ] Complete baseline build with TrackLab available for participants
+- [ ] Live tutorials on how to start with the challenge and the baseline
+
 #### Updates:
 - [2024.02.05] Public release
 
@@ -58,7 +65,10 @@ mim install mmcv==2.0.1
 
 ### Setup
 
-You will need to set up some variables before running the code : 
+> [!NOTE]
+> Tracklab uses the [Hydra](https://github.com/facebookresearch/hydra) configuration library.
+
+You will need to set up some variables before running the code :
 
 1. In [soccernet.yaml](sn_gamestate/configs/soccernet.yaml) :
    - `data_dir`: the directory where you will store the different datasets (must be an absolute path !)
