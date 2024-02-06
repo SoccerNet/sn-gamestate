@@ -3,14 +3,15 @@
 # The defaults list contains the files that will be used
 # to create the final config file. This item *must* be
 # the first element in the file.
+# Detailed configs for each default component below are located in "sn-gamestate/sn-gamestate/configs" and "tracklab/tracklab/configs"
+# Define here which implementation (yolov8, oc_sort, ..) to use for each generic (detection, tracking, ...) component.
 defaults:
   - dataset: soccernet_gs
   - eval: trackeval
   - engine: offline
-  - state: save
-  - visualization: save_videos
+  - state: save  # Dump tracking results to a .pcklz file to save computation time on the next run. Have a look at TrackLab tutorials for more details.
+  - visualization: save_videos  # Save tracking results as a .mp4 video in the run directory specified below (sn-gamestate/outputs/...)
   - modules/bbox_detector: yolov8
-  - modules/pose_bottomup: openpifpaf
   - modules/reid: bpbreid
   - modules/track: oc_sort
   - modules/jersey_number_detect: mmocr
@@ -42,6 +43,7 @@ experiment_name: "sn-gamestate"
 # Path definitions
 data_dir: "${project_dir}/data"
 model_dir: "${project_dir}/pretrained_models"
+home_dir: "${oc.env:HOME}"
 
 # Machine configuration
 num_cores: 4
@@ -58,6 +60,12 @@ modules: # Allows module-specific batch_size and other configuration
 # Flags
 test_tracking: True
 print_config: False
+
+# Dataset
+dataset:
+  nvid: 1  # For a quick first inference, only one random video is processed. Use "-1" to process all the videos.
+  eval_set: "validation"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "validation", "test", "challenge"}.
+  dataset_path: ${data_dir}/SoccerNetGS  # The SoccerNet game state dataset is located under the data path (defined above) in the 'SoccerNetGS' folder
 
 # configure Hydra to use the current working directory
 # and set up the output directory according to experiment_name
