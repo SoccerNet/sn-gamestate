@@ -1380,6 +1380,24 @@ perf = ["ipython"]
 testing = ["flufl.flake8", "importlib-resources (>=1.3)", "packaging", "pyfakefs", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy (>=0.9.1)", "pytest-perf (>=0.9.2)", "pytest-ruff"]
 
 [[package]]
+name = "importlib-resources"
+version = "6.1.1"
+description = "Read resources from Python packages"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "importlib_resources-6.1.1-py3-none-any.whl", hash = "sha256:e8bf90d8213b486f428c9c39714b920041cb02c184686a3dee24905aaa8105d6"},
+    {file = "importlib_resources-6.1.1.tar.gz", hash = "sha256:3893a00122eafde6894c59914446a512f728a0c1a45f9bb9b63721b6bacf0b4a"},
+]
+
+[package.dependencies]
+zipp = {version = ">=3.1.0", markers = "python_version < \"3.10\""}
+
+[package.extras]
+docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (<7.2.5)", "sphinx (>=3.5)", "sphinx-lint"]
+testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy (>=0.9.1)", "pytest-ruff", "zipp (>=3.17)"]
+
+[[package]]
 name = "iniconfig"
 version = "2.0.0"
 description = "brain-dead simple config-ini parsing"
@@ -1766,6 +1784,9 @@ files = [
     {file = "Markdown-3.5.2.tar.gz", hash = "sha256:e1ac7b3dc550ee80e602e71c1d168002f062e49f1b11e26a36264dafd4df2ef8"},
 ]
 
+[package.dependencies]
+importlib-metadata = {version = ">=4.4", markers = "python_version < \"3.10\""}
+
 [package.extras]
 docs = ["mdx-gh-links (>=0.2)", "mkdocs (>=1.5)", "mkdocs-gen-files", "mkdocs-literate-nav", "mkdocs-nature (>=0.6)", "mkdocs-section-index", "mkdocstrings[python]"]
 testing = ["coverage", "pyyaml"]
@@ -1904,6 +1925,7 @@ files = [
 contourpy = ">=1.0.1"
 cycler = ">=0.10"
 fonttools = ">=4.22.0"
+importlib-resources = {version = ">=3.2.0", markers = "python_version < \"3.10\""}
 kiwisolver = ">=1.3.1"
 numpy = ">=1.21,<2"
 packaging = ">=20.0"
@@ -2516,6 +2538,8 @@ files = [
 
 [package.dependencies]
 numpy = [
+    {version = ">=1.21.0", markers = "python_version == \"3.9\" and platform_system == \"Darwin\" and platform_machine == \"arm64\""},
+    {version = ">=1.19.3", markers = "platform_system == \"Linux\" and platform_machine == \"aarch64\" and python_version >= \"3.8\" and python_version < \"3.10\" or python_version > \"3.9\" and python_version < \"3.10\" or python_version >= \"3.9\" and platform_system != \"Darwin\" and python_version < \"3.10\" or python_version >= \"3.9\" and platform_machine != \"arm64\" and python_version < \"3.10\""},
     {version = ">=1.21.4", markers = "python_version >= \"3.10\" and platform_system == \"Darwin\" and python_version < \"3.11\""},
     {version = ">=1.21.2", markers = "platform_system != \"Darwin\" and python_version >= \"3.10\" and python_version < \"3.11\""},
     {version = ">=1.23.5", markers = "python_version >= \"3.11\" and python_version < \"3.12\""},
@@ -2540,6 +2564,8 @@ files = [
 
 [package.dependencies]
 numpy = [
+    {version = ">=1.21.0", markers = "python_version == \"3.9\" and platform_system == \"Darwin\" and platform_machine == \"arm64\""},
+    {version = ">=1.19.3", markers = "platform_system == \"Linux\" and platform_machine == \"aarch64\" and python_version >= \"3.8\" and python_version < \"3.10\" or python_version > \"3.9\" and python_version < \"3.10\" or python_version >= \"3.9\" and platform_system != \"Darwin\" and python_version < \"3.10\" or python_version >= \"3.9\" and platform_machine != \"arm64\" and python_version < \"3.10\""},
     {version = ">=1.21.4", markers = "python_version >= \"3.10\" and platform_system == \"Darwin\" and python_version < \"3.11\""},
     {version = ">=1.21.2", markers = "platform_system != \"Darwin\" and python_version >= \"3.10\" and python_version < \"3.11\""},
     {version = ">=1.23.5", markers = "python_version >= \"3.11\" and python_version < \"3.12\""},
@@ -2955,6 +2981,48 @@ files = [
     {file = "protobuf-4.25.2-py3-none-any.whl", hash = "sha256:a8b7a98d4ce823303145bf3c1a8bdb0f2f4642a414b196f04ad9853ed0c8f830"},
     {file = "protobuf-4.25.2.tar.gz", hash = "sha256:fe599e175cb347efc8ee524bcd4b902d11f7262c0e569ececcb89995c15f0a5e"},
 ]
+
+[[package]]
+name = "prtreid"
+version = "1.3.0"
+description = "A library for deep learning person re-ID in PyTorch"
+optional = false
+python-versions = "*"
+files = []
+develop = false
+
+[package.dependencies]
+albumentations = "*"
+Cython = "*"
+deepdiff = "*"
+flake8 = "*"
+future = "*"
+gdown = "*"
+h5py = "*"
+isort = "*"
+matplotlib = "*"
+monai = "*"
+numpy = "*"
+opencv-python = "*"
+pandas = "*"
+Pillow = "*"
+scipy = "*"
+six = "*"
+tabulate = "*"
+tb-nightly = "*"
+torchmetrics = "0.10.3"
+wandb = "*"
+yacs = "*"
+yapf = "*"
+
+[package.extras]
+labels = ["detectron2 @ git+https://github.com/facebookresearch/detectron2.git", "openpifpaf"]
+
+[package.source]
+type = "git"
+url = "https://github.com/VlSomers/prtreid"
+reference = "HEAD"
+resolved_reference = "ec11565072164c648f891a5021546145abddcd69"
 
 [[package]]
 name = "psutil"
@@ -4350,6 +4418,7 @@ babel = ">=2.9"
 colorama = {version = ">=0.4.5", markers = "sys_platform == \"win32\""}
 docutils = ">=0.18.1,<0.21"
 imagesize = ">=1.3"
+importlib-metadata = {version = ">=4.8", markers = "python_version < \"3.10\""}
 Jinja2 = ">=3.0"
 packaging = ">=21.0"
 Pygments = ">=2.14"
@@ -4752,7 +4821,7 @@ labels = ["detectron2 @ git+https://github.com/facebookresearch/detectron2.git",
 
 [package.source]
 type = "git"
-url = "https://github.com/VlSomers/prtreid"
+url = "https://github.com/VlSomers/bpbreid"
 reference = "HEAD"
 resolved_reference = "5204cae319923bf76d25a6e585d55ad207f93e35"
 
@@ -4851,7 +4920,7 @@ name = "tracklab"
 version = "1.1.2"
 description = ""
 optional = false
-python-versions = "^3.10"
+python-versions = "^3.9"
 files = []
 develop = true
 
@@ -4878,7 +4947,7 @@ sphinx = "^7.2"
 sphinx_rtd_theme = "^2.0"
 timm = "^0.9.12"
 torch = "1.13.1"
-torchreid = {git = "https://github.com/VlSomers/prtreid"}
+torchreid = {git = "https://github.com/VlSomers/bpbreid"}
 torchvision = "0.14.1"
 track-bench-track = {path = "plugins/track", develop = true}
 trackeval = {git = "https://github.com/SoccerNet/sn-trackeval.git"}
@@ -4894,7 +4963,7 @@ name = "tracklab-calibration"
 version = "1.0.2"
 description = ""
 optional = false
-python-versions = "^3.10"
+python-versions = "^3.9"
 files = []
 develop = true
 
@@ -4993,13 +5062,17 @@ appdirs = ">=1.4.3"
 Click = ">=7.1,<8.0.0 || >8.0.0"
 docker-pycreds = ">=0.4.0"
 GitPython = ">=1.0.0,<3.1.29 || >3.1.29"
-protobuf = {version = ">=3.19.0,<4.21.0 || >4.21.0,<5", markers = "python_version > \"3.9\" or sys_platform != \"linux\""}
+protobuf = [
+    {version = ">=3.15.0,<4.21.0 || >4.21.0,<5", markers = "python_version == \"3.9\" and sys_platform == \"linux\""},
+    {version = ">=3.19.0,<4.21.0 || >4.21.0,<5", markers = "python_version > \"3.9\" or sys_platform != \"linux\""},
+]
 psutil = ">=5.0.0"
 PyYAML = "*"
 requests = ">=2.0.0,<3"
 sentry-sdk = ">=1.0.0"
 setproctitle = "*"
 setuptools = "*"
+typing-extensions = {version = "*", markers = "python_version < \"3.10\""}
 
 [package.extras]
 async = ["httpx (>=0.23.0)"]
@@ -5339,5 +5412,5 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.10"
-content-hash = "5a8a8e644c1b02ec512cd51f15a9c76cc4e2d6879db14be702da2c05f49cd6e8"
+python-versions = "^3.9"
+content-hash = "2a8b98ee34d528a7d867cd0127a5c4d1790bac3e6db1fe783bcc3c9d49dc96c9"
