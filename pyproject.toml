@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "sn_gamestate"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 tracklab = {path = "../tracklab", develop = true}
 easyocr = "^1.7.1"
 soccernet = "^0.1.55"
