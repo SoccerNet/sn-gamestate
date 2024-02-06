@@ -12,9 +12,9 @@ from tracklab.wrappers.reid.bpbreid_dataset import ReidDataset
 from tracklab.utils.coordinates import rescale_keypoints
 from tracklab.utils.collate import default_collate
 
-from torchreid.scripts.main import build_config, build_torchreid_model_engine
-from torchreid.tools.feature_extractor import FeatureExtractor
-from torchreid.utils.imagetools import (
+from prtreid.scripts.main import build_config, build_torchreid_model_engine
+from prtreid.tools.feature_extractor import FeatureExtractor
+from prtreid.utils.imagetools import (
     build_gaussian_heatmaps,
 )
 from tracklab.utils.collate import Unbatchable
@@ -23,16 +23,16 @@ import tracklab
 from pathlib import Path
 
 
-import torchreid
+import prtreid
 from torch.nn import functional as F
-from torchreid.data.masks_transforms import (
+from prtreid.data.masks_transforms import (
     CocoToSixBodyMasks,
     masks_preprocess_transforms,
 )
-from torchreid.utils.tools import extract_test_embeddings
-from torchreid.data.datasets import configure_dataset_class
+from prtreid.utils.tools import extract_test_embeddings
+from prtreid.data.datasets import configure_dataset_class
 
-from torchreid.scripts.default_config import engine_run_kwargs
+from prtreid.scripts.default_config import engine_run_kwargs
 
 
 class PRTReId(DetectionLevelModule):
@@ -80,7 +80,7 @@ class PRTReId(DetectionLevelModule):
             "reid_config": self.dataset_cfg,
             "pose_model": None,
         }
-        torchreid.data.register_image_dataset(
+        prtreid.data.register_image_dataset(
             tracking_dataset.name,
             configure_dataset_class(ReidDataset, **additional_args),
             tracking_dataset.nickname,

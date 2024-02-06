@@ -12,7 +12,7 @@ defaults:
   - state: save  # Dump tracking results to a .pcklz file to save computation time on the next run. Have a look at TrackLab tutorials for more details.
   - visualization: save_videos  # Save tracking results as a .mp4 video in the run directory specified below (sn-gamestate/outputs/...)
   - modules/bbox_detector: yolov8
-  - modules/reid: bpbreid
+  - modules/reid: prtreid
   - modules/track: oc_sort
   - modules/jersey_number_detect: mmocr
   - modules/team: kmeans_embeddings

@@ -1,0 +1,105 @@
+_target_: sn_gamestate.reid.prtreid_api.PRTReId
+
+defaults:
+  - dataset: prtreid_dataset
+
+batch_size: 32
+job_id: "${oc.env:SLURM_JOBID,0}" # TODO
+save_path: reid
+use_keypoints_visibility_scores_for_reid: False
+training_enabled: False
+cfg:
+  project:
+    name: "TrackLab"
+    experiment_name: ""
+    notes: ""
+    tags: []
+    logger:
+      use_tensorboard: False
+      use_wandb: False
+  data:
+    root: "${data_dir}/reid"
+    type: "image"
+    sources: ["SoccerNet"]
+    targets: ["SoccerNet"]
+    height: 256
+    width: 128
+    combineall: False
+    transforms: ["rc", "re"]
+    save_dir: ""
+    workers: ${num_cores}
+
+  sampler:
+    train_sampler: RandomIdentitySampler # sampler for source train loader
+    train_sampler_t: RandomIdentitySampler # sampler for target train loader
+    num_instances: 4 # number of instances per identity for RandomIdentitySampler
+
+  model:
+    name: "bpbreid"
+    pretrained: False
+    save_model_flag: True
+    load_weights: "${model_dir}/reid/bpbreid_market1501_hrnet32_10642.pth"
+    bpbreid:
+      pooling: "gwap" # ['gap', 'gmp', 'gwap', 'gwap2']
+      normalization: "identity" # 'batch_norm_2d' 'identity'
+      mask_filtering_training: False
+      mask_filtering_testing: True
+      training_binary_visibility_score: True
+      testing_binary_visibility_score: True
+      last_stride: 1
+      learnable_attention_enabled: True
+      dim_reduce: "after_pooling" # 'none', 'before_pooling', 'after_pooling', 'after_pooling_with_dropout'
+      dim_reduce_output: 256
+      backbone: "hrnet32" # 'hrnet32' 'resnet50' 'fastreid_resnet' 'fastreid_resnet_ibn' 'fastreid_resnet_nl' 'fastreid_resnet_ibn_nl'
+      test_embeddings: ["bn_foreg", "parts"] #  ['globl', 'foreg', 'conct', 'parts']
+      test_use_target_segmentation: "none" # 'none' 'hard' 'soft'
+      shared_parts_id_classifier: False
+      hrnet_pretrained_path: "${model_dir}/reid"
+      masks:
+        type: "disk"
+        dir: "${.....dataset.masks_mode}" # relative import, with a lot of indirection
+        preprocess: "id"
+
+  loss:
+    name: 'part_based'
+    part_based:
+      name: 'part_averaged_triplet_loss'
+      ppl: 'cl'
+      weights:
+        globl:
+          id: 1.
+          tr: 0.
+        foreg:
+          id: 1.
+          tr: 0.
+        conct:
+          id: 1.
+          tr: 0.
+        parts:
+          id: 0.
+          tr: 1.
+        pixls:
+          ce: 0.35
+
+  train:
+    batch_size: 32
+    max_epoch: 20
+
+  test:
+    #evaluate: True
+    evaluate: False
+    detailed_ranking: False
+    start_eval: 40
+    batch_size: 64
+    batch_size_pairwise_dist_matrix: 5000
+    normalize_feature: True
+    dist_metric: "euclidean" # ['euclidean', 'cosine']
+    visrank: True
+    visrank_per_body_part: False
+    vis_embedding_projection: False
+    vis_feature_maps: False
+    visrank_topk: 10
+    visrank_count: 4
+    visrank_q_idx_list: []
+    part_based:
+      dist_combine_strat: mean

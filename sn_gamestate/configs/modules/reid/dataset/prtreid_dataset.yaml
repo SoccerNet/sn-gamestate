@@ -1,0 +1,29 @@
+name: "SoccerNet"
+nickname: "sn"
+fig_size: [384, 128]
+mask_size: [64, 32]
+max_crop_size: [256, 128]
+masks_mode: "pose_on_img_crops"
+enable_human_parsing_labels: False
+eval_metric: "default"  # {"mot_inter_intra_video", "mot_intra_video", "mot_inter_video"}
+
+multi_video_queries_only: False  # will be set to True by default if eval_metric is "mot_inter_video"
+train:
+  set_name: "train"
+  min_vis: 0.3
+  min_h: 10
+  min_w: 10
+  min_samples_per_id: 2
+  ######## 4 - 12 ##########
+  max_samples_per_id: 4
+  max_total_ids: -1
+test:
+  set_name: "validation"
+  min_vis: 0.
+  min_h: 0
+  min_w: 0
+  min_samples_per_id: 3
+  ########## 6 - 15 ##########
+  max_samples_per_id: 6
+  max_total_ids: -1
+  ratio_query_per_id: 0.2
