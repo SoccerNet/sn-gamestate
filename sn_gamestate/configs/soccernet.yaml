@@ -41,9 +41,9 @@ pipeline:
 experiment_name: "sn-gamestate"
 
 # Path definitions
-data_dir: "${project_dir}/data"
-model_dir: "${project_dir}/pretrained_models"
 home_dir: "${oc.env:HOME}"
+data_dir: "${project_dir}/datasets/tracking"
+model_dir: "${project_dir}/pretrained_models"
 
 # Machine configuration
 num_cores: 4
@@ -66,6 +66,15 @@ dataset:
   nvid: 1  # For a quick first inference, only one random video is processed. Use "-1" to process all the videos.
   eval_set: "validation"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "validation", "test", "challenge"}.
   dataset_path: ${data_dir}/SoccerNetGS  # The SoccerNet game state dataset is located under the data path (defined above) in the 'SoccerNetGS' folder
+
+# Tracker state (save computation time by dumping tracking results on disk for later re-use)
+state:
+  save_file: "states/${experiment_name}.pklz"  # 'null' to disable saving. This is the save path for the tracker_state object that contains all modules outputs (bboxes, reid embeddings, jersey numbers, roles, teams, etc)
+  load_file: null  # 'null' to disable loading. Load a file that was saved with the 'state.save_file' option above. Don't forget to remove from the pipeline all modules that should not be run again, but loaded from the saved tracker state.
+
+# Visualization
+visualization:
+  save_videos: True  # Save a .mp4 video on disk with the game state reconstruction output (see 'tracklab/tracklab/configs/visualization' for more options)
 
 # configure Hydra to use the current working directory
 # and set up the output directory according to experiment_name
