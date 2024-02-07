@@ -25,7 +25,7 @@ be happy to help with detailed instructions.
 ![Gamestate example](images/gamestate-example.jpg)
 
 ## GameState Baseline
-For the purpose of this challenge, we use [TrackLab framework](https://github.com/TrackingLaboratory/tracklab), an open-source modular tracking framework. In the diagram below, you can see how each part of the framework is replaceable with different options thanks to TrackLab. This helps you be in charge of which task of the challenge you want to improve without worring about other tasks.
+For the purpose of this challenge, we use the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab), an open-source modular tracking framework. In the diagram below, you can see how each part of the framework is replaceable with different options thanks to TrackLab. This helps you be in charge of which task of the challenge you want to improve without worrying about other tasks.
 
 ![Tracklab diagram](images/tracklab_diag.jpg)
 ## Installing TrackLab and the GameState baseline 
@@ -38,7 +38,7 @@ git clone https://github.com/TrackingLaboratory/tracklab.git
 ```
 
 > [!NOTE]
-> If you are using Pycharm, we suggest creating a single project with `soccernet` as root directory.
+> If you are using an IDE (like PyCharm or VS Code), we suggest creating a single project with `soccernet` as root directory.
 
 ### Install using Poetry
 1. Install poetry : https://python-poetry.org/docs/#installing-with-the-official-installer
@@ -50,14 +50,14 @@ poetry run mim install mmcv==2.0.1
 poetry shell
 ```
 
-To enter the virtual environment created by Poetry, you can either use `poetry shell`, or prefix all commands by
-`poetry run`.
+To enter the virtual environment created by Poetry, you can either use `poetry shell`,
+or prefix all commands by `poetry run`.
 
 ### Install using conda
 1. Install conda : https://docs.conda.io/projects/miniconda/en/latest/
 2. Create a new conda environment : 
 ```bash 
-conda create -n tracklab pip python=3.10 pytorch==1.13.0 torchvision==0.14.0 pytorch-cuda=11.7 -c pytorch -c nvidia -y
+conda create -n tracklab pip python=3.10 pytorch==1.13.1 torchvision==0.14.1 pytorch-cuda=11.7 -c pytorch -c nvidia -y
 conda activate tracklab
 ```
 3. Install all the dependencies with : 
@@ -78,7 +78,8 @@ mim install mmcv==2.0.1
 You will need to set up some variables before running the code :
 
 1. In [soccernet.yaml](sn_gamestate/configs/soccernet.yaml) :
-   - `data_dir`: the directory where you will store the different datasets (must be an absolute path !)
+   - `data_dir`: the directory where you will store the different datasets (must be an absolute path !). By default
+      this path points to a "data" folder that is inside the directory where you run the `tracklab` command.
    - All the parameters under the "Machine configuration" header
 2. For the corresponding modules :
    - The `batch_size` (lower these values if you encounter memory issues)
