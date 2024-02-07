@@ -1,0 +1,78 @@
+_target_: sn_gamestate.visualization.PitchVisualizationEngine
+
+cfg:
+  save_images: False
+  save_videos: False
+  show_online: False
+
+  process_n_videos: -1                      # Amount of video to visualize, -1 to process all videos
+  process_n_frames_by_video: -1             # Amount of images to visualize per video, -1 to process all the frames
+  video_fps: 25
+  vis_kp_threshold: 0.3
+
+  prediction:
+    draw_bbox: True
+    draw_keypoints: False
+    draw_skeleton: False
+    draw_unmatched: False
+    display_jersey_number: True
+    display_team: True
+    display_role: True
+    print_id: True
+    print_bbox_confidence: True
+    print_bbox_state: True
+    # debug
+    print_keypoints_confidence: False
+    draw_bpbreid_heatmaps: False
+    heatmaps_display_threshold: 0.05  # heatmaps (blue) pixels with value below this threshold are not displayed
+    display_matched_with: False  # Display which criterion was used for matching (reid, spatio-temporal, etc.)
+    display_n_closer_tracklets_costs: 0  # Will display the 'n' smallest entries in the reid and spatio-temporal cost matrices
+    display_reid_visibility_scores: False  # Display the visibility score of each body part coming from BPBreID
+    draw_kf_bbox: False  # Draw the bounding box predicted by Kalman filter for the current tracklet  # FIXME kf bbox from tracklets that were not matched are not displayed
+
+  ground_truth:
+    draw_bbox: False
+    draw_keypoints: False
+    draw_skeleton: False
+    draw_ignore_region: False
+    # debug
+    print_id: False
+    print_bbox_confidence: False
+    print_bbox_state: False
+    print_keypoints_confidence: False
+
+  bbox:
+    displayed: ['detect'] # TODO not working ['detect', 'track']
+    thickness: 1
+    color_prediction: [0,0,0]               # None is color by ID or RGB array, "soccernet", uses team color and role
+    color_ground_truth: null                # None is color by ID or RGB array
+    color_no_id: [0, 0, 0]                  # RGB array
+    color_kf: [200, 200, 200]               # Color for bbox predicted by Kalman filter
+
+  text:
+    font: 1
+    scale: 1
+    thickness: 1
+    color_prediction: null                  # None is color by ID or RGB array
+    color_ground_truth: null                # None is color by ID or RGB array
+    color_no_id: [0, 0, 0]                  # RGB array
+
+  keypoint:
+    radius: 4
+    thickness: -1                           # -1 to fill
+    color_prediction: null                  # None is color by ID or RGB array
+    color_ground_truth: null                # None is color by ID or RGB array
+    color_no_id: [0, 0, 0]                  # RGB array
+
+  skeleton:
+    thickness: 2
+    color_prediction: null                  # None is color by ID or RGB array
+    color_ground_truth: null                # None is color by ID or RGB array
+    color_no_id: [0, 0, 0]                  # RGB array
+
+  pitch:
+#    pitch_width: 1920
+#    pitch_height: 1080
+    line_thickness: 3
+    pitch_scale: 4
+    pitch_image: ${model_dir}/calibration/Radar.png
