@@ -35,9 +35,9 @@ def draw_pitch(patch, detections_pred, detections_gt,
                     )
 
     # Draw the Top-view pitch
-    if "bbox_pitch" in detections_gt:
+    if detections_gt is not None and "bbox_pitch" in detections_gt:
         draw_radar_view(patch, detections_gt, scale=pitch_scale, group="gt")
-    if "bbox_pitch" in detections_pred:
+    if detections_pred is not None and "bbox_pitch" in detections_pred:
         draw_radar_view(patch, detections_pred, scale=pitch_scale, group="pred")
 
 
