@@ -19,14 +19,20 @@ def draw_pitch(patch, detections_pred, detections_gt,
     if "lines" in image_pred:
         image_height, image_width, _ = patch.shape
         for name, line in image_pred["lines"].items():
-            for j in np.arange(len(line)-1):
-                cv2.line(
-                    patch,
-                    (int(line[j]["x"] * image_width), int(line[j]["y"] * image_height)),
-                    (int(line[j+1]["x"] * image_width), int(line[j+1]["y"] * image_height)),
-                    color=SoccerPitch.palette[name],
-                    thickness=line_thickness,  # TODO : make this a parameter
-                )
+            if name == "Circle central":
+                points = np.array([(int(p["x"] * image_width), int(p["y"]*image_height)) for p in line])
+                ellipse = cv2.fitEllipse(points)
+                cv2.ellipse(patch, ellipse, color=SoccerPitch.palette[name],
+                            thickness=line_thickness)
+            else:
+                for j in np.arange(len(line)-1):
+                    cv2.line(
+                        patch,
+                        (int(line[j]["x"] * image_width), int(line[j]["y"] * image_height)),
+                        (int(line[j+1]["x"] * image_width), int(line[j+1]["y"] * image_height)),
+                        color=SoccerPitch.palette[name],
+                        thickness=line_thickness,  # TODO : make this a parameter
+                    )
 
     # Draw the Top-view pitch
     if "bbox_pitch" in detections_gt:
