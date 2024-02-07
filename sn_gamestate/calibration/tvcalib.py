@@ -106,7 +106,7 @@ class TVCalib(ImageLevelModule):
                         optim_steps,
                         device,
                         log_per_step=False,
-                        tqdm_kwqargs=None,
+                        tqdm_kwqargs={"disable": True},
                     )
 
     def preprocess(self, image, detections: pd.DataFrame, metadata: pd.Series) -> Any:
