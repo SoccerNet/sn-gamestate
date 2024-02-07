@@ -64,6 +64,8 @@ right_cmap = colormaps["Reds"].reversed().resampled(100)
 
 
 class PitchVisualizationEngine(Callback):
+    after_saved_state = True
+
     def __init__(self, cfg):
         self.cfg = cfg
         self.save_dir = Path("visualization")
