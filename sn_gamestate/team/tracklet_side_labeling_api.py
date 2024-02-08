@@ -24,11 +24,11 @@ class TrackletSideLabeling(VideoLevelModule):
         
         team_a = detections[detections.team_cluster == 0]
         team_b = detections[detections.team_cluster == 1]
-        xa_coordinates = [bbox["x_bottom_middle"] for bbox in team_a.bbox_pitch]  # (x, y) are the center of a bbox
-        xb_coordinates = [bbox["x_bottom_middle"] for bbox in team_b.bbox_pitch]  # (x, y) are the center of a bbox
+        xa_coordinates = [bbox["x_bottom_middle"] if isinstance(bbox, dict) else np.nan for bbox in team_a.bbox_pitch]  # (x, y) are the center of a bbox
+        xb_coordinates = [bbox["x_bottom_middle"] if isinstance(bbox, dict) else np.nan for bbox in team_b.bbox_pitch]  # (x, y) are the center of a bbox
         
-        avg_a = np.mean(xa_coordinates)
-        avg_b = np.mean(xb_coordinates)
+        avg_a = np.nanmean(xa_coordinates)
+        avg_b = np.nanmean(xb_coordinates)
         
         if avg_a > avg_b:           
             detections.loc[team_a.index, "team"] = ['right'] * len(team_a)
