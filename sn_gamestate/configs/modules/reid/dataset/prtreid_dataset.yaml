@@ -5,17 +5,18 @@ mask_size: [64, 32]
 max_crop_size: [256, 128]
 masks_mode: "pose_on_img_crops"
 enable_human_parsing_labels: False
-eval_metric: "default"  # {"mot_inter_intra_video", "mot_intra_video", "mot_inter_video"}
+eval_metric: "mot_intra_video"  # {"mot_inter_intra_video", "mot_intra_video", "mot_inter_video"}
+columns: ["role", "team", "jersey_number"]
 
 multi_video_queries_only: False  # will be set to True by default if eval_metric is "mot_inter_video"
 train:
   set_name: "train"
   min_vis: 0.3
-  min_h: 10
-  min_w: 10
-  min_samples_per_id: 2
+  min_h: 30
+  min_w: 30
+  min_samples_per_id: 4
   ######## 4 - 12 ##########
-  max_samples_per_id: 4
+  max_samples_per_id: 16
   max_total_ids: -1
 test:
   set_name: "validation"

@@ -7,11 +7,10 @@ from omegaconf import OmegaConf
 from yacs.config import CfgNode as CN
 
 from tracklab.pipeline import DetectionLevelModule
-from tracklab.wrappers.reid.bpbreid_dataset import ReidDataset
 # FIXME this should be removed and use KeypointsSeriesAccessor and KeypointsFrameAccessor
 from tracklab.utils.coordinates import rescale_keypoints
 from tracklab.utils.collate import default_collate
-
+from sn_gamestate.reid.prtreid_dataset import ReidDataset
 from prtreid.scripts.main import build_config, build_torchreid_model_engine
 from prtreid.tools.feature_extractor import FeatureExtractor
 from prtreid.utils.imagetools import (
@@ -36,21 +35,9 @@ from prtreid.scripts.default_config import engine_run_kwargs
 
 
 class PRTReId(DetectionLevelModule):
-    """
-    TODO:
-        why bbox move after strong_sort?
-        training
-        batch process
-        save config + commit hash with model weights
-        model download from URL: HRNet etc
-        save folder: uniform with reconnaissance
-        wandb support
-    """
-
     collate_fn = default_collate
     input_columns = ["bbox_ltwh"]
-    output_columns = ["embeddings", "visibility_scores", "body_masks", "role_detection",
-                      "role_confidence"]
+    output_columns = ["embeddings", "visibility_scores", "body_masks", "role_detection", "role_confidence"]
 
     def __init__(
         self,
@@ -123,7 +110,7 @@ class PRTReId(DetectionLevelModule):
         batch = {
             "img": crop,
         }
-        if not self.cfg.model.bpbreid.learnable_attention_enabled:
+        if not self.cfg.model.bpbreid.learnable_attention_enabled and "keypoints_xyc" in detection:
             bbox_ltwh = detection.bbox.ltwh(
                 image_shape=(image.shape[1], image.shape[0]), rounded=True
             )
