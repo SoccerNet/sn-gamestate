@@ -154,13 +154,14 @@ class PitchVisualizationEngine(Callback):
             nframes,
         ) for image_id in islice(image_metadatas.index, vis_frames)]
         if self.cfg.save_videos:
+            image = cv2_load_image(image_metadatas.iloc[0].file_path)
             filepath = self.save_dir / "videos" / f"{video_name}.mp4"
             filepath.parent.mkdir(parents=True, exist_ok=True)
             video_writer = cv2.VideoWriter(
                 str(filepath),
                 cv2.VideoWriter_fourcc(*"mp4v"),
                 float(self.cfg.video_fps),
-                (video_metadata.im_width, video_metadata.im_height),
+                (image.shape[1], image.shape[0]),
             )
         with Pool(self.cfg.num_workers) as p:
             for patch, file_name in p.imap(process_frame, args):
