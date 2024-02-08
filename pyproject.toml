@@ -14,7 +14,7 @@ soccernet = "^0.1.55"
 torch = "1.13.1"
 torchvision = "0.14.1"
 tracklab-calibration = {path = "plugins/calibration", develop = true}
-prtreid = {git = "https://github.com/VlSomers/prtreid"}
+prtreid = {git = "https://github.com/VlSomers/prtreid", develop = true}
 mmocr = "^1.0.1"
 mmpose = "^1.2.0"
 
