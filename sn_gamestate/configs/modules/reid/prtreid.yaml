@@ -36,14 +36,15 @@ cfg:
 
   model:
     name: "bpbreid"
-    pretrained: False
+    pretrained: True
     save_model_flag: True
+    load_config: True
     load_weights: "${model_dir}/reid/bpbreid_market1501_hrnet32_10642.pth"
     bpbreid:
       pooling: "gwap" # ['gap', 'gmp', 'gwap', 'gwap2']
       normalization: "identity" # 'batch_norm_2d' 'identity'
       mask_filtering_training: False
-      mask_filtering_testing: True
+      mask_filtering_testing: False
       training_binary_visibility_score: True
       testing_binary_visibility_score: True
       last_stride: 1
