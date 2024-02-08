@@ -154,7 +154,7 @@ class PRTReId(DetectionLevelModule):
         )
         
         role_scores_ = []
-        role_scores_.append(role_cls_scores['foreg'].cpu() if role_cls_scores is not None else None)
+        role_scores_.append(role_cls_scores['globl'].cpu() if role_cls_scores is not None else None)
         role_scores_ = torch.cat(role_scores_, 0) if role_scores_[0] is not None else None
         roles = [torch.argmax(i).item() for i in role_scores_]
         role_confidence = [torch.max(i).item() for i in role_scores_]
