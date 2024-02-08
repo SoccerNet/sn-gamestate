@@ -87,6 +87,9 @@ You will need to set up some variables before running the code :
 
 ## How to download SoccerNet-gamestate
 
+> [!WARNING]
+> The dataset will be available for download soon, the following script should raise an 'Unauthorized' error for now.
+
 We provide a SoccerNet pip package to easily download the data and the annotations.
 
 To install the pip package simply run:
