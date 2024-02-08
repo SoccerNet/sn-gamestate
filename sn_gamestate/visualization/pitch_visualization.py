@@ -1,4 +1,6 @@
 import platform
+from itertools import islice
+from multiprocessing import Pool
 
 import cv2
 import numpy as np
@@ -124,12 +126,12 @@ class PitchVisualizationEngine(Callback):
                     progress = engine.callbacks["progress"]
                 else:
                     progress = None
-                self.run(engine.tracker_state, video_idx, detections, image_pred, progress=progress)
+                self.run(engine.tracker_state, video_idx, detections, image_pred, video_metadata, progress=progress)
 
-    def run(self, tracker_state: TrackerState, video_id, detections, image_preds, progress=None):
+    def run(self, tracker_state: TrackerState, video_id, detections, image_preds, video_metadata, progress=None):
         image_metadatas = tracker_state.image_metadatas[
             tracker_state.image_metadatas.video_id == video_id
-        ]
+            ]
         image_gts = tracker_state.image_gt[tracker_state.image_gt.video_id == video_id]
         nframes = len(image_metadatas)
         video_name = tracker_state.video_metadatas.loc[video_id].name
@@ -139,56 +141,50 @@ class PitchVisualizationEngine(Callback):
             else:
                 total = self.cfg.process_n_frames_by_video
             progress.init_progress_bar("vis", "Visualization", total)
-        for i, image_id in enumerate(image_metadatas.index):
-            # check for process max frame per video
-            if i >= self.cfg.process_n_frames_by_video != -1:
-                break
-            # retrieve results
-            image_metadata = image_metadatas.loc[image_id]
-            image_gt = image_gts.loc[image_id]
-            image_pred = image_preds.loc[image_id]
-            detections_pred = detections[
-                detections.image_id == image_metadata.name
-            ]
-            if tracker_state.detections_gt is not None:
-                ground_truths = tracker_state.detections_gt[
-                    tracker_state.detections_gt.image_id == image_metadata.name
-                ]
-            else:
-                ground_truths = None
-            # process the detections
-            self._process_frame(
-                image_metadata, detections_pred, ground_truths, video_name, nframes,
-                image_pred, image_gt
+        vis_frames = self.cfg.process_n_frames_by_video
+        vis_frames = None if vis_frames == -1 else vis_frames
+        args = [create_draw_args(
+            image_id,
+            self,
+            image_metadatas,
+            detections,
+            tracker_state,
+            image_gts,
+            image_preds,
+            nframes,
+        ) for image_id in islice(image_metadatas.index, vis_frames)]
+        if self.cfg.save_videos:
+            filepath = self.save_dir / "videos" / f"{video_name}.mp4"
+            filepath.parent.mkdir(parents=True, exist_ok=True)
+            video_writer = cv2.VideoWriter(
+                str(filepath),
+                cv2.VideoWriter_fourcc(*"mp4v"),
+                float(self.cfg.video_fps),
+                (video_metadata.im_width, video_metadata.im_height),
             )
-            if progress:
-                progress.on_module_step_end(None, "vis", None, None)
+        with Pool(self.cfg.num_workers) as p:
+            for patch, file_name in p.imap(process_frame, args):
+                if self.cfg.save_images:
+                    filepath = (
+                            self.save_dir
+                            / "images"
+                            / str(video_name)
+                            / file_name
+                    )
+                    filepath.parent.mkdir(parents=True, exist_ok=True)
+                    assert cv2.imwrite(str(filepath), patch)
+                if self.cfg.save_videos:
+                    video_writer.write(patch)
+                if progress:
+                    progress.on_module_step_end(None, "vis", None, None)
+
         # save the final video
         if self.cfg.save_videos:
-            self.video_writer.release()
-            delattr(self, "video_writer")
+            video_writer.release()
+            del video_writer
         self.processed_video_counter += 1
         if progress:
             progress.on_module_end(None, "vis", None)
-
-
-    def _process_frame(
-        self, image_metadata, detections_pred, ground_truths, video_name, nframes,
-            image_pred, image_gt
-    ):
-        patch = self.draw_frame(image_metadata, detections_pred, ground_truths, image_pred, image_gt, nframes)
-        # save files
-        if self.cfg.save_images:
-            filepath = (
-                self.save_dir
-                / "images"
-                / str(video_name)
-                / Path(image_metadata.file_path).name
-            )
-            filepath.parent.mkdir(parents=True, exist_ok=True)
-            assert cv2.imwrite(str(filepath), patch)
-        if self.cfg.save_videos:
-            self._update_video(patch, video_name)
 
     def draw_frame(self, image_metadata, detections_pred, ground_truths, image_pred, image_gt, nframes, image=None):
         if image is not None:
@@ -562,14 +558,26 @@ class PitchVisualizationEngine(Callback):
             )
         return color_bbox, color_text, color_keypoint, color_skeleton
 
-    def _update_video(self, patch, video_name):
-        if not hasattr(self, "video_writer"):
-            filepath = self.save_dir / "videos" / f"{video_name}.mp4"
-            filepath.parent.mkdir(parents=True, exist_ok=True)
-            self.video_writer = cv2.VideoWriter(
-                str(filepath),
-                cv2.VideoWriter_fourcc(*"mp4v"),
-                float(self.cfg.video_fps),
-                (patch.shape[1], patch.shape[0]),
-            )
-        self.video_writer.write(patch)
+
+def create_draw_args(image_id, instance, image_metadatas, detections, tracker_state,
+                     image_gts, image_preds, nframes):
+    image_metadata = image_metadatas.loc[image_id]
+    image_gt = image_gts.loc[image_id]
+    image_pred = image_preds.loc[image_id]
+    detections_pred = detections[
+        detections.image_id == image_metadata.name
+        ]
+    if tracker_state.detections_gt is not None:
+        ground_truths = tracker_state.detections_gt[
+            tracker_state.detections_gt.image_id == image_metadata.name
+            ]
+    else:
+        ground_truths = None
+
+    return instance, image_metadata, detections_pred, ground_truths, image_pred, image_gt, nframes
+
+
+def process_frame(args):
+    instance, image_metadata, detections_pred, ground_truths, image_pred, image_gt, nframes = args
+    frame = instance.draw_frame(image_metadata, detections_pred, ground_truths, image_pred, image_gt, nframes)
+    return frame, Path(image_metadata.file_path).name

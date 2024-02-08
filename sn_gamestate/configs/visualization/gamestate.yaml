@@ -9,6 +9,7 @@ cfg:
   process_n_frames_by_video: -1             # Amount of images to visualize per video, -1 to process all the frames
   video_fps: 25
   vis_kp_threshold: 0.3
+  num_workers: ${num_cores}
 
   prediction:
     draw_bbox: True
