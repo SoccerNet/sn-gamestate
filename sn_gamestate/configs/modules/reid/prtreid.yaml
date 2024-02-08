@@ -30,8 +30,8 @@ cfg:
     workers: ${num_cores}
 
   sampler:
-    train_sampler: RandomIdentitySampler # sampler for source train loader
-    train_sampler_t: RandomIdentitySampler # sampler for target train loader
+    train_sampler: PrtreidSampler # sampler for source train loader
+    train_sampler_t: PrtreidSampler # sampler for target train loader
     num_instances: 4 # number of instances per identity for RandomIdentitySampler
 
   model:
@@ -47,11 +47,11 @@ cfg:
       training_binary_visibility_score: True
       testing_binary_visibility_score: True
       last_stride: 1
-      learnable_attention_enabled: True
+      learnable_attention_enabled: False
       dim_reduce: "after_pooling" # 'none', 'before_pooling', 'after_pooling', 'after_pooling_with_dropout'
       dim_reduce_output: 256
       backbone: "hrnet32" # 'hrnet32' 'resnet50' 'fastreid_resnet' 'fastreid_resnet_ibn' 'fastreid_resnet_nl' 'fastreid_resnet_ibn_nl'
-      test_embeddings: ["bn_foreg", "parts"] #  ['globl', 'foreg', 'conct', 'parts']
+      test_embeddings: ["globl"] #  ['globl', 'foreg', 'conct', 'parts']
       test_use_target_segmentation: "none" # 'none' 'hard' 'soft'
       shared_parts_id_classifier: False
       hrnet_pretrained_path: "${model_dir}/reid"
@@ -68,26 +68,26 @@ cfg:
       weights:
         globl:
           id: 1.
-          tr: 0.
+          tr: 1.
         foreg:
-          id: 1.
+          id: 0.
           tr: 0.
         conct:
-          id: 1.
+          id: 0.
           tr: 0.
         parts:
           id: 0.
-          tr: 1.
+          tr: 0.
         pixls:
-          ce: 0.35
+          ce: 0.
 
   train:
     batch_size: 32
     max_epoch: 20
 
   test:
-    #evaluate: True
-    evaluate: False
+    evaluate: True
+#    evaluate: False
     detailed_ranking: False
     start_eval: 40
     batch_size: 64
