@@ -8,7 +8,7 @@ More information about the dataset can be found on our [official website](https:
 ## 🚀 News
 This codebase is still under active development, please make sure to come back regularly to get recent updates!
 The complete code for running the baseline pipeline will be released soon.
-Feel free to open a GitHub issue or interact with us on our official Discord channel if you encounter any issue: we will 
+Feel free to open a GitHub issue or interact with us on our [official Discord channel](https://discord.com/invite/cPbqf2mAwF) if you encounter any issue: we will 
 be happy to help with detailed instructions.
 
 #### Upcoming
