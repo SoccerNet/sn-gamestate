@@ -78,6 +78,7 @@ class PRTReId(DetectionLevelModule):
         self.download_models(load_weights=self.cfg.model.load_weights,
                              pretrained_path=self.cfg.model.bpbreid.hrnet_pretrained_path,
                              backbone=self.cfg.model.bpbreid.backbone)
+        self.inverse_role_mapping = {v: k for k, v in self.role_mapping.items()}
         # set parts information (number of parts K and each part name),
         # depending on the original loaded masks size or the transformation applied:
         self.cfg.data.save_dir = save_path
@@ -159,6 +160,7 @@ class PRTReId(DetectionLevelModule):
         role_scores_.append(role_cls_scores['globl'].cpu() if role_cls_scores is not None else None)
         role_scores_ = torch.cat(role_scores_, 0) if role_scores_[0] is not None else None
         roles = [torch.argmax(i).item() for i in role_scores_]
+        roles = [self.inverse_role_mapping[index] for index in roles]
         role_confidence = [torch.max(i).item() for i in role_scores_]
 
         embeddings = embeddings.cpu().detach().numpy()
