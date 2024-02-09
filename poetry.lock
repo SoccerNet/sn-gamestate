@@ -3022,7 +3022,7 @@ labels = ["detectron2 @ git+https://github.com/facebookresearch/detectron2.git",
 type = "git"
 url = "https://github.com/VlSomers/prtreid"
 reference = "HEAD"
-resolved_reference = "524862f48393ce46920b11e493692cf7541b244f"
+resolved_reference = "08ad09d75dcc69079172202eb06a2cfbb33ef62c"
 
 [[package]]
 name = "psutil"
