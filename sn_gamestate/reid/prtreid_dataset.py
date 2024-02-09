@@ -79,6 +79,7 @@ class ReidDataset(ImageDataset):
         self,
         tracking_dataset: TrackingDataset,
         reid_config,
+        role_mapping,
         pose_model=None,
         masks_dir="",
         **kwargs
@@ -88,6 +89,7 @@ class ReidDataset(ImageDataset):
         self.reid_config = reid_config
         self.pose_model = pose_model  #  can be used to generate pseudo labels for the reid dataset
         self.dataset_path = Path(self.tracking_dataset.dataset_path)
+        self.role_mapping = role_mapping
         self.masks_dir = masks_dir
         self.pose_datapipe = EngineDatapipe(self.pose_model)
         self.column_mapping = {}
@@ -584,12 +586,15 @@ class ReidDataset(ImageDataset):
     def to_torchreid_dataset_format(self, dataframes):
         results = []
         column_mapping = {}
+        column_mapping["role"] = self.role_mapping
         for col in self.reid_config.columns:
             if col not in column_mapping:
                 unique_values = {element for df in dataframes for element in df[col].unique()}
                 unique_values.discard(None)
+                ordered_unique_values = list(unique_values)
+                ordered_unique_values.sort()
                 column_mapping[col] = {
-                    v: i for i, v in enumerate(unique_values)
+                    v: i for i, v in enumerate(ordered_unique_values)
                 }
                 column_mapping[col][None] = -1
 

@@ -38,6 +38,7 @@ class PRTReId(DetectionLevelModule):
     collate_fn = default_collate
     input_columns = ["bbox_ltwh"]
     output_columns = ["embeddings", "visibility_scores", "body_masks", "role_detection", "role_confidence"]
+    role_mapping = {'ball': 0, 'goalkeeper': 1, 'other': 2, 'player': 3, 'referee': 4, None: -1}
 
     def __init__(
         self,
@@ -65,6 +66,7 @@ class PRTReId(DetectionLevelModule):
         additional_args = {
             "tracking_dataset": tracking_dataset,
             "reid_config": self.dataset_cfg,
+            "role_mapping": self.role_mapping,
             "pose_model": None,
         }
         prtreid.data.register_image_dataset(
