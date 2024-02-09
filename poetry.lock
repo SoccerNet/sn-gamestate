@@ -2989,7 +2989,7 @@ description = "A library for deep learning person re-ID in PyTorch"
 optional = false
 python-versions = "*"
 files = []
-develop = true
+develop = false
 
 [package.dependencies]
 albumentations = "*"
@@ -5413,4 +5413,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "4d1c6a14da35c879b0b72e4ecd3016b49aa6d368cb4f51f5e1f239e14547e779"
+content-hash = "2a8b98ee34d528a7d867cd0127a5c4d1790bac3e6db1fe783bcc3c9d49dc96c9"
