@@ -245,7 +245,6 @@ class ReidDataset(ImageDataset):
             reid_anns = pd.read_json(
                 reid_anns_filepath, convert_dates=False, convert_axes=False
             )
-            reid_anns.set_index("id", drop=False, inplace=True)
             tmp_df = gt_dets.merge(
                 reid_anns,
                 left_index=True,
