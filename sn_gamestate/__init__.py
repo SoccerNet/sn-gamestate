@@ -1,3 +1,5 @@
 from importlib import metadata
-
-__version__ = metadata.version('sn-gamestate')
+try:
+    __version__ = metadata.version('sn-gamestate')
+except metadata.PackageNotFoundError:
+    __version__ = None
