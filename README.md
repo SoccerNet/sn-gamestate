@@ -90,21 +90,17 @@ You will need to set up some variables before running the code :
 > [!WARNING]
 > The dataset will be available for download soon, the following script should raise an 'Unauthorized' error for now.
 
-We provide a SoccerNet pip package to easily download the data and the annotations.
-
-To install the pip package simply run:
-
-```
-pip install SoccerNet
-```
-
-Then, to download the tracking data, enter the following commands:
+We provide an automatic download of the SoccerNet dataset when you first run tracklab.
+However if you want to download the dataset yourself, you can run the following snippet
+after installing the soccernet package (`pip install SoccerNet`) : 
 
 ```
 from SoccerNet.Downloader import SoccerNetDownloader
+password = input("The SoccerNet password (after signing NDA)")
 mySoccerNetDownloader = SoccerNetDownloader(LocalDirectory="data/SoccerNet-GS")
-mySoccerNetDownloader.downloadDataTask(task="gamestate", split=["train","test","challenge"])
-mySoccerNetDownloader.downloadDataTask(task="gamestate-2024", split=["train", "test", "challenge"])
+mySoccerNetDownloader.downloadDataTask(task="gamestate-2024",
+                                       split=["train", "validation", "test", "challenge"],
+                                       password=password)
 ```
 
 After running this code, please unzip the folders, so that the data looks like : 
