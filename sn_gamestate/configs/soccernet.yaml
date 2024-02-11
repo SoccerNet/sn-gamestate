@@ -64,7 +64,7 @@ print_config: False
 # Dataset
 dataset:
   nvid: 1  # For a quick first inference, only one random video is processed. Use "-1" to process all the videos.
-  eval_set: "validation"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "validation", "test", "challenge"}.
+  eval_set: "valid"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "valid", "test", "challenge"}.
   dataset_path: ${data_dir}/SoccerNetGS  # The SoccerNet game state dataset is located under the data path (defined above) in the 'SoccerNetGS' folder
 
 # Tracker state (save computation time by dumping tracking results on disk for later re-use)
