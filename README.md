@@ -99,7 +99,7 @@ from SoccerNet.Downloader import SoccerNetDownloader
 password = input("The SoccerNet password (after signing NDA)")
 mySoccerNetDownloader = SoccerNetDownloader(LocalDirectory="data/SoccerNet-GS")
 mySoccerNetDownloader.downloadDataTask(task="gamestate-2024",
-                                       split=["train", "validation", "test", "challenge"],
+                                       split=["train", "valid", "test", "challenge"],
                                        password=password)
 ```
 
@@ -108,7 +108,8 @@ After running this code, please unzip the folders, so that the data looks like :
 data/
    SoccerNetGS/
       train/
-      validation/
+      valid/
+      test/
       challenge/
 ```
 
