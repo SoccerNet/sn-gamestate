@@ -97,9 +97,9 @@ after installing the soccernet package (`pip install SoccerNet`) :
 ```
 from SoccerNet.Downloader import SoccerNetDownloader
 password = input("The SoccerNet password (after signing NDA)")
-mySoccerNetDownloader = SoccerNetDownloader(LocalDirectory="data/SoccerNet-GS")
+mySoccerNetDownloader = SoccerNetDownloader(LocalDirectory="data/SoccerNetGS")
 mySoccerNetDownloader.downloadDataTask(task="gamestate-2024",
-                                       split=["train", "validation", "test", "challenge"],
+                                       split=["train", "valid", "test", "challenge"],
                                        password=password)
 ```
 
@@ -108,10 +108,18 @@ After running this code, please unzip the folders, so that the data looks like :
 data/
    SoccerNetGS/
       train/
-      validation/
+      valid/
+      test/
       challenge/
 ```
 
+You can unzip them with the followoing command line : 
+```bash
+unzip train.zip -d train
+unzip valid.zip -d valid
+unzip test.zip -d test
+unzip challenge.zip -d challenge
+```
 
 
 ## Usage
