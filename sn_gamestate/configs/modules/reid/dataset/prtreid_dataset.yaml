@@ -16,15 +16,15 @@ train:
   min_w: 30
   min_samples_per_id: 4
   ######## 4 - 12 ##########
-  max_samples_per_id: 16
+  max_samples_per_id: 15
   max_total_ids: -1
 test:
   set_name: "validation"
   min_vis: 0.
   min_h: 0
   min_w: 0
-  min_samples_per_id: 3
+  min_samples_per_id: 4
   ########## 6 - 15 ##########
-  max_samples_per_id: 6
+  max_samples_per_id: 10
   max_total_ids: -1
   ratio_query_per_id: 0.2
