@@ -3022,7 +3022,7 @@ labels = ["detectron2 @ git+https://github.com/facebookresearch/detectron2.git",
 type = "git"
 url = "https://github.com/VlSomers/prtreid"
 reference = "HEAD"
-resolved_reference = "08ad09d75dcc69079172202eb06a2cfbb33ef62c"
+resolved_reference = "8b0732d5d76b4d5697fdf5948772b3334d33de35"
 
 [[package]]
 name = "psutil"
@@ -4903,7 +4903,7 @@ description = "Code for evaluating object tracking"
 optional = false
 python-versions = "*"
 files = []
-develop = true
+develop = false
 
 [package.dependencies]
 numpy = "*"
@@ -4913,7 +4913,7 @@ scipy = "*"
 type = "git"
 url = "https://github.com/SoccerNet/sn-trackeval.git"
 reference = "HEAD"
-resolved_reference = "c68fe6fe1cd1282b4aa68348d8b94a3a44c1eae1"
+resolved_reference = "5d994be5f580755f132f91f5252f550f5e594900"
 
 [[package]]
 name = "tracklab"
