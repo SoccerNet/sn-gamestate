@@ -15,7 +15,7 @@ log = logging.getLogger(__name__)
 
 class TrackletTeamLabeling(VideoLevelModule):
     
-    input_columns = ["track_id", "embeddings"]
+    input_columns = ["track_id", "embeddings", "role"]
     output_columns = ["team_cluster"]
     
     def __init__(self, **kwargs):
@@ -29,10 +29,11 @@ class TrackletTeamLabeling(VideoLevelModule):
             return detections
         
         embedding_tracklet = pd.DataFrame(columns=['track_id', 'embeddings'])
-        for track_id in detections.track_id.unique():
+        player_detections = detections[detections.role == "player"]
+        for track_id in player_detections.track_id.unique():
             if np.isnan(track_id):
                 continue
-            tracklet = detections[detections.track_id == track_id]
+            tracklet = player_detections[player_detections.track_id == track_id]
             embeddings = np.array([i for i in tracklet.embeddings])
             embeddings = np.mean(np.mean(embeddings, axis=1), axis=0)  # avg over all parts of body
             embedding_tracklet.loc[len(embedding_tracklet.index)] = [track_id, embeddings]
