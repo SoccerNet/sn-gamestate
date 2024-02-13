@@ -25,6 +25,7 @@ defaults:
 # Pipeline definition :
 # - Defines the order in which the modules will be called
 # - If loading a tracking state from disk, remove modules whose outputs are already provided in the loaded state
+# Use 'pipeline: []' for an empty pipeline (e.g. when loading all tracking results from a saved .pklz tracker state)
 pipeline:
   - bbox_detector
   - reid
@@ -63,7 +64,7 @@ print_config: False
 
 # Dataset
 dataset:
-  nvid: 1  # For a quick first inference, only one random video is processed. Use "-1" to process all the videos.
+  nvid: 1  # For a quick first inference, only the first video is processed. Use "-1" to process all the videos.
   eval_set: "valid"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "valid", "test", "challenge"}.
   dataset_path: ${data_dir}/SoccerNetGS  # The SoccerNet game state dataset is located under the data path (defined above) in the 'SoccerNetGS' folder
 
