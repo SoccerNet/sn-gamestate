@@ -2,8 +2,15 @@
 
 Welcome to the SoccerNet Development Kit for the Game State task and Challenge.
 This kit is meant as a help to get started working with the data and the proposed task.
-More information about the dataset can be found on our [official website](https://www.soccer-net.org/).
 
+The SoccerNet Game State Recognition task is a novel high level computer vision task that is specific to sports analytics.
+It aims at recognizing the state of a sport game, i.e., identifying and localizing
+all sports individuals (players, referees, ..) on the field based on a raw input videos. More information about the task and the dataset can be found on our [official website](https://www.soccer-net.org/).
+
+
+Participate in our upcoming Challenges during the [CVPR 2024 International Challenge at the CVSports Workshop](https://vap.aau.dk/cvsports/)! 
+The participation deadline is fixed at the 30th of May 2024. 
+The official rules and guidelines are available in [ChallengeRules.md](ChallengeRules.md).
 
 ## 🚀 News
 This codebase is still under active development, please make sure to come back regularly to get recent updates!
@@ -13,7 +20,7 @@ be happy to help with detailed instructions.
 
 #### Upcoming
 - [x] Release of the sn-gamestate repository
-- [ ] SoccerNet Game State Reconstruction dataset available for download
+- [x] SoccerNet Game State Reconstruction dataset available for download
 - [ ] EvalAI servers open for evaluation and further details provided about the new Game State Reconstruction evaluation metric
 - [ ] Complete baseline build with TrackLab available for participants
 - [ ] Live tutorials on how to start with the challenge and the baseline
@@ -39,6 +46,7 @@ git clone https://github.com/TrackingLaboratory/tracklab.git
 
 > [!NOTE]
 > If you are using an IDE (like PyCharm or VS Code), we suggest creating a single project with `soccernet` as root directory.
+> Instructions : [PyCharm](https://www.jetbrains.com/help/pycharm/configuring-project-structure.html) and [VS Code](https://code.visualstudio.com/docs/editor/multi-root-workspaces)
 
 ### Install using Poetry
 1. Install poetry : https://python-poetry.org/docs/#installing-with-the-official-installer
@@ -68,7 +76,18 @@ pip install -e ../tracklab # You don't need this if you don't plan to change fil
 mim install mmcv==2.0.1
 ```
 
+### Updating
 
+Update this repository by running `git pull` on both repositories:
+```bash
+git pull
+git -C ../tracklab pull
+```
+
+After updating, you should rerun the installation of the dependencies in case they are updated 
+(either running `poetry install` or *both* `pip install`'s).
+
+We will advertise big updates on the [soccernet discord](https://discord.com/invite/cPbqf2mAwF).
 
 ### Setup
 
@@ -85,13 +104,12 @@ You will need to set up some variables before running the code :
    - The `batch_size` (lower these values if you encounter memory issues)
    - You might want to change the model hyperparameters
 
-## How to download SoccerNet-gamestate
+## Manual downloading of SoccerNet-gamestate
+> [!NOTE]
+> If you use the sn-gamestate baseline, the dataset will download automatically
+> on first use. No need to download it manually in that case.
 
-> [!WARNING]
-> The dataset will be available for download soon, the following script should raise an 'Unauthorized' error for now.
-
-We provide an automatic download of the SoccerNet dataset when you first run tracklab.
-However if you want to download the dataset yourself, you can run the following snippet
+If you want to download the dataset yourself, without using the baseline, you can run the following snippet
 after installing the soccernet package (`pip install SoccerNet`) : 
 
 ```
@@ -147,7 +165,7 @@ By default, this command will perform game state reconstruction on one SoccerNet
 We invite users to read carefully the following resources:
 1. [TrackLab README](https://github.com/TrackingLaboratory/tracklab/blob/main/README.md) for further instructions about the framework.
 2. [soccernet.yaml](sn_gamestate/configs/soccernet.yaml) for more information about the available configurations.
-3. [Hudra's tutorial](https://hydra.cc/docs/tutorials/intro/) to better understand how to configure TrackLab. 
+3. [Hydra's tutorial](https://hydra.cc/docs/tutorials/intro/) to better understand how to configure TrackLab. 
 
 ## Adding a new module
 
@@ -162,5 +180,5 @@ as shown [here](sn_gamestate/config_finder.py), this variable should point to th
 Temporarily, you can also specify a directory using Hydra's `--config-dir`.
 
 ## Troubleshooting
-If you encounter issues after upgrading to the latest version, do not forget to run `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
+If you encounter issues after upgrading to the latest version, do not forget to run `poetry install`  or `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
 Feel free to open a GitHub issue or contact us on Discord if you need further assistance.
