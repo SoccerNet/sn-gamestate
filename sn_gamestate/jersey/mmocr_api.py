@@ -75,7 +75,9 @@ class MMOCR(DetectionLevelModule):
                 jn_confidences.append(conf)
         jersey_number, jn_confidence = self.choose_best_jersey_number(jersey_numbers,
                                                                       jn_confidences)
-        return (jersey_number, jn_confidence)
+        if jersey_number is not None:
+            jersey_number = jersey_number[:2]  # Only two-digit numbers are possible
+        return jersey_number, jn_confidence
 
     @torch.no_grad()
     def process(self, batch, detections: pd.DataFrame, metadatas: pd.DataFrame):
