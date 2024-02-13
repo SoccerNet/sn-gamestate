@@ -20,8 +20,7 @@ cfg:
     display_team: True
     display_role: True
     print_id: True
-    print_bbox_confidence: True
-    print_bbox_state: True
+    print_bbox_confidence: False
     # debug
     print_keypoints_confidence: False
     draw_bpbreid_heatmaps: False
@@ -45,7 +44,7 @@ cfg:
   bbox:
     displayed: ['detect'] # TODO not working ['detect', 'track']
     thickness: 1
-    color_prediction: [0,0,0]               # None is color by ID or RGB array, "soccernet", uses team color and role
+    color_prediction: null               # None is color by ID or RGB array, "soccernet", uses team color and role
     color_ground_truth: null                # None is color by ID or RGB array
     color_no_id: [0, 0, 0]                  # RGB array
     color_kf: [200, 200, 200]               # Color for bbox predicted by Kalman filter
