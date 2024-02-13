@@ -71,7 +71,18 @@ pip install -e ../tracklab # You don't need this if you don't plan to change fil
 mim install mmcv==2.0.1
 ```
 
+### Updating
 
+Update this repository by running `git pull` on both repositories:
+```bash
+git pull
+git -C ../tracklab pull
+```
+
+After updating, you should rerun the installation of the dependencies in case they are updated 
+(either running `poetry install` or *both* `pip install`'s).
+
+We will advertise big updates on the [soccernet discord](https://discord.com/invite/cPbqf2mAwF).
 
 ### Setup
 
