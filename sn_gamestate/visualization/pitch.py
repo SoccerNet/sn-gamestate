@@ -36,15 +36,15 @@ def draw_pitch(patch, detections_pred, detections_gt,
 
     # Draw the Top-view pitch
     if detections_gt is not None and "bbox_pitch" in detections_gt:
-        draw_radar_view(patch, detections_gt, scale=pitch_scale, group="gt")
+        draw_radar_view(patch, detections_gt, scale=pitch_scale, group="ground truth")
     if detections_pred is not None and "bbox_pitch" in detections_pred:
-        draw_radar_view(patch, detections_pred, scale=pitch_scale, group="pred")
+        draw_radar_view(patch, detections_pred, scale=pitch_scale, group="predictions")
 
 
-def draw_radar_view(patch, detections, scale, delta=32, group="gt"):
+def draw_radar_view(patch, detections, scale, delta=32, group="ground truth"):
     pitch_width = 105 + 2 * 10  # pitch size + 2 * margin
     pitch_height = 68 + 2 * 5  # pitch size + 2 * margin
-    sign = -1 if group == "gt" else +1
+    sign = -1 if group == "ground truth" else +1
     radar_center_x = int(1920/2 - pitch_width * scale / 2 * sign - delta * sign)
     radar_center_y = int(1080 - pitch_height * scale / 2)
     radar_top_x = int(radar_center_x - pitch_width * scale / 2)
@@ -67,8 +67,8 @@ def draw_radar_view(patch, detections, scale, delta=32, group="gt"):
     draw_text(
         patch,
         group,
-        (radar_center_x, radar_top_y),
-        1, 1, 1,
+        (radar_center_x, radar_top_y-10),
+        1, 3, 2,
         color_txt=(255, 255, 255),
         alignH="c",
         alignV="b",
