@@ -34,7 +34,8 @@ be happy to help with detailed instructions.
 
 
 ### 🏟️ About the Game State Reconstruction Baseline
-For the purpose of this challenge, we use the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab), an open-source modular tracking framework. 
+For the purpose of this challenge, we use the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab), an open-source modular tracking framework.
+The [TrackLab repository](https://github.com/TrackingLaboratory/tracklab) contains all generic code related to multi-object tracking (object detection, re-identification, tracking algorithms, etc), whereas the [sn-gamestate repository](https://github.com/SoccerNet/sn-gamestate) contains the additional code specific to the SoccerNet Game State Reconstruction task (jersey number recognition, team affiliation, etc).
 The diagram below represents the complete baseline pipeline.
 TrackLab make it easy to easy to add/customize/replace modules in the pipeline. 
 This enables participants to focus on one or more specific subtask of the challenge, without worrying about other tasks.
