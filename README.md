@@ -160,7 +160,7 @@ By default, this command will perform game state reconstruction on one SoccerNet
 We invite users to read carefully the following resources:
 1. [TrackLab README](https://github.com/TrackingLaboratory/tracklab/blob/main/README.md) for further instructions about the framework.
 2. [soccernet.yaml](sn_gamestate/configs/soccernet.yaml) for more information about the available configurations.
-3. [Hudra's tutorial](https://hydra.cc/docs/tutorials/intro/) to better understand how to configure TrackLab. 
+3. [Hydra's tutorial](https://hydra.cc/docs/tutorials/intro/) to better understand how to configure TrackLab. 
 
 ## Adding a new module
 
