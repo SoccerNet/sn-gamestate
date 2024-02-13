@@ -8,6 +8,11 @@ It aims at recognizing the state of a sport game, i.e., identifying and localizi
 all sports individuals (players, referees, ..) on the field based on a raw input videos. More information about the task and the dataset can be found on our [official website](https://www.soccer-net.org/).
 
 
+Participate in our upcoming Challenges during the [CVPR 2024 International Challenge at the CVSports Workshop](https://vap.aau.dk/cvsports/)! 
+
+The participation deadline is fixed at the 30th of May 2024. 
+The official rules and guidelines are available in [ChallengeRules.md](ChallengeRules.md).
+
 ## 🚀 News
 This codebase is still under active development, please make sure to come back regularly to get recent updates!
 The complete code for running the baseline pipeline will be released soon.
