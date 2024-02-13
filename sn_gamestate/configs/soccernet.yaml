@@ -32,9 +32,9 @@ pipeline:
   - pitch
   - calibration
   - jersey_number_detect
+  - tracklet_agg
   - team
   - team_side
-  - tracklet_agg
 
 
 # Experiment name
