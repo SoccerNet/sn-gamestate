@@ -182,3 +182,11 @@ Temporarily, you can also specify a directory using Hydra's `--config-dir`.
 ## Troubleshooting
 If you encounter issues after upgrading to the latest version, do not forget to run `poetry install`  or `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
 Feel free to open a GitHub issue or contact us on Discord if you need further assistance.
+
+
+## References
+
+ - Bbox detection : YOLOv8 [[Code](https://github.com/ultralytics/ultralytics)]
+ - Reidentification : PRTReid [[Paper](https://arxiv.org/abs/2401.09942)] [[Code](https://github.com/VlSomers/Prtreid)]
+ - Camera calibration & field localisation : TVCalib [[Paper](https://arxiv.org/abs/2207.11709)] [[Code](https://github.com/MM4SPA/tvcalib/tree/main)]
+ - Jersey number recognition : MMOCR [[Code](https://github.com/open-mmlab/mmocr)]
