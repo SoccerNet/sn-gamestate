@@ -12,6 +12,8 @@ Participate in our upcoming Challenges during the [CVPR 2024 International Chall
 The participation deadline is fixed at the 30th of May 2024. 
 The official rules and guidelines are available in [ChallengeRules.md](ChallengeRules.md).
 
+![Gamestate example](images/soccernet_021_validation_game-state-reconstruction-ezgif.com-video-to-gif-converter.gif)
+
 ## 🚀 News
 This codebase is still under active development, please make sure to come back regularly to get recent updates!
 Feel free to open a GitHub issue or interact with us on our [official Discord channel](https://discord.com/invite/cPbqf2mAwF) if you encounter any issue: we will 
@@ -30,7 +32,6 @@ be happy to help with detailed instructions.
 - [2024.02.05] Public release
 
 
-![Gamestate example](images/soccernet_021_validation_game-state-reconstruction-ezgif.com-video-to-gif-converter.gif)
 
 ### 🏟️ About the Game State Reconstruction Baseline
 For the purpose of this challenge, we use the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab), an open-source modular tracking framework. 
