@@ -10,7 +10,7 @@ log = logging.getLogger(__name__)
 
 class TrackletSideLabeling(VideoLevelModule):
     
-    input_columns = ["track_id", "team_cluster", "bbox_pitch"]
+    input_columns = ["track_id", "team_cluster", "bbox_pitch", "role"]
     output_columns = ["team"]
     
     def __init__(self, **kwargs):
@@ -36,5 +36,10 @@ class TrackletSideLabeling(VideoLevelModule):
         else:
             detections.loc[team_a.index, "team"] = ['left'] * len(team_a)
             detections.loc[team_b.index, "team"] = ['right'] * len(team_b)
-            
+
+        # Goalkeeper labeling
+        goalkeepers = detections[detections.role == "goalkeeper"].dropna(subset=["bbox_pitch"])
+        gk_team = goalkeepers.bbox_pitch.apply(lambda bbox: "right" if (bbox["x_bottom_middle"] > 0) else "left")
+        detections.loc[goalkeepers.index, "team"] = gk_team
+
         return detections
