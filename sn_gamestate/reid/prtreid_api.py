@@ -1,4 +1,3 @@
-import gdown
 import numpy as np
 import pandas as pd
 import torch
@@ -32,6 +31,8 @@ from prtreid.utils.tools import extract_test_embeddings
 from prtreid.data.datasets import configure_dataset_class
 
 from prtreid.scripts.default_config import engine_run_kwargs
+
+from tracklab.utils.download import download_file
 
 
 class PRTReId(DetectionLevelModule):
@@ -92,14 +93,15 @@ class PRTReId(DetectionLevelModule):
         self.model = None
 
     def download_models(self, load_weights, pretrained_path, backbone):
-        if Path(load_weights).stem == "bpbreid_market1501_hrnet32_10642":
-            md5 = "e79262f17e7486ece33eebe198c07841"
-            gdown.cached_download(id="1m8FgfgQXf_i7zVEblvis1HLV6yHGdX7p", path=load_weights, md5=md5)
+        if Path(load_weights).name == "prtreid-soccernet-baseline.pth.tar":
+            md5 = "9633825232bc89f23a94522c5561650e"
+            download_file("https://zenodo.org/records/10653453/files/prtreid-soccernet-baseline.pth.tar?download=1",
+                          local_filename=load_weights, md5=md5)
         if backbone == "hrnet32":
             md5 = "58ea12b0420aa3adaa2f74114c9f9721"
             path = Path(pretrained_path) / "hrnetv2_w32_imagenet_pretrained.pth"
-            gdown.cached_download(id="1-gmeQ_n7NuyADiNK8EygHGDRV-HUesEZ", path=path,
-                                  md5=md5)
+            download_file("https://zenodo.org/records/10604211/files/hrnetv2_w32_imagenet_pretrained.pth?download=1",
+                          local_filename=path, md5=md5)
     @torch.no_grad()
     def preprocess(
         self, image, detection: pd.Series, metadata: pd.Series
