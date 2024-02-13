@@ -88,13 +88,12 @@ You will need to set up some variables before running the code :
    - The `batch_size` (lower these values if you encounter memory issues)
    - You might want to change the model hyperparameters
 
-## How to download SoccerNet-gamestate
+## Manual downloading of SoccerNet-gamestate
+> [!NOTE]
+> If you use the sn-gamestate baseline, the dataset will download automatically
+> on first use. No need to download it manually in that case.
 
-> [!WARNING]
-> The dataset will be available for download soon, the following script should raise an 'Unauthorized' error for now.
-
-We provide an automatic download of the SoccerNet dataset when you first run tracklab.
-However if you want to download the dataset yourself, you can run the following snippet
+If you want to download the dataset yourself, without using the baseline, you can run the following snippet
 after installing the soccernet package (`pip install SoccerNet`) : 
 
 ```
