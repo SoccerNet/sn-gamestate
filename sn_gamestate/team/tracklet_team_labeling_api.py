@@ -1,11 +1,9 @@
 import pandas as pd
 import torch
 import numpy as np
-from tqdm import tqdm
-from tracklab.utils.attribute_voting import select_highest_voted_att
-from tracklab.pipeline.videolevel_module import VideoLevelModule
 import logging
 import warnings
+from tracklab.pipeline.videolevel_module import VideoLevelModule
 warnings.filterwarnings("ignore")
 from sklearn.cluster import KMeans
 
@@ -23,29 +21,24 @@ class TrackletTeamLabeling(VideoLevelModule):
         
     @torch.no_grad()
     def process(self, detections: pd.DataFrame, metadatas: pd.DataFrame):
-        
-        detections["team_cluster"] = [np.nan] * len(detections)
-        if "track_id" not in detections.columns:
-            return detections
-        
-        embedding_tracklet = pd.DataFrame(columns=['track_id', 'embeddings'])
-        player_detections = detections[detections.role == "player"]
-        for track_id in player_detections.track_id.unique():
-            if np.isnan(track_id):
-                continue
-            tracklet = player_detections[player_detections.track_id == track_id]
-            embeddings = np.array([i for i in tracklet.embeddings])
-            embeddings = np.mean(np.mean(embeddings, axis=1), axis=0)  # avg over all parts of body
-            embedding_tracklet.loc[len(embedding_tracklet.index)] = [track_id, embeddings]
 
-        ############## do clustering on the tracklet level embeddings ##########
-        embeddings = np.asarray([i for i in embedding_tracklet.embeddings])
+        player_detections = detections[detections.role == "player"]
+
+        # Compute mean embeddings for each track_id
+        embeddings_list = []
+        for track_id, group in player_detections.groupby("track_id"):
+            if np.isnan(track_id): continue
+            embeddings = np.mean(np.vstack(group.embeddings.values), axis=0)
+            embeddings_list.append({'track_id': track_id, 'embeddings': embeddings})
+
+        embedding_tracklet = pd.DataFrame(embeddings_list)
+
+        # Perform KMeans clustering on the embeddings
+        embeddings = np.vstack(embedding_tracklet.embeddings.values)
         kmeans = KMeans(n_clusters=2, random_state=0).fit(embeddings)
-        embedding_tracklet.insert(2, "team", kmeans.labels_, True)
-        
-        for i, track_id in enumerate(embedding_tracklet.track_id.unique()):
-            tracklet = detections[detections.track_id == track_id]
-            tracklet_team = [embedding_tracklet.iloc[i]["team"]] * len(tracklet) 
-            detections.loc[tracklet.index, "team_cluster"] = tracklet_team
-            
+
+        # Map the team cluster back to the original detections DataFrame
+        embedding_tracklet['team_cluster'] = kmeans.labels_
+        detections = detections.merge(embedding_tracklet[['track_id', 'team_cluster']], on='track_id', how='left')
+
         return detections

@@ -30,7 +30,7 @@ class TrackletSideLabeling(VideoLevelModule):
         avg_a = np.nanmean(xa_coordinates)
         avg_b = np.nanmean(xb_coordinates)
         
-        if avg_a > avg_b:           
+        if avg_a > avg_b:
             detections.loc[team_a.index, "team"] = ['right'] * len(team_a)
             detections.loc[team_b.index, "team"] = ['left'] * len(team_b)
         else:
