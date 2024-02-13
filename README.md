@@ -5,7 +5,7 @@ This kit is meant as a help to get started working with the data and the propose
 
 The SoccerNet Game State Recognition task is a novel high level computer vision task that is specific to sports analytics.
 It aims at recognizing the state of a sport game, i.e., identifying and localizing
-all sports individuals (players, referees, ..) on the field based on a raw input videos. More information about the task and the dataset can be found on our [official website](https://www.soccer-net.org/).
+all sports individuals (players, referees, ..) on the field based on a raw input videos. More information about the task and the dataset can be found on our [official website](https://www.soccer-net.org/tasks/new-game-state-reconstruction).
 
 
 Participate in our upcoming Challenges during the [CVPR 2024 International Challenge at the CVSports Workshop](https://vap.aau.dk/cvsports/)! 
@@ -32,15 +32,33 @@ be happy to help with detailed instructions.
 - [2024.02.05] Public release
 
 
+### ⚽️ About the Game State Reconstruction Task
+Game State Reconstruction can be seen as a compression task, where the goal is to extract high level information about a sport game given an input raw video.
+The high level information to be extracted includes the following:
+- The 2D position of all sports persons on the field
+- Their role (player, goalkeeper, referee, other)
+- For player and goalkeepers:
+  - Their jersey number
+  - Their team affiliation (i.e. left or right w.r.t. the camera viewpoint)
+
+This high level information can be nicely displayed as a 2D minimap, or radar view, as shown in the GIF above.
+Game State Reconstruction is a challenging task as it requires to solve several subtasks such as:
+1. Pitch localization and camera calibration 
+2. Person detection, re-identification and tracking 
+3. Jersey number recognition 
+4. Team affiliation
+
+For more information, please have a look at our [Youtube video](https://www.youtube.com/watch?v=UDeSdOR9Ing).
 
 ### 🏟️ About the Game State Reconstruction Baseline
 For the purpose of this challenge, we use the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab), an open-source modular tracking framework.
 The [TrackLab repository](https://github.com/TrackingLaboratory/tracklab) contains all generic code related to multi-object tracking (object detection, re-identification, tracking algorithms, etc), whereas the [sn-gamestate repository](https://github.com/SoccerNet/sn-gamestate) contains the additional code specific to the SoccerNet Game State Reconstruction task (jersey number recognition, team affiliation, etc).
-The diagram below represents the complete baseline pipeline.
-TrackLab make it easy to easy to add/customize/replace modules in the pipeline. 
+The diagram below represents the complete pipeline of the baseline.
+TrackLab make it easy to add/customize/replace modules in the pipeline. 
 This enables participants to focus on one or more specific subtask of the challenge, without worrying about other tasks.
 We strongly encourage participants to analyse some videos to build a better intuition on which part of the pipeline should be improved.
 We will provide more technical details about all components of the baseline in the near future.
+
 ![Tracklab diagram](images/tracklab_diag.jpg)
 
 ## Quick Installation Guide
