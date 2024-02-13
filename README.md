@@ -175,5 +175,5 @@ as shown [here](sn_gamestate/config_finder.py), this variable should point to th
 Temporarily, you can also specify a directory using Hydra's `--config-dir`.
 
 ## Troubleshooting
-If you encounter issues after upgrading to the latest version, do not forget to run `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
+If you encounter issues after upgrading to the latest version, do not forget to run `poetry install`  or `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
 Feel free to open a GitHub issue or contact us on Discord if you need further assistance.
