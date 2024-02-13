@@ -8,8 +8,11 @@ import logging
 log = logging.getLogger(__name__)
 
 
-class TrackletSideLabeling(VideoLevelModule):
-    
+class TrackletTeamSideLabeling(VideoLevelModule):
+    """
+    This module labels the team side (left, right) of the detections with role = {'player', 'goalkeeper'} based on the team clustering.
+    """
+
     input_columns = ["track_id", "team_cluster", "bbox_pitch"]
     output_columns = ["team"]
     

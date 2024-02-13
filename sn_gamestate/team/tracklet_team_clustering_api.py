@@ -11,8 +11,11 @@ from sklearn.cluster import KMeans
 log = logging.getLogger(__name__)
 
 
-class TrackletTeamLabeling(VideoLevelModule):
-    
+class TrackletTeamClustering(VideoLevelModule):
+    """
+    This module performs KMeans clustering on the embeddings of the tracklets to cluster the detections with role "player" into two teams.
+    Teams are labeled as 0 and 1, and transformer into 'left' and 'right' in a separate module.
+    """
     input_columns = ["track_id", "embeddings", "role"]
     output_columns = ["team_cluster"]
     
