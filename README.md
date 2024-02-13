@@ -29,7 +29,7 @@ be happy to help with detailed instructions.
 - [2024.02.05] Public release
 
 
-![Gamestate example](images/gamestate-example.jpg)
+![Gamestate example](images/soccernet_021_validation_game-state-reconstruction-ezgif.com-video-to-gif-converter.gif)
 
 ## GameState Baseline
 For the purpose of this challenge, we use the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab), an open-source modular tracking framework. In the diagram below, you can see how each part of the framework is replaceable with different options thanks to TrackLab. This helps you be in charge of which task of the challenge you want to improve without worrying about other tasks.
