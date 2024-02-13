@@ -42,6 +42,7 @@ git clone https://github.com/TrackingLaboratory/tracklab.git
 
 > [!NOTE]
 > If you are using an IDE (like PyCharm or VS Code), we suggest creating a single project with `soccernet` as root directory.
+> Instructions : [PyCharm](https://www.jetbrains.com/help/pycharm/configuring-project-structure.html) and [VS Code](https://code.visualstudio.com/docs/editor/multi-root-workspaces)
 
 ### Install using Poetry
 1. Install poetry : https://python-poetry.org/docs/#installing-with-the-official-installer
