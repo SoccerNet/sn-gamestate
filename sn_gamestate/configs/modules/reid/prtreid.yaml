@@ -39,7 +39,7 @@ cfg:
     pretrained: True
     save_model_flag: True
     load_config: True
-    load_weights: "${model_dir}/reid/bpbreid_market1501_hrnet32_10642.pth"
+    load_weights: "${model_dir}/reid/prtreid-soccernet-baseline.pth.tar"
     bpbreid:
       pooling: "gwap" # ['gap', 'gmp', 'gwap', 'gwap2']
       normalization: "identity" # 'batch_norm_2d' 'identity'
