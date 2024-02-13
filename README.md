@@ -189,4 +189,4 @@ Feel free to open a GitHub issue or contact us on Discord if you need further as
  - Bbox detection : YOLOv8 [[Code](https://github.com/ultralytics/ultralytics)]
  - Reidentification : PRTReid [[Paper](https://arxiv.org/abs/2401.09942)] [[Code](https://github.com/VlSomers/Prtreid)]
  - Camera calibration & field localisation : TVCalib [[Paper](https://arxiv.org/abs/2207.11709)] [[Code](https://github.com/MM4SPA/tvcalib/tree/main)]
- - Jersey number recognition : MMOCR [[Code](https://github.com/open-mmlab/mmocr)]
+ - Jersey number recognition : MMOCR [[Paper](https://arxiv.org/abs/2108.06543)] [[Code](https://github.com/open-mmlab/mmocr)]
