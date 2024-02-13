@@ -72,7 +72,7 @@ conda activate tracklab
 ```bash
 cd sn-gamestate
 pip install -e .
-pip install -e ../tracklab # You don't need this if you don't plan to change files in tracklab
+pip install -e ../tracklab
 mim install mmcv==2.0.1
 ```
 
