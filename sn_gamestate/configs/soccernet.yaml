@@ -68,6 +68,8 @@ dataset:
   nvid: 1  # For a quick first inference, only the first video is processed. Use "-1" to process all the videos.
   eval_set: "valid"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "valid", "test", "challenge"}.
   dataset_path: ${data_dir}/SoccerNetGS  # The SoccerNet game state dataset is located under the data path (defined above) in the 'SoccerNetGS' folder
+  vids_dict: # Use one key per split (valid, test, etc)
+    valid: []  # Specify explicitly which video to apply tracking on, e.g. ['SNGS-04', 'SNGS-51'] . Ignored when left empty.
 
 # Tracker state (save computation time by dumping tracking results on disk for later re-use)
 state:
