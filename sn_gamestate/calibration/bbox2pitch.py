@@ -41,6 +41,7 @@ class Bbox2Pitch(ImageLevelModule):
             )
         elif pd.isna(camera_parameters):
             log.warning(f"camera parameters were None/NA")
+            return pd.DataFrame(columns=["bbox_pitch"])
         else:
             raise ValueError(f"camera parameters should be dict or list not {camera_parameters}")
 
