@@ -39,6 +39,8 @@ class Bbox2Pitch(ImageLevelModule):
             detections["bbox_pitch"] = detections.bbox.ltrb().apply(
                 get_bbox_pitch_homography(camera_parameters)
             )
+        elif pd.isna(camera_parameters):
+            log.warning(f"camera parameters were None/NA")
         else:
             raise ValueError(f"camera parameters should be dict or list not {camera_parameters}")
 
