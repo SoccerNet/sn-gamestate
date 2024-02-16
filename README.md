@@ -169,7 +169,7 @@ You will need to set up some variables before running the code in [soccernet.yam
 - All the parameters under the "Machine configuration" header. For the corresponding modules :
   - The `batch_size` (lower these values if you encounter memory issues)
   - You might want to change the model hyperparameters
-  - 
+ 
 #### Command Line
 Finally, run the SoccerNet Game State Reconstruction baseline with the following command :
 ```bash
