@@ -54,6 +54,9 @@ def draw_radar_view(patch, detections, scale, delta=32, group="ground truth"):
     if pitch_file is not None:
         radar_img = cv2.resize(cv2.imread(str(pitch_file)), (pitch_width * scale, pitch_height * scale))
         radar_img = cv2.bitwise_not(radar_img)
+        cv2.line(radar_img, (0, 0), (0, radar_img.shape[0]), thickness=6, color=(0, 0, 255))
+        cv2.line(radar_img, (radar_img.shape[1], 0), (radar_img.shape[1], radar_img.shape[0]), thickness=6,
+                 color=(255, 0, 0))
     else:
         radar_img = np.ones((pitch_height * scale, pitch_width * scale, 3)) * 255
 
@@ -87,17 +90,21 @@ def draw_radar_view(patch, detections, scale, delta=32, group="ground truth"):
         y_middle = np.clip(detection[bbox_name]["y_bottom_middle"], -10000, 10000)
         cat = None
         if "jersey_number" in detection and detection.jersey_number is not None:
-            if isinstance(detection.jersey_number, float) and np.isnan(detection.jersey_number):
-                cat = None
-            else:
-                cat = f"{detection.jersey_number:02}"
+            if "role" in detection and detection.role == "player":
+                if isinstance(detection.jersey_number, float) and np.isnan(detection.jersey_number):
+                    cat = None
+                else:
+                    cat = f"{detection.jersey_number:02}"
 
-        elif "role" in detection:
+        if "role" in detection:
             if detection.role == "goalkeeper":
                 cat = "GK"
             elif detection.role == "referee":
                 cat = "RE"
                 color = (238, 210, 2)
+            elif detection.role == "other":
+                cat = "OT"
+                color = (0, 255, 0)
         if cat is not None:
             draw_text(
                 patch,
