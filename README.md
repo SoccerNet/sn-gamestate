@@ -63,7 +63,7 @@ We will provide more technical details about all components of the baseline in t
 
 ## Quick Installation Guide
 This guide will tell you how to install the framework, download the dataset and all models weights, and run the baseline on a single video from the validation set.
-Tracklab will create a `.mp4` video showcasing the game state reconstruction results under `output/{date}/{time}/visualization/videos/021.mp4` in your current working directory,.
+Tracklab will create a `.mp4` video showcasing the game state reconstruction results under `output/{date}/{time}/visualization/videos/021.mp4` in your current working directory.
 
 ### 1. Installing TrackLab and the GameState baseline 
 Before running the baseline for the first time, you will need to clone the project and setup the environment as described below.
