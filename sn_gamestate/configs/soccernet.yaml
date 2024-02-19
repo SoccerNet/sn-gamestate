@@ -60,7 +60,7 @@ modules: # Allows module-specific batch_size and other configuration
 
 # Flags
 test_tracking: True
-eval_tracking: False
+eval_tracking: True
 print_config: False
 
 # Dataset
