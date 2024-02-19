@@ -1,9 +1,13 @@
+import logging
+
 import cv2
 import numpy as np
 from pathlib import Path
 
 from sn_calibration_baseline.soccerpitch import SoccerPitch
 from tracklab.utils.cv2 import draw_text
+
+log = logging.getLogger(__name__)
 
 pitch_file = Path(__file__).parent / "Radar.png"
 
@@ -19,11 +23,15 @@ def draw_pitch(patch, detections_pred, detections_gt,
     if "lines" in image_pred:
         image_height, image_width, _ = patch.shape
         for name, line in image_pred["lines"].items():
-            if name == "Circle central":
+            if name == "Circle central" and len(line) > 4:
                 points = np.array([(int(p["x"] * image_width), int(p["y"]*image_height)) for p in line])
-                ellipse = cv2.fitEllipse(points)
-                cv2.ellipse(patch, ellipse, color=SoccerPitch.palette[name],
-                            thickness=line_thickness)
+                try:
+                    ellipse = cv2.fitEllipse(points)
+                    cv2.ellipse(patch, ellipse, color=SoccerPitch.palette[name],
+                                thickness=line_thickness)
+                except cv2.error:
+                    log.warning("Could not draw ellipse")
+
             else:
                 for j in np.arange(len(line)-1):
                     cv2.line(
@@ -94,7 +102,7 @@ def draw_radar_view(patch, detections, scale, delta=32, group="ground truth"):
                 if isinstance(detection.jersey_number, float) and np.isnan(detection.jersey_number):
                     cat = None
                 else:
-                    cat = f"{detection.jersey_number:02}"
+                    cat = f"{int(detection.jersey_number)}"
 
         if "role" in detection:
             if detection.role == "goalkeeper":
