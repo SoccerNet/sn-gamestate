@@ -11,6 +11,7 @@ log = logging.getLogger(__name__)
 class TrackletTeamSideLabeling(VideoLevelModule):
     """
     This module labels the team side (left, right) of the detections with role = {'player', 'goalkeeper'} based on the team clustering.
+    Team 'left'/'right' means the team with its goal on the left/right side of the image (from the camera perspective).
     """
 
     input_columns = ["track_id", "team_cluster", "bbox_pitch", "role"]
