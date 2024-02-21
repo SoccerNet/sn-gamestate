@@ -210,6 +210,8 @@ Temporarily, you can also specify a directory using Hydra's `--config-dir`.
 If you encounter issues after upgrading to the latest version, do not forget to run `poetry install`  or `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
 Feel free to open a GitHub issue or contact us on Discord if you need further assistance.
 
+### FAQ
+We will try to gather interesting questions and answer them in the [FAQ](FAQ.md).
 
 ## References
 
