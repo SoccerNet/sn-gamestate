@@ -125,6 +125,7 @@ We will advertise big updates on the [soccernet discord](https://discord.com/inv
 ### 2. Downloading the Dataset and the Baseline Models Weights
 #### Automatic download
 Tracklab will automatically download the SoccerNet-gamestate dataset and all models' weights when you run the baseline for the first time.
+If the script stopped before the download was completed, please delete the dataset folder and start from scratch to avoid any error.
 If you choose this option, you can go directly to the next step.
 
 #### Manual downloading of SoccerNet-gamestate
