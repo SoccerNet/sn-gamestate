@@ -125,6 +125,7 @@ We will advertise big updates on the [soccernet discord](https://discord.com/inv
 ### 2. Downloading the Dataset and the Baseline Models Weights
 #### Automatic download
 Tracklab will automatically download the SoccerNet-gamestate dataset and all models' weights when you run the baseline for the first time.
+If the script stopped before the download was completed, please delete the dataset folder and start from scratch to avoid any error.
 If you choose this option, you can go directly to the next step.
 
 #### Manual downloading of SoccerNet-gamestate
@@ -210,10 +211,12 @@ Temporarily, you can also specify a directory using Hydra's `--config-dir`.
 If you encounter issues after upgrading to the latest version, do not forget to run `poetry install`  or `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
 Feel free to open a GitHub issue or contact us on Discord if you need further assistance.
 
+### FAQ
+We will try to gather interesting questions and answer them in the [FAQ](FAQ.md).
 
 ## References
 
  - Bbox detection : YOLOv8 [[Code](https://github.com/ultralytics/ultralytics)]
- - Reidentification : PRTReid [[Paper](https://arxiv.org/abs/2401.09942)] [[Code](https://github.com/VlSomers/Prtreid)]
+ - Re-Identification : PRTReid [[Paper](https://arxiv.org/abs/2401.09942)] [[Code](https://github.com/VlSomers/Prtreid)] | BPBreID [[Paper](https://arxiv.org/abs/2211.03679)][[Code](https://github.com/VlSomers/bpbreid)]
  - Camera calibration & field localisation : TVCalib [[Paper](https://arxiv.org/abs/2207.11709)] [[Code](https://github.com/MM4SPA/tvcalib/tree/main)]
  - Jersey number recognition : MMOCR [[Paper](https://arxiv.org/abs/2108.06543)] [[Code](https://github.com/open-mmlab/mmocr)]
