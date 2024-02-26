@@ -4913,7 +4913,7 @@ scipy = "*"
 type = "git"
 url = "https://github.com/SoccerNet/sn-trackeval.git"
 reference = "HEAD"
-resolved_reference = "ed4b23e2fceecbdc009f689b0d9afbf967e58861"
+resolved_reference = "5b7db558bb186e0ea3704baa2fd99ee29b2e7853"
 
 [[package]]
 name = "tracklab"
