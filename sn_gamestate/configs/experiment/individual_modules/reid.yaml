@@ -1,3 +1,4 @@
+# @package _global_
 # TrackLab SoccerNet config
 
 # The defaults list contains the files that will be used
@@ -36,23 +37,6 @@ pipeline:
 # Experiment name
 experiment_name: "individual-modules"
 
-# Path definitions
-home_dir: "${oc.env:HOME}"
-data_dir: "${project_dir}/data"
-model_dir: "${project_dir}/pretrained_models"
-
-# Machine configuration
-num_cores: 4
-use_wandb: False
-use_rich: True
-
-modules: # Allows module-specific batch_size and other configuration
-  bbox_detector: {batch_size: 2}
-  pose_bottomup: {batch_size: 2}
-  reid: {batch_size: 8}
-  track: {batch_size: 64}
-  jersey_number_detect: {batch_size: 2}
-
 # Flags
 test_tracking: True
 eval_tracking: True
@@ -76,14 +60,3 @@ state:
 visualization:
   cfg:
     save_videos: False  # Save a .mp4 video on disk with the game state reconstruction output (see 'tracklab/tracklab/configs/visualization' for more options)
-
-# configure Hydra to use the current working directory
-# and set up the output directory according to experiment_name
-project_dir: "${hydra:runtime.cwd}"
-hydra:
-  job:
-    chdir: True
-  run:
-    dir: "outputs/${experiment_name}/${now:%Y-%m-%d}/${now:%H-%M-%S}"
-  sweep:
-    dir: "multirun_outputs/${experiment_name}/${now:%Y-%m-%d}/${now:%H-%M-%S}"
