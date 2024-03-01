@@ -20,7 +20,7 @@ defaults:
   - override /modules/jersey_number_detect: mmocr
   - override /modules/team: kmeans_embeddings
   - override /modules/team_side: mean_position
-  - override /modules/tracklet_agg: voting_role_jn
+  - override /modules/tracklet_agg: voting_role
   - _self_
 
 # Pipeline definition :
@@ -30,6 +30,7 @@ defaults:
 pipeline:
   - reid
   - track
+  - tracklet_agg
   - team
   - team_side
 
