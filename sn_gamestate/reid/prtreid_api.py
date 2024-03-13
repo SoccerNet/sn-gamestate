@@ -39,6 +39,7 @@ class PRTReId(DetectionLevelModule):
     collate_fn = default_collate
     input_columns = ["bbox_ltwh"]
     output_columns = ["embeddings", "visibility_scores", "body_masks", "role_detection", "role_confidence"]
+    forget_columns = ["embeddings", "body_masks"]
     role_mapping = {'ball': 0, 'goalkeeper': 1, 'other': 2, 'player': 3, 'referee': 4, None: -1}
 
     def __init__(
