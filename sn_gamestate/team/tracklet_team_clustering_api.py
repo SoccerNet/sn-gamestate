@@ -30,18 +30,26 @@ class TrackletTeamClustering(VideoLevelModule):
         # Compute mean embeddings for each track_id
         embeddings_list = []
         for track_id, group in player_detections.groupby("track_id"):
-            if np.isnan(track_id): continue
+            if np.isnan(track_id):
+                continue
             embeddings = np.mean(np.vstack(group.embeddings.values), axis=0)
             embeddings_list.append({'track_id': track_id, 'embeddings': embeddings})
 
+        if not embeddings_list:  # Check if embeddings_list is empty
+            detections['team_cluster'] = np.nan  # Initialize 'team_cluster' with a default value
+            return detections
+
         embedding_tracklet = pd.DataFrame(embeddings_list)
 
-        # Perform KMeans clustering on the embeddings
-        embeddings = np.vstack(embedding_tracklet.embeddings.values)
-        kmeans = KMeans(n_clusters=2, random_state=0).fit(embeddings)
+        if len(embedding_tracklet) == 1:  # Only one track_id and embedding
+            embedding_tracklet['team_cluster'] = 0
+        else:
+            # Perform KMeans clustering on the embeddings
+            embeddings = np.vstack(embedding_tracklet.embeddings.values)
+            kmeans = KMeans(n_clusters=2, random_state=0).fit(embeddings)
+            embedding_tracklet['team_cluster'] = kmeans.labels_
 
         # Map the team cluster back to the original detections DataFrame
-        embedding_tracklet['team_cluster'] = kmeans.labels_
-        detections = detections.merge(embedding_tracklet[['track_id', 'team_cluster']], on='track_id', how='left')
+        detections = detections.merge(embedding_tracklet[['track_id', 'team_cluster']], on='track_id', how='left', sort=False)
 
         return detections
