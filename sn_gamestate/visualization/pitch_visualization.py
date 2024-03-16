@@ -7,6 +7,8 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
+from tqdm import tqdm
+
 from tracklab.datastruct import TrackerState
 from tracklab.callbacks import Callback
 from tracklab.utils.cv2 import (
@@ -30,7 +32,7 @@ from tracklab.utils.coordinates import (
 
 import logging
 
-from sn_gamestate.visualization.pitch import draw_pitch
+from sn_gamestate.visualization.pitch import draw_pitch, draw_radar_view_matplotlib
 from tracklab.utils.progress import progress
 
 log = logging.getLogger(__name__)
@@ -117,7 +119,7 @@ class PitchVisualizationEngine(Callback):
         self.video_name = video_metadata.name
 
     def on_video_loop_end(self, engine, video_metadata, video_idx, detections, image_pred):
-        if self.cfg.save_videos or self.cfg.save_images:
+        if self.cfg.save_videos or self.cfg.save_images or self.cfg.save_pitch:
             if (
                 self.processed_video_counter < self.cfg.process_n_videos
                 or self.cfg.process_n_videos == -1
@@ -153,6 +155,16 @@ class PitchVisualizationEngine(Callback):
             image_preds,
             nframes,
         ) for image_id in islice(image_metadatas.index, vis_frames)]
+        if self.cfg.save_pitch:
+            log.info(f"start drawing pitch pdf's")
+            for arg in tqdm(args):
+                file_name_pred = Path(arg[1].file_path).stem + "_pred.pdf"
+                file_name_gt = Path(arg[1].file_path).stem + "_gt.pdf"
+                filepath_pred = (self.save_dir / "pitch" / str(video_name) / file_name_pred)
+                filepath_gt = self.save_dir / "pitch" / str(video_name) / file_name_gt
+                filepath_pred.parent.mkdir(parents=True, exist_ok=True)
+                draw_radar_view_matplotlib(filepath_pred, arg[2])
+                draw_radar_view_matplotlib(filepath_gt, arg[3])
         if self.cfg.save_videos:
             image = cv2_load_image(image_metadatas.iloc[0].file_path)
             filepath = self.save_dir / "videos" / f"{video_name}.mp4"
@@ -194,7 +206,8 @@ class PitchVisualizationEngine(Callback):
             patch = cv2_load_image(image_metadata.file_path)
 
         # print count of frame
-        print_count_frame(patch, image_metadata.frame, nframes)
+        if self.cfg.get("print_count_frame", True):
+            print_count_frame(patch, image_metadata.frame, nframes)
 
         # draw ignore regions
         if self.cfg.ground_truth.draw_ignore_region:
@@ -203,14 +216,15 @@ class PitchVisualizationEngine(Callback):
         if "pitch" in self.cfg and self.cfg.pitch is not None:
             self.draw_pitch(patch, image_metadata, image_pred, image_gt, detections_pred, ground_truths, self.cfg.pitch)
 
-        # draw detections_pred
-        for _, detection_pred in detections_pred.iterrows():
-            self._draw_detection(patch, detection_pred, is_prediction=True)
-
         # draw ground truths
         if ground_truths is not None:
             for _, ground_truth in ground_truths.iterrows():
                 self._draw_detection(patch, ground_truth, is_prediction=False)
+
+        # draw detections_pred
+        for _, detection_pred in detections_pred.iterrows():
+            self._draw_detection(patch, detection_pred, is_prediction=True)
+
 
         # postprocess image
         patch = final_patch(patch)

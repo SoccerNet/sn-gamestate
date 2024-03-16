@@ -1,8 +1,13 @@
 import logging
+from collections import defaultdict
 
 import cv2
 import numpy as np
 from pathlib import Path
+
+import pandas as pd
+from matplotlib import pyplot as plt
+import matplotlib.patches as mpatches
 
 from sn_calibration_baseline.soccerpitch import SoccerPitch
 from tracklab.utils.cv2 import draw_text
@@ -17,6 +22,7 @@ def draw_pitch(patch, detections_pred, detections_gt,
                line_thickness=3,
                pitch_scale=3,
                pitch_image=None,
+               draw_topview=True,
                ):
 
     # Draw the lines on the image pitch
@@ -43,10 +49,11 @@ def draw_pitch(patch, detections_pred, detections_gt,
                     )
 
     # Draw the Top-view pitch
-    if detections_gt is not None and "bbox_pitch" in detections_gt:
-        draw_radar_view(patch, detections_gt, scale=pitch_scale, group="ground truth")
-    if detections_pred is not None and "bbox_pitch" in detections_pred:
-        draw_radar_view(patch, detections_pred, scale=pitch_scale, group="predictions")
+    if draw_topview:
+        if detections_gt is not None and "bbox_pitch" in detections_gt:
+            draw_radar_view(patch, detections_gt, scale=pitch_scale, group="ground truth")
+        if detections_pred is not None and "bbox_pitch" in detections_pred:
+            draw_radar_view(patch, detections_pred, scale=pitch_scale, group="predictions")
 
 
 def draw_radar_view(patch, detections, scale, delta=32, group="ground truth"):
@@ -135,3 +142,96 @@ def draw_radar_view(patch, detections, scale, delta=32, group="ground truth"):
                 color=color,
                 thickness=-1
             )
+
+
+def draw_radar_view_matplotlib(file_path, detections):
+    pitch_file = Path(__file__).parent / "Football_field.png"
+    scale = 1
+    delta = 32
+    pitch_width = 111  # 105 + 2 * 10
+    pitch_height = 74  # 68 + 2 * 5
+
+    radar_width = int(pitch_width)
+    radar_height = int(pitch_height)
+    radar_img = cv2.imread(str(pitch_file))
+    # radar_img = cv2.bitwise_not(radar_img)
+    radar_img[1][radar_img[1] == 255] = 0
+
+    fig, ax = plt.subplots(figsize=(10, 5), facecolor="#2b9e00")
+    ax.imshow(radar_img,
+              extent=(-radar_width / 2, radar_width / 2, radar_height / 2, -radar_height / 2),
+              interpolation="none", origin="lower")
+
+    bbox_name = "bbox_pitch"
+    x_middles = defaultdict(list)
+    y_middles = defaultdict(list)
+    color_dict = {"left": "#34409B", "right": "#ffffff", "referee": "yellow",
+                  "other": "red"}
+    all_xs = []
+    all_ys = []
+    all_notes = []
+    all_colors = []
+    notes = defaultdict(list)
+    teams = []
+    for name, detection in detections.iterrows():
+        if detection[bbox_name] is None:
+            continue
+        team = detection["team"]
+        role = detection["role"]
+        if role == "ball" or pd.isnull(role):
+            continue
+        if pd.isnull(detection[bbox_name]):
+            continue
+        x_middle = np.clip(detection[bbox_name]["x_bottom_middle"], -10000, 10000)
+        y_middle = -np.clip(detection[bbox_name]["y_bottom_middle"], -10000, 10000)
+        teams.append("<" if detection["team"] == "left" else ">")
+        if role == "player":
+            note = detection["jersey_number"]
+            if pd.isnull(note):
+                note = "?"  # team[:1].upper()
+        elif role == "goalkeeper":
+            note = "GK"
+        elif role == "referee":
+            note = "R"
+        else:
+            note = role[:2]
+
+        all_xs.append(x_middle)
+        all_ys.append(y_middle)
+        all_notes.append(note)
+
+        if team == "left" or team == "right":
+            x_middles[team].append(x_middle)
+            y_middles[team].append(y_middle)
+            notes[team].append(note)
+            color = color_dict[team]
+        elif role is not None:
+            x_middles[role].append(x_middle)
+            y_middles[role].append(y_middle)
+            notes[role].append(note)
+            color = color_dict[role]
+        else:
+            continue
+        all_colors.append(color)
+    for (name, xs), (_, ys), (_, tnotes) in zip(x_middles.items(), y_middles.items(),
+                                                notes.items()):
+        marker = {"left": "o", "right": "o", "referee": "s", "other": "X"}[name]
+        color = color_dict[name]
+        alpha = 1
+        for i, note in enumerate(tnotes):
+            ax.scatter(xs[i], ys[i], marker=marker, alpha=1, s=20, linewidths=0.3,
+                       facecolors=color, edgecolors='black')
+            ax.annotate(note, (xs[i], ys[i]), ha="center",  # va="center",
+                        alpha=alpha, xytext=(0, 4), fontsize=16, fontweight=500,
+                        color=color, annotation_clip=True, clip_on=True,
+                        textcoords='offset points')
+
+    ax.set_xlim(-radar_width / 2 - 3, radar_width / 2 + 3)
+    ax.set_ylim(-radar_height / 2 - 3, radar_height / 2 + 3)
+    handles = [mpatches.Patch(color=color, label=name) for name, color in
+               color_dict.items()]
+    plt.legend(handles=handles, ncols=4, fontsize="x-small", framealpha=0, borderpad=0,
+               labelcolor="white")
+    plt.axis('off')
+    fig.savefig(file_path, bbox_inches="tight")
+    plt.close(fig)
