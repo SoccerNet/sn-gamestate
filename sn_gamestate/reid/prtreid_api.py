@@ -39,6 +39,7 @@ class PRTReId(DetectionLevelModule):
     collate_fn = default_collate
     input_columns = ["bbox_ltwh"]
     output_columns = ["embeddings", "visibility_scores", "body_masks", "role_detection", "role_confidence"]
+    forget_columns = ["embeddings", "body_masks"]
     role_mapping = {'ball': 0, 'goalkeeper': 1, 'other': 2, 'player': 3, 'referee': 4, None: -1}
 
     def __init__(
@@ -115,21 +116,6 @@ class PRTReId(DetectionLevelModule):
         batch = {
             "img": crop,
         }
-        if not self.cfg.model.bpbreid.learnable_attention_enabled and "keypoints_xyc" in detection:
-            bbox_ltwh = detection.bbox.ltwh(
-                image_shape=(image.shape[1], image.shape[0]), rounded=True
-            )
-            kp_xyc_bbox = detection.keypoints.in_bbox_coord(bbox_ltwh)
-            kp_xyc_mask = rescale_keypoints(
-                kp_xyc_bbox, (bbox_ltwh[2], bbox_ltwh[3]), (mask_w, mask_h)
-            )
-            if self.dataset_cfg.masks_mode == "gaussian_keypoints":
-                pixels_parts_probabilities = build_gaussian_heatmaps(
-                    kp_xyc_mask, mask_w, mask_h
-                )
-            else:
-                raise NotImplementedError
-            batch["masks"] = pixels_parts_probabilities
 
         return batch
 
