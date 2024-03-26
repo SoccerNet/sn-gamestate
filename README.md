@@ -17,8 +17,9 @@ The official rules and guidelines are available in [ChallengeRules.md](Challenge
 ## 🚀 News
 
 > [!IMPORTANT]
-> We updated the annotations for the left/right team labels. Make sure you're on version
-> 1.1 of the dataset. In Labels-GameState.json: "info" > "version" == 1.1
+> We updated the annotations for the left/right team labels. Make sure you're at least on version
+> 1.1 of the dataset. In Labels-GameState.json: "info" > "version" >= 1.1
+> Current latest version : `1.2`
 
 This codebase is still under active development, please make sure to come back regularly to get recent updates!
 Feel free to open a GitHub issue or interact with us on our [official Discord channel](https://discord.com/invite/cPbqf2mAwF) if you encounter any issue: we will 
