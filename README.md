@@ -31,7 +31,8 @@ be happy to help with detailed instructions.
 - [x] Release of the sn-gamestate repository
 - [x] SoccerNet Game State Reconstruction dataset available for download
 - [x] Complete baseline build with TrackLab available for participants
-- [x] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation and further details provided about the new Game State Reconstruction evaluation metric
+- [x] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
+- [ ] Further details provided about the new Game State Reconstruction evaluation metric
 - [ ] Live tutorials on how to start with the challenge and the baseline
 
 #### Updates:
