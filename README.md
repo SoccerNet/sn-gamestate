@@ -10,7 +10,8 @@ all sports individuals (players, referees, ..) on the field based on a raw input
 
 Participate in our upcoming Challenges during the [CVPR 2024 International Challenge at the CVSports Workshop](https://vap.aau.dk/cvsports/)! 
 The participation deadline is fixed at the 30th of May 2024. 
-The official rules and guidelines are available in [ChallengeRules.md](ChallengeRules.md).
+The official rules and guidelines are available in [ChallengeRules.md](ChallengeRules.md). You can submit your predictions to the
+[EvalAI evaluation server](https://eval.ai/web/challenges/challenge-page/2251/overview).
 
 ![Gamestate example](images/soccernet_021_validation_game-state-reconstruction-ezgif.com-video-to-gif-converter.gif)
 
