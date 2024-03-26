@@ -11,7 +11,7 @@ We propose the SoccerNet challenges to encourage the development of state-of-the
    - team affiliation and team side (left, right)
    - jersey number recognition
 
-We provide an [evaluation server](https://eval.ai/web/challenges/challenge-page/2202/overview) for the Game State Reconstruction task. 
+We provide an [evaluation server](https://eval.ai/web/challenges/challenge-page/2251/overview) for the Game State Reconstruction task. 
 The evaluation server handles predictions for the open **test** sets and the segregated **challenge** sets of each challenge.
 
 Winners will be announced at CVSports Workshop at CVPR 2024.
