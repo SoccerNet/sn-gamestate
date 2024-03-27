@@ -36,6 +36,7 @@ be happy to help with detailed instructions.
 - [ ] Live tutorials on how to start with the challenge and the baseline
 
 #### Updates:
+- [2024.03.26] EvalAI servers open for evaluation
 - [2024.02.13] Complete baseline released
 - [2024.02.11] Dataset available for download
 - [2024.02.05] Public release
