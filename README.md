@@ -10,7 +10,7 @@ all sports individuals (players, referees, ..) on the field based on a raw input
 
 Participate in our upcoming Challenges during the [CVPR 2024 International Challenge at the CVSports Workshop](https://vap.aau.dk/cvsports/)! 
 The participation deadline is fixed at the 30th of May 2024. 
-The official rules and guidelines are available in [ChallengeRules.md](ChallengeRules.md). You can submit your predictions to the
+The official challenge rules and submission instructions are available in [ChallengeRules.md](ChallengeRules.md). You can submit your predictions to the
 [EvalAI evaluation server](https://eval.ai/web/challenges/challenge-page/2251/overview).
 
 ![Gamestate example](images/soccernet_021_validation_game-state-reconstruction-ezgif.com-video-to-gif-converter.gif)
@@ -24,6 +24,7 @@ The official rules and guidelines are available in [ChallengeRules.md](Challenge
 > Current latest version : `1.2`
 
 This codebase is still under active development, please make sure to come back regularly to get recent updates!
+Do not forget to update both the sn-gamestate and tracklab repositories to the latest commits.
 Feel free to open a GitHub issue or interact with us on our [official Discord channel](https://discord.com/invite/cPbqf2mAwF) if you encounter any issue: we will 
 be happy to help with detailed instructions.
 
@@ -32,11 +33,14 @@ be happy to help with detailed instructions.
 - [x] SoccerNet Game State Reconstruction dataset available for download
 - [x] Complete baseline build with TrackLab available for participants
 - [x] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
-- [ ] Further details provided about the new Game State Reconstruction evaluation metric
+- [x] Further details provided about the new Game State Reconstruction evaluation metric
 - [ ] Live tutorials on how to start with the challenge and the baseline
+- [ ] Release of the SoccerNet Game State Reconstruction paper with detailed information about the task, dataset, baseline and evaluation metric.
 
 #### Updates:
-- [2024.03.26] EvalAI servers open for evaluation
+- [2024.03.27] Release of submission instructions in [ChallengeRules.md](ChallengeRules.md). 
+- [2024.03.26] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
+- [2024.03.21] V1.2 of the dataset released, with fixed left/right team labels
 - [2024.02.13] Complete baseline released
 - [2024.02.11] Dataset available for download
 - [2024.02.05] Public release
@@ -60,6 +64,39 @@ Game State Reconstruction is a challenging task as it requires to solve several 
 
 For more information, please have a look at our [Youtube video](https://www.youtube.com/watch?v=UDeSdOR9Ing).
 
+### 🏟️ About GS-HOTA: the Evaluation Metric for Game State Reconstruction
+GS-HOTA is a novel evaluation metric to measure the ability of a GSR method to correctly track and identify all athletes on the sports pitch.
+GS-HOTA is an extension of the HOTA metric, a popular evaluation metric for multi-object tracking.
+To match ground truth and predicted bounding boxes in the image space, the standard HOTA metric uses an IoU-based similarity score.
+The key distinction setting GS-HOTA apart from HOTA is the use of a new similarity score, that accounts for the specificities of the GSR task, i.e. the additional target attributes (jersey number, role, team) and the detections provided as 2D points instead of bounding boxes.
+This new similarity score, denoted $Sim_{GS-HOTA}(P, G)$, is formulated as follows:
+```math
+Sim_{\text{GS-HOTA}}(P, G) = \text{LocSim}(P, G) \times \text{IdSim}(P, G)
+```
+
+```math
+\text{with LocSim}(P, G) = e^{\ln(0.05)\frac{\|P - G\|_2^2}{\tau^2}}
+```
+
+```math
+\text{and IdSim}(P, G) = 
+\begin{cases} 
+1 & \text{if all attributes match,} \\
+0 & \text{otherwise.}
+\end{cases}
+```
+
+$Sim_{\text{GS-HOTA}}$, is therefore a combination of two similarity metrics.
+The first metric, the localization similarity $\text{LocSim}(P, G)$, computes the Euclidean distance $\|P - G\|_2$ between prediction P and ground truth G in the pitch coordinate system. 
+This distance is subsequently processed using a Gaussian kernel with a special distance tolerance parameter $\tau$ set to 5 meters, resulting in a final score falling within the $[0, 1]$ range.
+The second metric, the identification similarity $\text{IdSim}(P, G)$, is set to one only if all attributes match, i.e. role, team, and jersey numbers.
+Attributes not provided in G are ignored, e.g. jersey numbers for referees.
+GSR method must therefore output a 'null' team and jersey number attributes for non-player roles, as well as a 'null' jersey number when it is not visible in the video.
+Finally, once P and G are matched, DetA and AssA are computed and integrated into a final GS-HOTA score, following the original formulation of the HOTA metric.
+The GS-HOTA imposes therefore a very strict constraint on the predicted detections, since failing to correctly predict all attributes for a detection turns it into a False Positive.
+We justify this strict constraint based on the severe impact that assigning localization data to an incorrect or nonexistent identity can have on downstream applications.
+We refer readers to the official paper for detailed description and discussion about the GS-HOTA.
+
 ### 🏟️ About the Game State Reconstruction Baseline
 For the purpose of this challenge, we use the [TrackLab framework](https://github.com/TrackingLaboratory/tracklab), an open-source modular tracking framework.
 The [TrackLab repository](https://github.com/TrackingLaboratory/tracklab) contains all generic code related to multi-object tracking (object detection, re-identification, tracking algorithms, etc), whereas the [sn-gamestate repository](https://github.com/SoccerNet/sn-gamestate) contains the additional code specific to the SoccerNet Game State Reconstruction task (jersey number recognition, team affiliation, etc).
@@ -69,7 +106,7 @@ This enables participants to focus on one or more specific subtask of the challe
 We strongly encourage participants to analyse some videos to build a better intuition on which part of the pipeline should be improved.
 We will provide more technical details about all components of the baseline in the near future.
 
-![Tracklab diagram](images/tracklab_diag.jpg)
+![Tracklab diagram](images/gsr_baseline_diagram.png)
 
 ## Quick Installation Guide
 This guide will tell you how to install the framework, download the dataset and all models weights, and run the baseline on a single video from the validation set.

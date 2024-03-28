@@ -17,6 +17,20 @@ The evaluation server handles predictions for the open **test** sets and the seg
 Winners will be announced at CVSports Workshop at CVPR 2024.
 This challenge will be sponsored by Sportradar, with a prize money of 1000$!
 
+## Evaluation metric
+   The evaluation metric for the Game State Reconstruction task is the **GS-HOTA** metric, a modified version of the standard HOTA metric.
+   A detailed description of this metric can be found in the main [README](sn-gamestate/README.md) and in the official paper.
+
+## Submission format
+   When running the baseline with the evaluation enabled, a submission .zip file will be automatically generated in the output folder, e.g. 'output_folder/2024-03-14/09-51-08/eval/pred/SoccerNetGS-challenge.zip'. 
+   The submission file is a zipped folder containing a json file for each video in the evaluated (test/challenge) set.
+   Each json file should be named after the corresponding video, e.g. 'SNGS-175.json', 'SNGS-013.json', etc.
+   The prediction json format is very similar to the ground truth json format, with the following differences:
+   - The json contains a dictionary with a single 'predictions' key, which contains a list of dictionaries, one for each predicted detection.
+   - Each detection contains the following fields: "category_id", "image_id", "track_id", "supercategory", "confidence", "attributes" (with "role", "jersey", "team"), and "bbox_pitch" (with "x_bottom_middle" and "y_bottom_middle", i.e. the 2 position in meters on the pich).
+   The "supercategory" of each detection must be set to "object" and "category_id" to 1.0.
+   Other categories are reserved for predictions related to camera calibration and pitch localization, but ignored in the evaluation procedure.
+   We provide an example submission file for the test set [here](examples_predictions/gamestate-bpbreid-strongsort-test.zip).
 
 ## Who can participate / How to participate?
 
@@ -41,8 +55,8 @@ This challenge will be sponsored by Sportradar, with a prize money of 1000$!
 
 Note that these dates are tentative and subject to changes if necessary.
 
- - **February 5:** Open evaluation server on the (Open) Test set.
- - **February 5:** Open evaluation server on the (Seggregated) Challenge set.
+ - **March 26:** Open evaluation server on the (Open) Test set.
+ - **???:** Open evaluation server on the (Seggregated) Challenge set.
  - **May 30:** Close evaluation server.
  - **June 6:** Deadline for submitting the report.
  - **June TBD:** A full-day workshop at CVPR 2024.
