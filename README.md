@@ -64,7 +64,7 @@ Game State Reconstruction is a challenging task as it requires to solve several 
 
 For more information, please have a look at our [Youtube video](https://www.youtube.com/watch?v=UDeSdOR9Ing).
 
-### 🏟️ About GS-HOTA: the Evaluation Metric for Game State Reconstruction
+### 🎯 About GS-HOTA: the Evaluation Metric for Game State Reconstruction
 GS-HOTA is a novel evaluation metric to measure the ability of a GSR method to correctly track and identify all athletes on the sports pitch.
 GS-HOTA is an extension of the HOTA metric, a popular evaluation metric for multi-object tracking.
 To match ground truth and predicted bounding boxes in the image space, the standard HOTA metric uses an IoU-based similarity score.
