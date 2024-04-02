@@ -13,7 +13,7 @@ defaults:
   - visualization: gamestate  # Save tracking results as a .mp4 video in the run directory specified below (sn-gamestate/outputs/...)
   - modules/bbox_detector: yolov8
   - modules/reid: prtreid
-  - modules/track: oc_sort
+  - modules/track: bpbreid_strong_sort
   - modules/jersey_number_detect: mmocr
   - modules/team: kmeans_embeddings
   - modules/team_side: mean_position
