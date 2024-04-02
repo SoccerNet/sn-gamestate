@@ -34,7 +34,7 @@ be happy to help with detailed instructions.
 - [x] Complete baseline build with TrackLab available for participants
 - [x] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
 - [x] Further details provided about the new Game State Reconstruction evaluation metric
-- [ ] Live tutorials on how to start with the challenge and the baseline
+- [ ] Live tutorials on how to start with the challenge and the baseline : April 10th, 2024, from 3pm to 5pm CEST (UTC+2), zoom link coming soon !
 - [ ] Release of the SoccerNet Game State Reconstruction paper with detailed information about the task, dataset, baseline and evaluation metric.
 
 #### Updates:
