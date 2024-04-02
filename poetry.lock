@@ -4823,7 +4823,7 @@ labels = ["detectron2 @ git+https://github.com/facebookresearch/detectron2.git",
 type = "git"
 url = "https://github.com/VlSomers/bpbreid"
 reference = "HEAD"
-resolved_reference = "5204cae319923bf76d25a6e585d55ad207f93e35"
+resolved_reference = "106ef5452e0737e0ec00b600c3b9e6127ce16eb6"
 
 [[package]]
 name = "torchvision"
