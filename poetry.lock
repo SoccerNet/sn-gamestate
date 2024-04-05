@@ -4938,6 +4938,7 @@ myst-parser = "^2.0"
 numpy = "^1.23.5"
 openmim = "^0.3.9"
 openpifpaf = "^0.13.11"
+pandas = "^2.1.0"
 posetrack21 = {path = "plugins/eval/PoseTrack21/posetrack21", develop = true}
 posetrack21_mot = {path = "plugins/eval/PoseTrack21/posetrack21_mot", develop = true}
 poseval = {git = "https://github.com/PbTrack/poseval", branch = "pbtrack"}
