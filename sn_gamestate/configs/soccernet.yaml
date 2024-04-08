@@ -56,6 +56,8 @@ modules: # Allows module-specific batch_size and other configuration
   pose_bottomup: {batch_size: 8}
   reid: {batch_size: 64}
   track: {batch_size: 64}
+  pitch: {batch_size: 2}
+  calibration: {batch_size: 256}
   jersey_number_detect: {batch_size: 8}
 
 # Flags
