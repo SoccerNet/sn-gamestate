@@ -30,7 +30,7 @@ This challenge will be sponsored by Sportradar, with a prize money of 1000$!
    - Each detection contains the following fields: "category_id", "image_id", "track_id", "supercategory", "confidence", "attributes" (with "role", "jersey", "team"), and "bbox_pitch" (with "x_bottom_middle" and "y_bottom_middle", i.e. the 2 position in meters on the pich).
    The "supercategory" of each detection must be set to "object" and "category_id" to 1.0.
    Other categories are reserved for predictions related to camera calibration and pitch localization, but ignored in the evaluation procedure.
-   We provide an example submission file for the test set [here](examples_predictions/gamestate-bpbreid-strongsort-test.zip).
+   We provide an example submission file for the test set [here](examples_predictions/SoccerNetGS-test.zip).
 
 ## Who can participate / How to participate?
 
