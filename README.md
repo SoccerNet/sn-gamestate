@@ -3,6 +3,8 @@
 Welcome to the SoccerNet Development Kit for the Game State task and Challenge.
 This kit is meant as a help to get started working with the data and the proposed task.
 
+The SoccerNet Game State Dev kit is built on top of [TrackLab](https://github.com/TrackingLaboratory/tracklab), a research framework for multi-object tracking.
+
 The SoccerNet Game State Recognition task is a novel high level computer vision task that is specific to sports analytics.
 It aims at recognizing the state of a sport game, i.e., identifying and localizing
 all sports individuals (players, referees, ..) on the field based on a raw input videos. More information about the task and the dataset can be found on our [official website](https://www.soccer-net.org/tasks/new-game-state-reconstruction).
@@ -34,7 +36,7 @@ be happy to help with detailed instructions.
 - [x] Complete baseline build with TrackLab available for participants
 - [x] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
 - [x] Further details provided about the new Game State Reconstruction evaluation metric
-- [ ] Live tutorials on how to start with the challenge and the baseline
+- [ ] Live tutorials on how to start with the challenge and the baseline : April 10th, 2024, from 3pm to 5pm CEST (UTC+2), zoom link coming soon !
 - [ ] Release of the SoccerNet Game State Reconstruction paper with detailed information about the task, dataset, baseline and evaluation metric.
 
 #### Updates:
