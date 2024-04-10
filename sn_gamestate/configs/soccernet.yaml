@@ -87,6 +87,7 @@ visualization:
 # and set up the output directory according to experiment_name
 project_dir: "${hydra:runtime.cwd}"
 hydra:
+  output_subdir: "configs"
   job:
     chdir: True
   run:
