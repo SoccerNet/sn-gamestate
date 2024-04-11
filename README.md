@@ -36,7 +36,7 @@ be happy to help with detailed instructions.
 - [x] Complete baseline build with TrackLab available for participants
 - [x] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
 - [x] Further details provided about the new Game State Reconstruction evaluation metric
-- [ ] Live tutorials on how to start with the challenge and the baseline : April 10th, 2024, from 3pm to 5pm CEST (UTC+2), zoom link coming soon !
+- [x] [Live tutorials on how to start with the challenge and the baseline](https://www.youtube.com/watch?v=Ir-6D3j_lkA&t=1553s)
 - [ ] Release of the SoccerNet Game State Reconstruction paper with detailed information about the task, dataset, baseline and evaluation metric.
 
 #### Updates:
@@ -64,7 +64,7 @@ Game State Reconstruction is a challenging task as it requires to solve several 
 3. Jersey number recognition 
 4. Team affiliation
 
-For more information, please have a look at our [Youtube video](https://www.youtube.com/watch?v=UDeSdOR9Ing).
+For more information, please have a look at our [introductory Youtube video](https://www.youtube.com/watch?v=UDeSdOR9Ing) and [more exhaustive tutorial](https://www.youtube.com/watch?v=Ir-6D3j_lkA&t=1553s).
 
 ### 🎯 About GS-HOTA: the Evaluation Metric for Game State Reconstruction
 GS-HOTA is a novel evaluation metric to measure the ability of a GSR method to correctly track and identify all athletes on the sports pitch.
