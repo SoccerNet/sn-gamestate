@@ -1603,9 +1603,12 @@ python-versions = "*"
 files = []
 develop = false
 
+[package.extras]
+alldeps = ["numpy (>=1.10.1)"]
+
 [package.source]
 type = "git"
-url = "https://github.com/PbTrack/lap"
+url = "https://github.com/TrackingLaboratory/lap"
 reference = "HEAD"
 resolved_reference = "b02b664623fdfef5fd822b8ee0d1b2491ab945ed"
 
@@ -2945,7 +2948,7 @@ dev = ["pylint", "pytest"]
 
 [package.source]
 type = "git"
-url = "https://github.com/PbTrack/poseval"
+url = "https://github.com/TrackingLaboratory/poseval"
 reference = "pbtrack"
 resolved_reference = "0df5b1d1653e9f4dfb64f3a8a5f36375792e5d21"
 
@@ -4930,7 +4933,7 @@ chumpy = "0.66"
 filterpy = "^1.4.5"
 gdown = "^4.7.1"
 hydra-core = "^1.3"
-lap = {git = "https://github.com/PbTrack/lap"}
+lap = {git = "https://github.com/TrackingLaboratory/lap"}
 lightning = "^2.0"
 mmdet = "~3.1.0"
 mmengine = "^0.10.1"
@@ -4942,7 +4945,7 @@ openpifpaf = "^0.13.11"
 pandas = "^2.1.0"
 posetrack21 = {path = "plugins/eval/PoseTrack21/posetrack21", develop = true}
 posetrack21_mot = {path = "plugins/eval/PoseTrack21/posetrack21_mot", develop = true}
-poseval = {git = "https://github.com/PbTrack/poseval", branch = "pbtrack"}
+poseval = {git = "https://github.com/TrackingLaboratory/poseval", branch = "pbtrack"}
 pytorch_lightning = "^2.0"
 soccernet = "^0.1.53"
 sphinx = "^7.2"
