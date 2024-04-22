@@ -40,8 +40,6 @@ This challenge will be sponsored by Sportradar, with a prize money of 1000$!
  - An individual/team can compete on both tasks.
  - An individual associated with multiple teams (for a given task) or a team with multiple accounts will be disqualified.
  - On both tasks, a participant can only use the video stream as input (visual and/or audio).
- - To help the participants, we provide pre-extracted ResNet-152 visual features at 2fps.
- - A participant is allowed to extract its own visual/audio features with any pre-trained model.
 
 ## How to win / What is the prize?
 
