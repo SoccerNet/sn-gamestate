@@ -270,3 +270,48 @@ We will try to gather interesting questions and answer them in the [FAQ](FAQ.md)
  - Re-Identification : PRTReid [[Paper](https://arxiv.org/abs/2401.09942)] [[Code](https://github.com/VlSomers/Prtreid)] | BPBreID [[Paper](https://arxiv.org/abs/2211.03679)][[Code](https://github.com/VlSomers/bpbreid)]
  - Camera calibration & field localisation : TVCalib [[Paper](https://arxiv.org/abs/2207.11709)] [[Code](https://github.com/MM4SPA/tvcalib/tree/main)]
  - Jersey number recognition : MMOCR [[Paper](https://arxiv.org/abs/2108.06543)] [[Code](https://github.com/open-mmlab/mmocr)]
+
+## Citation
+If you use this repository for your research or wish to refer to our contributions, please use the following BibTeX entries:
+
+[SoccerNet Game State Reconstruction](https://arxiv.org/abs/2404.11335):
+```
+@inproceedings{Somers2024SoccerNetGameState,
+        title = {{SoccerNet} Game State Reconstruction: End-to-End Athlete Tracking and Identification on a Minimap},
+        author = {Somers, Vladimir and Joos, Victor and Giancola, Silvio and Cioppa, Anthony and Ghasemzadeh, Seyed Abolfazl and Magera, Floriane and Standaert, Baptiste and Mansourian, Amir Mohammad and Zhou, Xin and Kasaei, Shohreh and Ghanem, Bernard and Alahi, Alexandre and Van Droogenbroeck, Marc and De Vleeschouwer, Christophe},
+        booktitle = cvsports,
+        month = Jun,
+        year = {2024},
+        address = city-seattle,
+        keywords = {}
+}
+```
+
+[TrackLab](https://github.com/TrackingLaboratory/tracklab):
+```
+@misc{Joos2024Tracklab,
+	title = {{TrackLab}},
+	author = {Joos, Victor and Somers, Vladimir and Standaert, Baptiste},
+	journal = {GitHub repository},
+	year = {2024},
+	howpublished = {\url{https://github.com/TrackingLaboratory/tracklab}}
+}
+```
+
+[PRTReid](https://arxiv.org/html/2401.09942v1):
+```
+@inproceedings{Mansourian2023Multitask,
+	title = {Multi-task Learning for Joint Re-identification, Team Affiliation, and Role Classification for Sports Visual Tracking},
+	author = {Mansourian, Amir M. and Somers, Vladimir and De Vleeschouwer, Christophe and Kasaei, Shohreh},
+	booktitle = mmsports,
+	shortjournalproceedings = {Proc. 6th Int. Work. Multimedia Content Anal. Sports},
+	pages = {103–112},
+	month = Oct,
+	year = {2023},
+	publisher = {ACM},
+	address = city-ottawa,
+	keywords = {SoccerNet, Bottom-up, ARTHuS, Team affiliation, Role classification},
+	doi = {10.1145/3606038.3616172},
+	url = {https://doi.org/10.1145/3606038.3616172}
+}
+```
