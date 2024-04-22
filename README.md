@@ -283,7 +283,6 @@ If you use this repository for your research or wish to refer to our contributio
         month = Jun,
         year = {2024},
         address = city-seattle,
-        keywords = {}
 }
 ```
 
@@ -310,7 +309,6 @@ If you use this repository for your research or wish to refer to our contributio
 	year = {2023},
 	publisher = {ACM},
 	address = city-ottawa,
-	keywords = {SoccerNet, Bottom-up, ARTHuS, Team affiliation, Role classification},
 	doi = {10.1145/3606038.3616172},
 	url = {https://doi.org/10.1145/3606038.3616172}
 }
