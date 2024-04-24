@@ -107,7 +107,7 @@ The diagram below represents the complete pipeline of the baseline.
 TrackLab make it easy to add/customize/replace modules in the pipeline. 
 This enables participants to focus on one or more specific subtask of the challenge, without worrying about other tasks.
 We strongly encourage participants to analyse some videos to build a better intuition on which part of the pipeline should be improved.
-We will provide more technical details about all components of the baseline in the near future.
+We provide more technical details about all components of the baseline in the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335).
 
 ![Tracklab diagram](images/gsr_baseline_diagram.png)
 
