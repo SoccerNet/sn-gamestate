@@ -109,7 +109,7 @@ This enables participants to focus on one or more specific subtask of the challe
 We strongly encourage participants to analyse some videos to build a better intuition on which part of the pipeline should be improved.
 We provide more technical details about all components of the baseline in the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335).
 
-![Tracklab diagram](images/gsr_baseline_diagram.png)
+![Tracklab diagram](images/gsr_baseline_architecture.jpg)
 
 ## Quick Installation Guide
 This guide will tell you how to install the framework, download the dataset and all models weights, and run the baseline on a single video from the validation set.
