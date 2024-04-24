@@ -1,4 +1,5 @@
-# SoccerNet Game State Challenge
+# SoccerNet Game State Reconstruction
+## End-to-End Athlete Tracking and Identification on a Minimap
 
 Welcome to the SoccerNet Development Kit for the Game State task and Challenge.
 This kit is meant as a help to get started working with the data and the proposed task.
