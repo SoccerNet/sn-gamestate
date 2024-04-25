@@ -269,6 +269,12 @@ The entry point group should be `tracklab_plugin` and it should point to a class
 as shown [here](sn_gamestate/config_finder.py), this variable should point to the location of your configuration folder.
 Temporarily, you can also specify a directory using Hydra's `--config-dir`.
 
+### Downloading the baseline's Tracker States
+The Tracker State is where Tracklab saves all tracking predictions, i.e., all detections and their information, such as bounding box, reid embeddings, jersey number, track ids, etc.
+A Tracker State can be saved to disk and loaded back to save computation time on the next run.
+Please have a look at the [Tracklab Tutorial on using Tracker States](https://github.com/TrackingLaboratory/tracklab?tab=readme-ov-file#dump-and-load-the-tracker-state-to-save-computation-time) for more information.
+We provide the Tracker State of the baseline for the [validation set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-valid-compressed.pklz?download=1) and the [test set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-test-compressed.pklz?download=1) on [Zenodo](https://zenodo.org/records/11065177).
+
 ## Troubleshooting
 If you encounter issues after upgrading to the latest version, do not forget to run `poetry install`  or `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
 Feel free to open a GitHub issue or contact us on Discord if you need further assistance.
