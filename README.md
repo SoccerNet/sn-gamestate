@@ -52,6 +52,7 @@ be happy to help with detailed instructions.
 - [x] Release of the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335) with detailed information about the task, dataset, baseline and evaluation metric.
 
 #### Updates:
+- [2024.04.25] Release of the baseline validation and test tracker states : https://zenodo.org/records/11065177
 - [2024.03.27] Release of submission instructions in [ChallengeRules.md](ChallengeRules.md). 
 - [2024.03.26] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
 - [2024.03.21] V1.2 of the dataset released, with fixed left/right team labels
