@@ -1,11 +1,23 @@
-# SoccerNet Game State Challenge
+# SoccerNet Game State Reconstruction
+## End-to-End Athlete Tracking and Identification on a Minimap
+
+[[Paper](https://arxiv.org/abs/2404.11335)] [[Video](https://www.youtube.com/watch?v=UDeSdOR9Ing)]
+
+[![arXiv](https://img.shields.io/badge/arXiv-2404.11335-<COLOR>.svg)](https://arxiv.org/abs/2404.11335) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soccernet-game-state-reconstruction-end-to/game-state-reconstruction-on-soccernet-gsr)](https://paperswithcode.com/sota/game-state-reconstruction-on-soccernet-gsr?p=soccernet-game-state-reconstruction-end-to)
+
+>**[SoccerNet Game State Reconstruction: End-to-End Athlete Tracking and Identification on a Minimap, CVPRW'24](https://arxiv.org/abs/2211.03679)**
+>
+>Vladimir Somers, Victor Joos, Anthony Cioppa, Silvio Giancola, Seyed Abolfazl Ghasemzadeh, Floriane Magera, Baptiste Standaert, Amir Mohammad Mansourian, Xin Zhou, Shohreh Kasaei, Bernard Ghanem, Alexandre Alahi, Marc Van Droogenbroeck, Christophe De Vleeschouwer
+>
+>[*arxiv 2404.11335*](https://arxiv.org/abs/2404.11335)
+>
 
 Welcome to the SoccerNet Development Kit for the Game State task and Challenge.
 This kit is meant as a help to get started working with the data and the proposed task.
 
 The SoccerNet Game State Dev kit is built on top of [TrackLab](https://github.com/TrackingLaboratory/tracklab), a research framework for multi-object tracking.
 
-The SoccerNet Game State Recognition task is a novel high level computer vision task that is specific to sports analytics.
+The SoccerNet Game State Reconstruction task is a novel high level computer vision task that is specific to sports analytics.
 It aims at recognizing the state of a sport game, i.e., identifying and localizing
 all sports individuals (players, referees, ..) on the field based on a raw input videos. More information about the task and the dataset can be found on our [official website](https://www.soccer-net.org/tasks/new-game-state-reconstruction).
 
@@ -37,7 +49,7 @@ be happy to help with detailed instructions.
 - [x] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
 - [x] Further details provided about the new Game State Reconstruction evaluation metric
 - [x] [Live tutorials on how to start with the challenge and the baseline](https://www.youtube.com/watch?v=Ir-6D3j_lkA&t=1553s)
-- [ ] Release of the SoccerNet Game State Reconstruction paper with detailed information about the task, dataset, baseline and evaluation metric.
+- [x] Release of the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335) with detailed information about the task, dataset, baseline and evaluation metric.
 
 #### Updates:
 - [2024.03.27] Release of submission instructions in [ChallengeRules.md](ChallengeRules.md). 
@@ -106,9 +118,9 @@ The diagram below represents the complete pipeline of the baseline.
 TrackLab make it easy to add/customize/replace modules in the pipeline. 
 This enables participants to focus on one or more specific subtask of the challenge, without worrying about other tasks.
 We strongly encourage participants to analyse some videos to build a better intuition on which part of the pipeline should be improved.
-We will provide more technical details about all components of the baseline in the near future.
+We provide more technical details about all components of the baseline in the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335).
 
-![Tracklab diagram](images/gsr_baseline_diagram.png)
+![Tracklab diagram](images/gsr_baseline_architecture.jpg)
 
 ## Quick Installation Guide
 This guide will tell you how to install the framework, download the dataset and all models weights, and run the baseline on a single video from the validation set.
@@ -269,3 +281,46 @@ We will try to gather interesting questions and answer them in the [FAQ](FAQ.md)
  - Re-Identification : PRTReid [[Paper](https://arxiv.org/abs/2401.09942)] [[Code](https://github.com/VlSomers/Prtreid)] | BPBreID [[Paper](https://arxiv.org/abs/2211.03679)][[Code](https://github.com/VlSomers/bpbreid)]
  - Camera calibration & field localisation : TVCalib [[Paper](https://arxiv.org/abs/2207.11709)] [[Code](https://github.com/MM4SPA/tvcalib/tree/main)]
  - Jersey number recognition : MMOCR [[Paper](https://arxiv.org/abs/2108.06543)] [[Code](https://github.com/open-mmlab/mmocr)]
+
+## Citation
+If you use this repository for your research or wish to refer to our contributions, please use the following BibTeX entries:
+
+[SoccerNet Game State Reconstruction](https://arxiv.org/abs/2404.11335):
+```
+@inproceedings{Somers2024SoccerNetGameState,
+        title = {{SoccerNet} Game State Reconstruction: End-to-End Athlete Tracking and Identification on a Minimap},
+        author = {Somers, Vladimir and Joos, Victor and Giancola, Silvio and Cioppa, Anthony and Ghasemzadeh, Seyed Abolfazl and Magera, Floriane and Standaert, Baptiste and Mansourian, Amir Mohammad and Zhou, Xin and Kasaei, Shohreh and Ghanem, Bernard and Alahi, Alexandre and Van Droogenbroeck, Marc and De Vleeschouwer, Christophe},
+        booktitle = cvsports,
+        month = Jun,
+        year = {2024},
+        address = city-seattle,
+}
+```
+
+[TrackLab](https://github.com/TrackingLaboratory/tracklab):
+```
+@misc{Joos2024Tracklab,
+	title = {{TrackLab}},
+	author = {Joos, Victor and Somers, Vladimir and Standaert, Baptiste},
+	journal = {GitHub repository},
+	year = {2024},
+	howpublished = {\url{https://github.com/TrackingLaboratory/tracklab}}
+}
+```
+
+[PRTReid](https://arxiv.org/html/2401.09942v1):
+```
+@inproceedings{Mansourian2023Multitask,
+	title = {Multi-task Learning for Joint Re-identification, Team Affiliation, and Role Classification for Sports Visual Tracking},
+	author = {Mansourian, Amir M. and Somers, Vladimir and De Vleeschouwer, Christophe and Kasaei, Shohreh},
+	booktitle = mmsports,
+	shortjournalproceedings = {Proc. 6th Int. Work. Multimedia Content Anal. Sports},
+	pages = {103–112},
+	month = Oct,
+	year = {2023},
+	publisher = {ACM},
+	address = city-ottawa,
+	doi = {10.1145/3606038.3616172},
+	url = {https://doi.org/10.1145/3606038.3616172}
+}
+```
