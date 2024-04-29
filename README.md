@@ -5,7 +5,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.11335-<COLOR>.svg)](https://arxiv.org/abs/2404.11335) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soccernet-game-state-reconstruction-end-to/game-state-reconstruction-on-soccernet-gsr)](https://paperswithcode.com/sota/game-state-reconstruction-on-soccernet-gsr?p=soccernet-game-state-reconstruction-end-to)
 
->**[SoccerNet Game State Reconstruction: End-to-End Athlete Tracking and Identification on a Minimap, CVPRW'24](https://arxiv.org/abs/2211.03679)**
+>**[SoccerNet Game State Reconstruction: End-to-End Athlete Tracking and Identification on a Minimap, CVPRW'24](https://arxiv.org/abs/2404.11335)**
 >
 >Vladimir Somers, Victor Joos, Anthony Cioppa, Silvio Giancola, Seyed Abolfazl Ghasemzadeh, Floriane Magera, Baptiste Standaert, Amir Mohammad Mansourian, Xin Zhou, Shohreh Kasaei, Bernard Ghanem, Alexandre Alahi, Marc Van Droogenbroeck, Christophe De Vleeschouwer
 >
