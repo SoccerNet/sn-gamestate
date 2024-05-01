@@ -1,7 +1,7 @@
 # SoccerNet Game State Reconstruction
 ## End-to-End Athlete Tracking and Identification on a Minimap
 
-[[Paper](https://arxiv.org/abs/2404.11335)] [[Video](https://www.youtube.com/watch?v=UDeSdOR9Ing)]
+[[Paper](https://arxiv.org/abs/2404.11335)] [[Video](https://www.youtube.com/watch?v=UDeSdOR9Ing)] [[Demo](https://www.youtube.com/watch?v=0JRB7hjyOOk)]
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.11335-<COLOR>.svg)](https://arxiv.org/abs/2404.11335) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soccernet-game-state-reconstruction-end-to/game-state-reconstruction-on-soccernet-gsr)](https://paperswithcode.com/sota/game-state-reconstruction-on-soccernet-gsr?p=soccernet-game-state-reconstruction-end-to)
 
