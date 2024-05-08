@@ -1,7 +1,7 @@
 # SoccerNet Game State Reconstruction
 ## End-to-End Athlete Tracking and Identification on a Minimap
 
-[[Paper](https://arxiv.org/abs/2404.11335)] [[Video](https://www.youtube.com/watch?v=UDeSdOR9Ing)] [[Demo](https://www.youtube.com/watch?v=0JRB7hjyOOk)] [[Tutorial](https://www.youtube.com/watch?v=Ir-6D3j_lkA)]
+[[Paper](https://arxiv.org/abs/2404.11335)] [[Video](https://www.youtube.com/watch?v=UDeSdOR9Ing)] [[Demo](https://www.youtube.com/watch?v=0JRB7hjyOOk)] [[Tutorial](https://www.youtube.com/watch?v=Ir-6D3j_lkA)] [[Website](https://www.soccer-net.org/tasks/new-game-state-reconstruction).]
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.11335-<COLOR>.svg)](https://arxiv.org/abs/2404.11335) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soccernet-game-state-reconstruction-end-to/game-state-reconstruction-on-soccernet-gsr)](https://paperswithcode.com/sota/game-state-reconstruction-on-soccernet-gsr?p=soccernet-game-state-reconstruction-end-to)
 
@@ -17,10 +17,12 @@ This kit is meant as a help to get started working with the data and the propose
 
 The SoccerNet Game State Dev kit is built on top of [TrackLab](https://github.com/TrackingLaboratory/tracklab), a research framework for multi-object tracking.
 
-The SoccerNet Game State Reconstruction task is a novel high level computer vision task that is specific to sports analytics.
-It aims at recognizing the state of a sport game, i.e., identifying and localizing
-all sports individuals (players, referees, ..) on the field based on a raw input videos. More information about the task and the dataset can be found on our [official website](https://www.soccer-net.org/tasks/new-game-state-reconstruction).
+⚽ 𝐖𝐡𝐚𝐭 𝐢𝐬 𝐒𝐨𝐜𝐜𝐞𝐫𝐍𝐞𝐭 𝐆𝐒𝐑?
+SoccerNet Game State Reconstruction (GSR) is a novel computer vision task involving the 𝐭𝐫𝐚𝐜𝐤𝐢𝐧𝐠 and 𝐢𝐝𝐞𝐧𝐭𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧 of players from a single moving camera to construct a video game-like 𝐦𝐢𝐧𝐢𝐦𝐚𝐩, without any specific hardware worn by the players.
+👉 While this task holds immense value for the sports industry, there has been no appropriate open-source benchmark for method comparison until now!
 
+🔎 𝐖𝐨𝐫𝐤 𝐇𝐢𝐠𝐡𝐥𝐢𝐠𝐡𝐭𝐬:
+We introduce a new benchmark for Game State Reconstruction, including a new 𝐝𝐚𝐭𝐚𝐬𝐞𝐭 with 200 annotated clips and a new 𝐞𝐯𝐚𝐥𝐮𝐚𝐭𝐢𝐨𝐧 𝐦𝐞𝐭𝐫𝐢𝐜. Additionally, we release this 𝐜𝐨𝐝𝐞𝐛𝐚𝐬𝐞 which leverages various state-of-the-art deep learning methods to support further research on the task.
 
 Participate in our upcoming Challenges during the [CVPR 2024 International Challenge at the CVSports Workshop](https://vap.aau.dk/cvsports/)! 
 The participation deadline is fixed at the 30th of May 2024. 
