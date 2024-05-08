@@ -52,6 +52,7 @@ be happy to help with detailed instructions.
 - [x] Release of the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335) with detailed information about the task, dataset, baseline and evaluation metric.
 
 #### Updates:
+- [2024.05.08] Release of the baseline challenge tracker state : https://zenodo.org/records/11143697
 - [2024.04.25] Release of the baseline validation and test tracker states : https://zenodo.org/records/11065177
 - [2024.03.27] Release of submission instructions in [ChallengeRules.md](ChallengeRules.md). 
 - [2024.03.26] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
@@ -273,7 +274,8 @@ Temporarily, you can also specify a directory using Hydra's `--config-dir`.
 The Tracker State is where Tracklab saves all tracking predictions, i.e., all detections and their information, such as bounding box, reid embeddings, jersey number, track ids, etc.
 A Tracker State can be saved to disk and loaded back to save computation time on the next run.
 Please have a look at the [Tracklab Tutorial on using Tracker States](https://github.com/TrackingLaboratory/tracklab?tab=readme-ov-file#dump-and-load-the-tracker-state-to-save-computation-time) for more information.
-We provide the Tracker State of the baseline for the [validation set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-valid-compressed.pklz?download=1) and the [test set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-test-compressed.pklz?download=1) on [Zenodo](https://zenodo.org/records/11065177).
+We provide the Tracker State of the baseline for the [validation set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-valid-compressed.pklz?download=1), the [test set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-test-compressed.pklz?download=1), and the 
+[challenge set](https://zenodo.org/records/11143697/files/gamestate-prtreid-strongsort-challenge-compressed.pklz?download=1) on [Zenodo](https://zenodo.org/records/11065177).
 
 ## Troubleshooting
 If you encounter issues after upgrading to the latest version, do not forget to run `poetry install`  or `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
