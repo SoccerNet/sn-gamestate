@@ -34,10 +34,11 @@ The official challenge rules and submission instructions are available in [Chall
 ## 🚀 News
 
 > [!IMPORTANT]
-> We updated the annotations for the left/right team labels. Make sure you're at least on version
-> 1.1 of the dataset. In Labels-GameState.json: "info" > "version" >= 1.1
->
-> Current latest version : `1.2`
+> We updated the bbox-pitch annotations to improve temporal consistency.
+> Make sure you're at least on version 1.3 of the dataset.
+> In Labels-GameState.json: "info" > "version" >= 1.3
+> 
+> Current latest version : `1.3`
 
 This codebase is still under active development, please make sure to come back regularly to get recent updates!
 Do not forget to update both the sn-gamestate and tracklab repositories to the latest commits.
@@ -54,6 +55,7 @@ be happy to help with detailed instructions.
 - [x] Release of the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335) with detailed information about the task, dataset, baseline and evaluation metric.
 
 #### Updates:
+- [2024.05.13] V1.3 of the dataset released with updated bbox-pitch annotations.
 - [2024.05.08] Release of the baseline challenge tracker state : https://zenodo.org/records/11143697
 - [2024.04.25] Release of the baseline validation and test tracker states : https://zenodo.org/records/11065177
 - [2024.03.27] Release of submission instructions in [ChallengeRules.md](ChallengeRules.md). 
@@ -223,6 +225,22 @@ unzip gamestate-2024/test.zip -d test
 unzip gamestate-2024/challenge.zip -d challenge
 cd ../..
 ```
+
+#### Updating the dataset
+> [!IMPORTANT] 
+> The current dataset version is **v1.3**. Please check inside 
+> one of the "Labels-GameState.json" that this is indeed
+> the version you're currently using.
+
+You can update the dataset either manually using the SoccerNet pip package as described above or
+by (re)moving the dataset directory and using TrackLab's automatic download.
+
+| Version | Changelog                                                       |
+|---------|-----------------------------------------------------------------|
+| 1.3     | Temporal consistency improvement of bbox pitch athlete location |
+| 1.2     | Data cleanup                                                    |
+| 1.1     | Team left/right annotation corrections                          |
+| 1.0     | Original release                                                |
 
 ### 3. Running the baseline on a single video
 #### Setup
