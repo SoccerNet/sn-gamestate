@@ -29,7 +29,7 @@ The participation deadline is fixed at the 30th of May 2024.
 The official challenge rules and submission instructions are available in [ChallengeRules.md](ChallengeRules.md). You can submit your predictions to the
 [EvalAI evaluation server](https://eval.ai/web/challenges/challenge-page/2251/overview).
 
-![Gamestate example](images/soccernet_021_validation_game-state-reconstruction-ezgif.com-video-to-gif-converter.gif)
+![Gamestate example](images/soccerner_gsr_gif-3.gif)
 
 ## 🚀 News
 
