@@ -566,7 +566,7 @@ class PitchVisualizationEngine(Callback):
 def create_draw_args(image_id, instance, image_metadatas, detections, tracker_state,
                      image_gts, image_preds, nframes):
     image_metadata = image_metadatas.loc[image_id]
-    image_gt = image_gts.loc[image_id]
+    image_gt = image_gts.loc[image_id] if len(image_gts) > 0 else None
     image_pred = image_preds.loc[image_id]
     detections_pred = detections[
         detections.image_id == image_metadata.name
