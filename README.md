@@ -76,7 +76,7 @@ The high level information to be extracted includes the following:
   - Their jersey number
   - Their team affiliation (i.e. left or right w.r.t. the camera viewpoint)
 
-This high level information can be nicely displayed as a 2D minimap, or radar view, as shown in the GIF above.
+This high level information can be nicely displayed as a 2D minimap, radar view, or bird's-eye view (BEV) as shown in the GIF above.
 Game State Reconstruction is a challenging task as it requires to solve several subtasks such as:
 1. Pitch localization and camera calibration 
 2. Person detection, re-identification and tracking 
