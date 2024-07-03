@@ -18,6 +18,9 @@ prtreid = {git = "https://github.com/VlSomers/prtreid"}
 mmocr = "^1.0.1"
 mmpose = "^1.2.0"
 
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.4"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
