@@ -493,29 +493,31 @@ class PitchVisualizationEngine(Callback):
                     alpha_bg=0.5,
                     alignV="b",
                 )
-            # display jersey number
-            if (
-                    is_prediction
-                    and self.cfg.prediction.display_jersey_number
-                    and hasattr(detection, "jersey_number")
-                    and detection.role == "player"
-            ):
-                jn = str(int(detection.jersey_number)) if not pd.isna(detection.jersey_number) else "?"
-                l, t, r, b = detection.bbox.ltrb(
-                    image_shape=(patch.shape[1], patch.shape[0]), rounded=True
-                )
-                text_size += draw_text(
-                    patch,
-                    f"JN: {jn}",
-                    (int(l), int(b) - 10 - text_size[1]),
-                    fontFace=self.cfg.text.font,
-                    fontScale=self.cfg.text.scale,
-                    thickness=self.cfg.text.thickness,
-                    color_txt=(0, 0, 0),
-                    color_bg=(255, 255, 255),
-                    alpha_bg=0.5,
-                    alignV="b",
-                )
+
+        # display jersey number
+        if (
+                is_prediction
+                and self.cfg.prediction.display_jersey_number
+                and hasattr(detection, "jersey_number")
+                and detection.role == "player"
+        ):
+            jn = str(int(detection.jersey_number)) if not pd.isna(detection.jersey_number) else "?"
+            l, t, r, b = detection.bbox.ltrb(
+                image_shape=(patch.shape[1], patch.shape[0]), rounded=True
+            )
+            text_size += draw_text(
+                patch,
+                f"JN: {jn}",
+                (int(l), int(b) - 10 - text_size[1]),
+                fontFace=self.cfg.text.font,
+                fontScale=self.cfg.text.scale,
+                thickness=self.cfg.text.thickness,
+                color_txt=(0, 0, 0),
+                color_bg=(255, 255, 255),
+                alpha_bg=0.5,
+                alignV="b",
+            )
+            
     def draw_pitch(self, patch, image_metadata, image_pred, image_gt, detections_pred, ground_truths, pitch_cfg):
         draw_pitch(
             patch,
