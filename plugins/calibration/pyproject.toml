@@ -6,6 +6,7 @@ authors = ["Victor Joos <victor.joos@uclouvain.be>"]
 packages = [
     {include = "sn_calibration_baseline"},
     {include = "tvcalib"},
+    {include = "nbjw_calib"}
 ]
 
 [tool.poetry.dependencies]
