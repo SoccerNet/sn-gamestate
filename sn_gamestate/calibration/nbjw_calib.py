@@ -25,6 +25,46 @@ from plugins.calibration.nbjw_calib.utils.utils_heatmap import (get_keypoints_fr
 from plugins.calibration.nbjw_calib.utils.utils_calib import FramebyFrameCalib
 
 
+def kp_to_line(keypoints):
+    line_keypoints_match = {"Big rect. left bottom": [24, 68, 25],
+                            "Big rect. left main": [5, 64, 31, 46, 34, 66, 25],
+                            "Big rect. left top": [4, 62, 5],
+                            "Big rect. right bottom": [26, 69, 27],
+                            "Big rect. right main": [6, 65, 33, 56, 36, 67, 26],
+                            "Big rect. right top": [6, 63, 7],
+                            "Circle central": [32, 48, 38, 50, 42, 53, 35, 54, 43, 52, 39, 49],
+                            "Circle left": [31,37, 47, 41, 34],
+                            "Circle right": [33, 40, 55, 44, 36],
+                            "Goal left crossbar": [16, 12],
+                            "Goal left post left": [16, 17],
+                            "Goal left post right": [12, 13],
+                            "Goal right crossbar": [15, 19],
+                            "Goal right post left": [15, 14],
+                            "Goal right post right": [19, 18],
+                            "Middle line": [2, 32, 51, 35, 29],
+                            "Side line bottom": [28, 70, 71, 29, 72, 73, 30],
+                            "Side line left": [1, 4, 8, 13,17, 20, 24, 28],
+                            "Side line right": [3, 7, 11, 14, 18, 23, 27, 30],
+                            "Side line top": [1, 58, 59, 2, 60, 61, 3],
+                            "Small rect. left bottom": [20, 21],
+                            "Small rect. left main": [9, 21],
+                            "Small rect. left top": [8, 9],
+                            "Small rect. right bottom": [22, 23],
+                            "Small rect. right main": [10, 22],
+                            "Small rect. right top": [10, 11]}
+
+    lines = {}
+    for line_name, kp_indices in line_keypoints_match.items():
+        line = []
+        for idx in kp_indices:
+            if idx in keypoints.keys():
+                line.append({'x': keypoints[idx]['x'], 'y': keypoints[idx]['y']})
+
+        if line:
+            lines[line_name] = line
+
+    return lines
+
 class NBJW_Calib_Keypoints(ImageLevelModule):
 
     input_columns = {
@@ -32,7 +72,7 @@ class NBJW_Calib_Keypoints(ImageLevelModule):
         "detection": [],
     }
     output_columns = {
-        "image": ["keypoints"],
+        "image": ["keypoints", "lines"],
         "detection": []
     }
 
@@ -91,10 +131,8 @@ class NBJW_Calib_Keypoints(ImageLevelModule):
 
         output_pred = []
         for result, idx in zip(final_dict, metadatas.index):
-            output_pred.append(pd.Series(
-                {"keypoints": result},
-                name=idx,
-            ))
+            output_pred.append(pd.Series({"keypoints": result, "lines": kp_to_line(result)}, name=idx,))
+
 
         return pd.DataFrame(),  pd.DataFrame(output_pred)
 
