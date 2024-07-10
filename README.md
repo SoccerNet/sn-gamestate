@@ -55,6 +55,8 @@ be happy to help with detailed instructions.
 - [x] Release of the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335) with detailed information about the task, dataset, baseline and evaluation metric.
 
 #### Updates:
+- [2024.07.10] Addition of ["No Bells, Just Whistles"](https://github.com/mguti97/No-Bells-Just-Whistles) calibration.
+To test, use "nbjw_calib" instead of "tvcalib" in `soccernet.yaml`, for `pitch` and `calibration`.
 - [2024.05.13] V1.3 of the dataset released with updated bbox-pitch annotations.
 - [2024.05.08] Release of the baseline challenge tracker state : https://zenodo.org/records/11143697
 - [2024.04.25] Release of the baseline validation and test tracker states : https://zenodo.org/records/11065177
