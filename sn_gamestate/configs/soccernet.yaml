@@ -43,8 +43,8 @@ experiment_name: "sn-gamestate"
 
 # Path definitions
 home_dir: "${oc.env:HOME}"
-data_dir: "/home/mgutierrez/Desktop/repos/SoccerNet-GS/sn-gamestate/data"
-model_dir: "/home/mgutierrez/Desktop/repos/SoccerNet-GS/sn-gamestate/pretrained_models"
+data_dir: "${project_dir}/data"
+model_dir: "${project_dir}/pretrained_models"
 
 # Machine configuration
 num_cores: 4
@@ -55,10 +55,10 @@ modules: # Allows module-specific batch_size and other configuration
   bbox_detector: {batch_size: 8}
   pose_bottomup: {batch_size: 8}
   reid: {batch_size: 64}
-  track: {batch_size: 1}
+  track: {batch_size: 64}
   pitch: {batch_size: 1}
   calibration: {batch_size: 1}
-  jersey_number_detect: {batch_size: 4}
+  jersey_number_detect: {batch_size: 8}
 
 # Flags
 test_tracking: True
@@ -68,17 +68,16 @@ print_config: False
 # Dataset
 dataset:
   nvid: 1  # For a quick first inference, only the first video is processed. Use "-1" to process all the videos.
-  #nframes: -1
-  eval_set: "test"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "valid", "test", "challenge"}.
+#  nframes: -1 # For testing on only a few frames, set to a positive number. Will disable evaluation !
+  eval_set: "valid"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "valid", "test", "challenge"}.
   dataset_path: ${data_dir}/SoccerNetGS  # The SoccerNet game state dataset is located under the data path (defined above) in the 'SoccerNetGS' folder
   vids_dict: # Use one key per split (valid, test, etc)
-    test: ["SNGS-119"]  # Specify explicitly which video to apply tracking on, e.g. ['SNGS-04', 'SNGS-51'] . Ignored when left empty.
+    valid: []  # Specify explicitly which video to apply tracking on, e.g. ['SNGS-04', 'SNGS-51'] . Ignored when left empty.
 
 # Tracker state (save computation time by dumping tracking results on disk for later re-use)
 state:
   save_file: "states/${experiment_name}.pklz"  # 'null' to disable saving. This is the save path for the tracker_state object that contains all modules outputs (bboxes, reid embeddings, jersey numbers, roles, teams, etc)
   load_file: null  # 'null' to disable loading. Load a file that was saved with the 'state.save_file' option above. Don't forget to remove from the pipeline all modules that should not be run again, but loaded from the saved tracker state.
-    #load_file: "/home/mgutierrez/Desktop/repos/SoccerNet-GS/sn-gamestate/outputs/sn-gamestate/2024-07-02/12-52-34/states/sn-gamestate.pklz"
 
 # Visualization
 visualization:
