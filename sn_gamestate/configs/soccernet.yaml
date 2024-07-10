@@ -18,8 +18,8 @@ defaults:
   - modules/team: kmeans_embeddings
   - modules/team_side: mean_position
   - modules/tracklet_agg: voting_role_jn
-  - modules/pitch : nbjw_calib
-  - modules/calibration: nbjw_calib
+  - modules/pitch : tvcalib
+  - modules/calibration: tvcalib
   - _self_
 
 # Pipeline definition :
