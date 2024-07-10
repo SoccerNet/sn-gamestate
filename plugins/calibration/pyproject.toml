@@ -12,6 +12,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.9"
 kornia = "0.6.3"
+lsq-ellipse = ">=2.2.1"
 
 
 [build-system]
