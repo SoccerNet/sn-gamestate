@@ -16,13 +16,12 @@ from tracklab.pipeline import ImageLevelModule
 from tracklab.utils.download import download_file
 from tracklab.pipeline.videolevel_module import VideoLevelModule
 
-sys.path.append("../../")
-from plugins.calibration.nbjw_calib.model.cls_hrnet import get_cls_net
-from plugins.calibration.nbjw_calib.model.cls_hrnet_l import get_cls_net as get_cls_net_l
-from plugins.calibration.nbjw_calib.utils.utils_heatmap import (get_keypoints_from_heatmap_batch_maxpool, \
+from nbjw_calib.model.cls_hrnet import get_cls_net
+from nbjw_calib.model.cls_hrnet_l import get_cls_net as get_cls_net_l
+from nbjw_calib.utils.utils_heatmap import (get_keypoints_from_heatmap_batch_maxpool, \
                                             get_keypoints_from_heatmap_batch_maxpool_l, complete_keypoints, \
                                             coords_to_dict)
-from plugins.calibration.nbjw_calib.utils.utils_calib import FramebyFrameCalib
+from nbjw_calib.utils.utils_calib import FramebyFrameCalib
 
 
 def kp_to_line(keypoints):
