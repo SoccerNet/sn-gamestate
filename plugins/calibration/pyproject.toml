@@ -6,11 +6,13 @@ authors = ["Victor Joos <victor.joos@uclouvain.be>"]
 packages = [
     {include = "sn_calibration_baseline"},
     {include = "tvcalib"},
+    {include = "nbjw_calib"}
 ]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 kornia = "0.6.3"
+lsq-ellipse = ">=2.2.1"
 
 
 [build-system]

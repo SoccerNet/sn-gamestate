@@ -1,7 +1,7 @@
 # SoccerNet Game State Reconstruction
 ## End-to-End Athlete Tracking and Identification on a Minimap
 
-[[Paper](https://arxiv.org/abs/2404.11335)] [[Video](https://www.youtube.com/watch?v=UDeSdOR9Ing)] [[Demo](https://www.youtube.com/watch?v=0JRB7hjyOOk)] [[Tutorial](https://www.youtube.com/watch?v=Ir-6D3j_lkA)] [[Website](https://www.soccer-net.org/tasks/new-game-state-reconstruction)] [[TrackLab](https://github.com/TrackingLaboratory/tracklab)]
+[[Paper](https://arxiv.org/abs/2404.11335)] [[Video](https://www.youtube.com/watch?v=UDeSdOR9Ing)] [[Demo](https://www.youtube.com/watch?v=0JRB7hjyOOk)] [[Tutorial](https://www.youtube.com/watch?v=Ir-6D3j_lkA)] [[Website](https://www.soccer-net.org/tasks/new-game-state-reconstruction)] [[TrackLab](https://github.com/TrackingLaboratory/tracklab)] [[EvalAI](https://eval.ai/web/challenges/challenge-page/2251/overview)]
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.11335-<COLOR>.svg)](https://arxiv.org/abs/2404.11335) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soccernet-game-state-reconstruction-end-to/game-state-reconstruction-on-soccernet-gsr)](https://paperswithcode.com/sota/game-state-reconstruction-on-soccernet-gsr?p=soccernet-game-state-reconstruction-end-to)
 
@@ -29,7 +29,7 @@ The participation deadline is fixed at the 30th of May 2024.
 The official challenge rules and submission instructions are available in [ChallengeRules.md](ChallengeRules.md). You can submit your predictions to the
 [EvalAI evaluation server](https://eval.ai/web/challenges/challenge-page/2251/overview).
 
-![Gamestate example](images/soccernet_021_validation_game-state-reconstruction-ezgif.com-video-to-gif-converter.gif)
+![Gamestate example](images/soccerner_gsr_gif-3.gif)
 
 ## 🚀 News
 
@@ -53,6 +53,7 @@ be happy to help with detailed instructions.
 - [x] Further details provided about the new Game State Reconstruction evaluation metric
 - [x] [Live tutorials on how to start with the challenge and the baseline](https://www.youtube.com/watch?v=Ir-6D3j_lkA&t=1553s)
 - [x] Release of the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335) with detailed information about the task, dataset, baseline and evaluation metric.
+- [ ] Release of new visualization tool (cf. demo video and gif)
 
 #### Updates:
 - [2024.07.10] Addition of ["No Bells, Just Whistles"](https://github.com/mguti97/No-Bells-Just-Whistles) calibration.
@@ -77,7 +78,7 @@ The high level information to be extracted includes the following:
   - Their jersey number
   - Their team affiliation (i.e. left or right w.r.t. the camera viewpoint)
 
-This high level information can be nicely displayed as a 2D minimap, or radar view, as shown in the GIF above.
+This high level information can be nicely displayed as a 2D minimap, radar view, or bird's-eye view (BEV) as shown in the GIF above.
 Game State Reconstruction is a challenging task as it requires to solve several subtasks such as:
 1. Pitch localization and camera calibration 
 2. Person detection, re-identification and tracking 

@@ -56,8 +56,8 @@ modules: # Allows module-specific batch_size and other configuration
   pose_bottomup: {batch_size: 8}
   reid: {batch_size: 64}
   track: {batch_size: 64}
-  pitch: {batch_size: 2}
-  calibration: {batch_size: 256}
+  pitch: {batch_size: 1}
+  calibration: {batch_size: 1}
   jersey_number_detect: {batch_size: 8}
 
 # Flags
@@ -68,6 +68,7 @@ print_config: False
 # Dataset
 dataset:
   nvid: 1  # For a quick first inference, only the first video is processed. Use "-1" to process all the videos.
+#  nframes: -1 # For testing on only a few frames, set to a positive number. Will disable evaluation !
   eval_set: "valid"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "valid", "test", "challenge"}.
   dataset_path: ${data_dir}/SoccerNetGS  # The SoccerNet game state dataset is located under the data path (defined above) in the 'SoccerNetGS' folder
   vids_dict: # Use one key per split (valid, test, etc)
