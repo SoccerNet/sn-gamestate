@@ -12,7 +12,7 @@ from typing import List, Optional, Tuple, Union
 from scipy import ndimage
 from torch import Tensor
 
-from sn_calibration.src.evaluate_extremities import mirror_labels
+from sn_calibration_baseline.evaluate_extremities import mirror_labels
 
 
 

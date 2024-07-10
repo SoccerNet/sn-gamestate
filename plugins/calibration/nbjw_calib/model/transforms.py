@@ -6,7 +6,7 @@ import numpy as np
 import torch.nn.functional as F
 import torchvision.transforms.functional as f
 import torchvision.transforms as T
-import torchvision.transforms.v2 as v2
+import torchvision.transforms.v2 as v2  # FIXME : update torchvision
 
 from torchvision.transforms.functional import _interpolation_modes_from_int, InterpolationMode
 from torchvision import transforms as _transforms
@@ -14,7 +14,7 @@ from typing import List, Optional, Tuple, Union
 from scipy import ndimage
 from torch import Tensor
 
-from sn_calibration.src.evaluate_extremities import mirror_labels
+from sn_calibration_baseline.evaluate_extremities import mirror_labels
 
 
 

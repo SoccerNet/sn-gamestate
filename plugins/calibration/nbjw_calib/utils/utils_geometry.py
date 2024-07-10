@@ -1,5 +1,11 @@
+import warnings
+
 import numpy as np
-import sympy as sp
+try:
+    import sympy as sp
+except ImportError:
+    warnings.warn("Sympy is not installed, and might need to be installed.")
+    sp = None
 
 from scipy.stats import linregress
 from ellipse import LsqEllipse
