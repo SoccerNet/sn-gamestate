@@ -49,6 +49,7 @@ def draw_pitch(patch, detections_pred, detections_gt,
         draw_radar_view(patch, detections_pred, scale=pitch_scale, group="predictions")
 
 
+
 def draw_radar_view(patch, detections, scale, delta=32, group="ground truth"):
     pitch_width = 105 + 2 * 10  # pitch size + 2 * margin
     pitch_height = 68 + 2 * 5  # pitch size + 2 * margin
