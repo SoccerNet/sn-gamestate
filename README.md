@@ -1,3 +1,6 @@
+<div align="center">
+
+
 # SoccerNet Game State Reconstruction
 ## End-to-End Athlete Tracking and Identification on a Minimap
 
@@ -5,12 +8,18 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.11335-<COLOR>.svg)](https://arxiv.org/abs/2404.11335) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soccernet-game-state-reconstruction-end-to/game-state-reconstruction-on-soccernet-gsr)](https://paperswithcode.com/sota/game-state-reconstruction-on-soccernet-gsr?p=soccernet-game-state-reconstruction-end-to)
 
+</div>
+
 >**[SoccerNet Game State Reconstruction: End-to-End Athlete Tracking and Identification on a Minimap, CVPRW'24](https://arxiv.org/abs/2404.11335)**
 >
 >Vladimir Somers, Victor Joos, Anthony Cioppa, Silvio Giancola, Seyed Abolfazl Ghasemzadeh, Floriane Magera, Baptiste Standaert, Amir Mohammad Mansourian, Xin Zhou, Shohreh Kasaei, Bernard Ghanem, Alexandre Alahi, Marc Van Droogenbroeck, Christophe De Vleeschouwer
 >
 >[*arxiv 2404.11335*](https://arxiv.org/abs/2404.11335)
 >
+
+
+![Gamestate example](images/soccerner_gsr_gif-3.gif)
+
 
 Welcome to the SoccerNet Development Kit for the Game State task and Challenge.
 This kit is meant as a help to get started working with the data and the proposed task.
@@ -29,7 +38,6 @@ The participation deadline is fixed at the 30th of May 2024.
 The official challenge rules and submission instructions are available in [ChallengeRules.md](ChallengeRules.md). You can submit your predictions to the
 [EvalAI evaluation server](https://eval.ai/web/challenges/challenge-page/2251/overview).
 
-![Gamestate example](images/soccerner_gsr_gif-3.gif)
 
 ## 🚀 News
 
