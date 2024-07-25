@@ -323,6 +323,7 @@ If you use this repository for your research or wish to refer to our contributio
         title = {{SoccerNet} Game State Reconstruction: End-to-End Athlete Tracking and Identification on a Minimap},
         author = {Somers, Vladimir and Joos, Victor and Giancola, Silvio and Cioppa, Anthony and Ghasemzadeh, Seyed Abolfazl and Magera, Floriane and Standaert, Baptiste and Mansourian, Amir Mohammad and Zhou, Xin and Kasaei, Shohreh and Ghanem, Bernard and Alahi, Alexandre and Van Droogenbroeck, Marc and De Vleeschouwer, Christophe},
         booktitle = cvsports,
+	shortjournalproceedings = {2024 IEEE/CVF Conf. Comput. Vis. Pattern Recognit. Work. (CVPRW)},
         month = Jun,
         year = {2024},
         address = city-seattle,
