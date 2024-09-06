@@ -308,6 +308,10 @@ Please have a look at the [Tracklab Tutorial on using Tracker States](https://gi
 We provide the Tracker State of the baseline for the [validation set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-valid-compressed.pklz?download=1), the [test set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-test-compressed.pklz?download=1), and the 
 [challenge set](https://zenodo.org/records/11143697/files/gamestate-prtreid-strongsort-challenge-compressed.pklz?download=1) on [Zenodo](https://zenodo.org/records/11065177).
 
+### Evaluation
+We employ a [SoccerNet fork](https://github.com/SoccerNet/sn-trackeval) of the [official TrackEval](https://github.com/JonathonLuiten/TrackEval) library to evaluate the GS-HOTA performance.
+Evaluation is performed automatically when using our TrackLab library, but you can still perform evaluation within your own codebase using our [TrackEval fork](https://github.com/SoccerNet/sn-trackeval) (more information in the fork README).
+
 ## Troubleshooting
 If you encounter issues after upgrading to the latest version, do not forget to run `poetry install`  or `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
 Feel free to open a GitHub issue or contact us on Discord if you need further assistance.
