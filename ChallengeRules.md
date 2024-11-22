@@ -39,7 +39,7 @@ This challenge will be sponsored by Sportradar, with a prize money of 1000$!
  - Each team can have one or more members. 
  - An individual/team can compete on both tasks.
  - An individual associated with multiple teams (for a given task) or a team with multiple accounts will be disqualified.
- - On both tasks, a participant can only use the video stream as input (visual and/or audio).
+ - A participant can only use the video stream as input (visual and/or audio).
  - The use of private datasets is *not* allowed. Teams using any kind of custom datasets, including additionnal annotations will be disqualified.
 
 ## How to win / What is the prize?
