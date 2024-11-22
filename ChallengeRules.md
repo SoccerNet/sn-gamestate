@@ -53,11 +53,10 @@ This challenge will be sponsored by Sportradar, with a prize money of 1000$!
 ## Important dates
 
 Note that these dates are tentative and subject to changes if necessary.
-
- - **March 26:** Open evaluation server on the (Open) Test set.
- - **March 26:** Open evaluation server on the (Seggregated) Challenge set.
- - **May 30:** Close evaluation server.
- - **June 6:** Deadline for submitting the report.
- - **June TBD:** A full-day workshop at CVPR 2024.
+- November 29: Open evaluation server on the test set.
+- November 29: Open evaluation server on the challenge set.
+- April 24: Close evaluation server.
+- May 1: Report submission deadline.
+- TBD: CVSports Workshop at CVPR 2025 (awards ceremony).
 
 For any further doubt or concern, please raise an issue in that repository, or contact us directly on [Discord](https://discord.gg/SM8uHj9mkP).
