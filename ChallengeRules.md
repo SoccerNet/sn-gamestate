@@ -1,6 +1,5 @@
 # Guidelines for the Game State Reconstruction Challenge
 
-The [Game State Reconstruction]() will be held at the official [CVSports Workshop](https://vap.aau.dk/cvsports/) at CVPR 2024! 
 Subscribe (watch) the repo to receive the latest info regarding timeline and prizes!
 
 We propose the SoccerNet challenges to encourage the development of state-of-the-art algorithm for Soccer Video Understanding.
