@@ -1,6 +1,5 @@
 # Guidelines for the Game State Reconstruction Challenge
 
-The [Game State Reconstruction]() will be held at the official [CVSports Workshop](https://vap.aau.dk/cvsports/) at CVPR 2024! 
 Subscribe (watch) the repo to receive the latest info regarding timeline and prizes!
 
 We propose the SoccerNet challenges to encourage the development of state-of-the-art algorithm for Soccer Video Understanding.
@@ -39,7 +38,8 @@ This challenge will be sponsored by Sportradar, with a prize money of 1000$!
  - Each team can have one or more members. 
  - An individual/team can compete on both tasks.
  - An individual associated with multiple teams (for a given task) or a team with multiple accounts will be disqualified.
- - On both tasks, a participant can only use the video stream as input (visual and/or audio).
+ - A participant can only use the video stream as input (visual and/or audio).
+ - The use of private datasets is *not* allowed. Teams using any kind of custom datasets, including additionnal annotations will be disqualified.
 
 ## How to win / What is the prize?
 
@@ -52,11 +52,10 @@ This challenge will be sponsored by Sportradar, with a prize money of 1000$!
 ## Important dates
 
 Note that these dates are tentative and subject to changes if necessary.
-
- - **March 26:** Open evaluation server on the (Open) Test set.
- - **March 26:** Open evaluation server on the (Seggregated) Challenge set.
- - **May 30:** Close evaluation server.
- - **June 6:** Deadline for submitting the report.
- - **June TBD:** A full-day workshop at CVPR 2024.
+- November 29: Open evaluation server on the test set.
+- November 29: Open evaluation server on the challenge set.
+- April 24: Close evaluation server.
+- May 1: Report submission deadline.
+- TBD: CVSports Workshop at CVPR 2025 (awards ceremony).
 
 For any further doubt or concern, please raise an issue in that repository, or contact us directly on [Discord](https://discord.gg/SM8uHj9mkP).

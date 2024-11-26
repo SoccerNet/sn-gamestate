@@ -1,3 +1,6 @@
+<div align="center">
+
+
 # SoccerNet Game State Reconstruction
 ## End-to-End Athlete Tracking and Identification on a Minimap
 
@@ -5,12 +8,18 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.11335-<COLOR>.svg)](https://arxiv.org/abs/2404.11335) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soccernet-game-state-reconstruction-end-to/game-state-reconstruction-on-soccernet-gsr)](https://paperswithcode.com/sota/game-state-reconstruction-on-soccernet-gsr?p=soccernet-game-state-reconstruction-end-to)
 
+</div>
+
 >**[SoccerNet Game State Reconstruction: End-to-End Athlete Tracking and Identification on a Minimap, CVPRW'24](https://arxiv.org/abs/2404.11335)**
 >
 >Vladimir Somers, Victor Joos, Anthony Cioppa, Silvio Giancola, Seyed Abolfazl Ghasemzadeh, Floriane Magera, Baptiste Standaert, Amir Mohammad Mansourian, Xin Zhou, Shohreh Kasaei, Bernard Ghanem, Alexandre Alahi, Marc Van Droogenbroeck, Christophe De Vleeschouwer
 >
 >[*arxiv 2404.11335*](https://arxiv.org/abs/2404.11335)
 >
+
+
+![Gamestate example](images/soccerner_gsr_gif-3.gif)
+
 
 Welcome to the SoccerNet Development Kit for the Game State task and Challenge.
 This kit is meant as a help to get started working with the data and the proposed task.
@@ -29,7 +38,6 @@ The participation deadline is fixed at the 30th of May 2024.
 The official challenge rules and submission instructions are available in [ChallengeRules.md](ChallengeRules.md). You can submit your predictions to the
 [EvalAI evaluation server](https://eval.ai/web/challenges/challenge-page/2251/overview).
 
-![Gamestate example](images/soccerner_gsr_gif-3.gif)
 
 ## 🚀 News
 
@@ -56,6 +64,8 @@ be happy to help with detailed instructions.
 - [ ] Release of new visualization tool (cf. demo video and gif)
 
 #### Updates:
+- [2024.07.10] Addition of ["No Bells, Just Whistles"](https://github.com/mguti97/No-Bells-Just-Whistles) calibration.
+To test, use "nbjw_calib" instead of "tvcalib" in `soccernet.yaml`, for `pitch` and `calibration`.
 - [2024.05.13] V1.3 of the dataset released with updated bbox-pitch annotations.
 - [2024.05.08] Release of the baseline challenge tracker state : https://zenodo.org/records/11143697
 - [2024.04.25] Release of the baseline validation and test tracker states : https://zenodo.org/records/11065177
@@ -298,6 +308,10 @@ Please have a look at the [Tracklab Tutorial on using Tracker States](https://gi
 We provide the Tracker State of the baseline for the [validation set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-valid-compressed.pklz?download=1), the [test set](https://zenodo.org/records/11065177/files/gamestate-prtreid-strongsort-test-compressed.pklz?download=1), and the 
 [challenge set](https://zenodo.org/records/11143697/files/gamestate-prtreid-strongsort-challenge-compressed.pklz?download=1) on [Zenodo](https://zenodo.org/records/11065177).
 
+### Evaluation
+We employ a [SoccerNet fork](https://github.com/SoccerNet/sn-trackeval) of the [official TrackEval](https://github.com/JonathonLuiten/TrackEval) library to evaluate the GS-HOTA performance.
+Evaluation is performed automatically when using our TrackLab library, but you can still perform evaluation within your own codebase using our [TrackEval fork](https://github.com/SoccerNet/sn-trackeval) (more information in the fork README).
+
 ## Troubleshooting
 If you encounter issues after upgrading to the latest version, do not forget to run `poetry install`  or `pip install -e .` and `pip install -e ../tracklab` to keep your environment up to date.
 Feel free to open a GitHub issue or contact us on Discord if you need further assistance.
@@ -321,6 +335,7 @@ If you use this repository for your research or wish to refer to our contributio
         title = {{SoccerNet} Game State Reconstruction: End-to-End Athlete Tracking and Identification on a Minimap},
         author = {Somers, Vladimir and Joos, Victor and Giancola, Silvio and Cioppa, Anthony and Ghasemzadeh, Seyed Abolfazl and Magera, Floriane and Standaert, Baptiste and Mansourian, Amir Mohammad and Zhou, Xin and Kasaei, Shohreh and Ghanem, Bernard and Alahi, Alexandre and Van Droogenbroeck, Marc and De Vleeschouwer, Christophe},
         booktitle = cvsports,
+	shortjournalproceedings = {2024 IEEE/CVF Conf. Comput. Vis. Pattern Recognit. Work. (CVPRW)},
         month = Jun,
         year = {2024},
         address = city-seattle,
