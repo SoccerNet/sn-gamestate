@@ -1,0 +1,28 @@
+_target_: tracklab.wrappers.TrackEvalEvaluator
+
+
+show_progressbar: True  # Show progressbar during evaluation
+eval_set: ${dataset.eval_set}
+dataset_path: ${dataset.dataset_path}
+
+cfg:
+  save_gt: False
+  bbox_column_for_eval: "bbox_ltwh"  # which bbox column to use for evaluation: {"bbox_ltwh", "track_bbox_kf_ltwh", ...}
+  metrics:  # List of performance metrics to compute as listed in "trackeval.metrics"
+    - "CLEAR"
+    - "HOTA"
+    - "Identity"
+  eval:  # mapped to trackeval/eval.py
+    USE_PARALLEL: True
+    NUM_PARALLEL_CORES: ${num_cores}
+    BREAK_ON_ERROR: False  # Raises exception and exits with error
+    PRINT_RESULTS: True
+    PRINT_ONLY_COMBINED: True
+    PRINT_CONFIG: False
+    TIME_PROGRESS: False
+    DISPLAY_LESS_PROGRESS: False
+    OUTPUT_SUMMARY: True
+    OUTPUT_EMPTY_CLASSES: False  # If False, summary files are not output for classes with no detections
+    OUTPUT_DETAILED: True
+    PLOT_CURVES: True
+  dataset: ${dataset.track_eval}  # Should also define 'dataset_class', i.e. the TrackEval dataset class to use for evaluation, e.g. "MotChallenge2DBox", as defined in the library package "trackeval.datasets".

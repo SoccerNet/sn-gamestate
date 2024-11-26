@@ -7,7 +7,7 @@
 # Define here which implementation (yolov8, oc_sort, ..) to use for each generic (detection, tracking, ...) component.
 defaults:
   - dataset: soccernet_gs
-  - eval: trackeval
+  - eval: gs_hota
   - engine: offline
   - state: save  # Dump tracking results to a .pcklz file to save computation time on the next run. Have a look at TrackLab tutorials for more details.
   - visualization: gamestate  # Save tracking results as a .mp4 video in the run directory specified below (sn-gamestate/outputs/...)
