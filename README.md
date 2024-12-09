@@ -57,20 +57,20 @@ be happy to help with detailed instructions.
 - [x] Release of the sn-gamestate repository
 - [x] SoccerNet Game State Reconstruction dataset available for download
 - [x] Complete baseline build with TrackLab available for participants
-- [x] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
+- [x] [Codabench servers](https://www.codabench.org/competitions/4469/?secret_key=a94cdb9d-75de-46ed-a4bb-6c5eb392a9c8) open for evaluation
 - [x] Further details provided about the new Game State Reconstruction evaluation metric
 - [x] [Live tutorials on how to start with the challenge and the baseline](https://www.youtube.com/watch?v=Ir-6D3j_lkA&t=1553s)
 - [x] Release of the [SoccerNet Game State Reconstruction paper](https://arxiv.org/abs/2404.11335) with detailed information about the task, dataset, baseline and evaluation metric.
 - [ ] Release of new visualization tool (cf. demo video and gif)
 
 #### Updates:
-- [2024.07.10] Addition of ["No Bells, Just Whistles"](https://github.com/mguti97/No-Bells-Just-Whistles) calibration.
-To test, use "nbjw_calib" instead of "tvcalib" in `soccernet.yaml`, for `pitch` and `calibration`.
+- [2024.07.10] Addition of ["PnLCalib"](https://github.com/mguti97/PnLCalib) and ["No Bells, Just Whistles"](https://github.com/mguti97/No-Bells-Just-Whistles) calibration.
+To test, use "pnlcalib" or "nbjw_calib" instead of "tvcalib" in `soccernet.yaml`, for `pitch` and `calibration`.
 - [2024.05.13] V1.3 of the dataset released with updated bbox-pitch annotations.
 - [2024.05.08] Release of the baseline challenge tracker state : https://zenodo.org/records/11143697
 - [2024.04.25] Release of the baseline validation and test tracker states : https://zenodo.org/records/11065177
 - [2024.03.27] Release of submission instructions in [ChallengeRules.md](ChallengeRules.md). 
-- [2024.03.26] [EvalAI servers](https://eval.ai/web/challenges/challenge-page/2251/overview) open for evaluation
+- [2024.03.26] [Codabench servers](https://www.codabench.org/competitions/4469/?secret_key=a94cdb9d-75de-46ed-a4bb-6c5eb392a9c8) open for evaluation
 - [2024.03.21] V1.2 of the dataset released, with fixed left/right team labels
 - [2024.02.13] Complete baseline released
 - [2024.02.11] Dataset available for download
