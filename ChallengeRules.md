@@ -88,7 +88,7 @@ We fully support leveraging older publicly available SoccerNet data in creative 
 
 **5. Data sharing timeline:**
 
-To ensure fairness, we decided that any new data must be shared with all participants through Discord at least one month before the challenge deadline. This aligns with the CVsports workshop timeline and allows all teams to retrain their methods on equal footing.
+To ensure fairness, we decided that any new data must be published or shared with all participants through Discord at least one month before the challenge deadline. This aligns with the CVsports workshop timeline and allows all teams to retrain their methods on equal footing.
 
 
 For any further doubt or concern, please raise an issue in that repository, or contact us directly on [Discord](https://discord.gg/SM8uHj9mkP).
