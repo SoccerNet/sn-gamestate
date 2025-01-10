@@ -45,7 +45,6 @@ This challenge will be sponsored by Sportradar, with a prize money of 1000$!
 
  - The winner is the individual/team who reaches the highest performance on the **challenge** set.
  - The metric taken into consideration is the **GS-HOTA**, a modified version of the HOTA metric.
- - The deadline to submit your results is May 30th 2024 at 11.59 pm Pacific Time.
  - To be eligible for the prize, we require the individual/team to provide a short report describing the details of the methodology (CVPR format, max 2 pages), with a short demo video on one SoccerNet challenge sequence showcasing their solution.
 
 
