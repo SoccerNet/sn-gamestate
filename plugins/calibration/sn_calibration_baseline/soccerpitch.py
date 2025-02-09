@@ -65,10 +65,10 @@ class SoccerPitch:
         'Circle central': 'Circle central',
         'Circle right': 'Circle left',
         'Goal left crossbar': 'Goal right crossbar',
-        'Goal left post left ': 'Goal right post left',
+        'Goal left post left': 'Goal right post left',
         'Goal left post right': 'Goal right post right',
         'Goal right crossbar': 'Goal left crossbar',
-        'Goal right post left': 'Goal left post left ',
+        'Goal right post left': 'Goal left post left',
         'Goal right post right': 'Goal left post right',
         'Goal unknown': 'Goal unknown',
         'Line unknown': 'Line unknown'
