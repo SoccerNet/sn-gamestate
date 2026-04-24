@@ -26,7 +26,7 @@ class BaselineCalibration(ImageLevelModule):
     def process(self, batch: Any, detections: pd.DataFrame, metadatas: pd.DataFrame):
         image = batch
         field = SoccerPitch()
-        predictions = metadatas["lines"][0]
+        predictions = metadatas["lines"].iloc[0]
         camera_predictions = dict()
 
         line_matches = []
