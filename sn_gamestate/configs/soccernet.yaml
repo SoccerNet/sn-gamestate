@@ -67,7 +67,7 @@ print_config: False
 # Dataset
 dataset:
   nvid: 1  # For a quick first inference, only the first video is processed. Use "-1" to process all the videos.
-#  nframes: -1 # For testing on only a few frames, set to a positive number. Will disable evaluation !
+#  nframes: -1 # For testing on only a few frames, set to a positive number. /!\ Evaluation will display low values for GS-HOTA, since predictions will be incomplete (i.e. predictions on a few frames vs ground truth on all frames)
   eval_set: "valid"  # Tracking is performed on the SoccerNet validation set. Choose from {"train", "valid", "test", "challenge"}.
   dataset_path: ${data_dir}/SoccerNetGS  # The SoccerNet game state dataset is located under the data path (defined above) in the 'SoccerNetGS' folder
   vids_dict: # Use one key per split (valid, test, etc)
