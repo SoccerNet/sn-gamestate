@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.9,<3.10"
 
 dependencies = [
-    "tracklab",
+    "tracklab==1.3.24",
     "easyocr==1.7.1",
     "soccernet==0.1.55",
     "torch==1.13.1",
@@ -17,7 +17,9 @@ dependencies = [
     "torchreid @ git+https://github.com/VlSomers/bpbreid",
     "lightning==2.0.9",
     "tracklab_calibration",
-    "numpy<2.0",
+    "numpy==1.26.4",
+    "transformers==4.35.2",
+    "tokenizers==0.15.2",
 ]
 
 [project.entry-points.tracklab_plugin]
