@@ -65,6 +65,7 @@ be happy to help with detailed instructions.
 - [x] Facilitation of the installation using [uv](https://docs.astral.sh/uv/).
 
 #### Updates:
+- [2026.05.01] Update to Tracklab 1.3.24 to fix broken GS-HOTA evaluation 
 - [2025.05.02] Installation using uv and release of the new visualization tool.
 - [2024.07.10] Addition of ["PnLCalib"](https://github.com/mguti97/PnLCalib) and ["No Bells, Just Whistles"](https://github.com/mguti97/No-Bells-Just-Whistles) calibration.
 To test, use "pnlcalib" or "nbjw_calib" instead of "tvcalib" in `soccernet.yaml`, for `pitch` and `calibration`.
