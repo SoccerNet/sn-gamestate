@@ -180,8 +180,8 @@ class PnLCalib(ImageLevelModule):
         return image
 
     def process(self, batch: Any, detections: pd.DataFrame, metadatas: pd.DataFrame):
-        keypoints = metadatas["keypoints"][0]
-        lines = metadatas["lines_det"][0]
+        keypoints = metadatas["keypoints"].iloc[0]
+        lines = metadatas["lines_det"].iloc[0]
 
         self.cam.update(keypoints, lines)
         final_dict = self.cam.heuristic_voting_ground(refine_lines=self.refine_lines)
