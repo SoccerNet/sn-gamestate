@@ -1,0 +1,7 @@
+{
+  "architecture": "RBF SVM on positional distribution features",
+  "train_examples": 103,
+  "holdout_examples": 12,
+  "holdout_macro_f1": 0.664835,
+  "target": "GT-derived geometric formation proxy"
+}

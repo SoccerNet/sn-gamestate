@@ -1,0 +1,13 @@
+{
+  "holdout_macro_f1": 0.535714,
+  "epoch": 119,
+  "architecture": "gcn",
+  "train_examples": 101,
+  "holdout_examples": 12,
+  "class_counts_train": {
+    "4-4-2": 55,
+    "4-3-3": 38,
+    "3-5-2": 8
+  },
+  "target": "GT-derived geometric formation proxy"
+}

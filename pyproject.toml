@@ -18,6 +18,7 @@ dependencies = [
     "lightning==2.0.9",
     "tracklab_calibration",
     "numpy==1.26.4",
+    "mplsoccer==1.5.1",
     "transformers==4.35.2",
     "tokenizers==0.15.2",
 ]

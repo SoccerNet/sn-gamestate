@@ -1,0 +1,9 @@
+# Small dependency list for the public Streamlit demo.
+streamlit==1.50.0
+pandas==2.2.3
+numpy==1.26.4
+matplotlib==3.9.4
+mplsoccer==1.5.1
+scipy==1.13.1
+Pillow==11.2.1
+pyarrow==21.0.0

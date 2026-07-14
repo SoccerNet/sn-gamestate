@@ -1,0 +1,23 @@
+{
+  "architecture": "RBF SVM on positional distribution features",
+  "test_examples": 98,
+  "test_macro_f1": 0.363318,
+  "confusion_rows_reference_cols_prediction": [
+    [
+      28,
+      21,
+      2
+    ],
+    [
+      8,
+      20,
+      1
+    ],
+    [
+      6,
+      12,
+      0
+    ]
+  ],
+  "target": "GT-derived geometric formation proxy"
+}
