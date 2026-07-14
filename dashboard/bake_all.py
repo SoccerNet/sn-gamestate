@@ -28,20 +28,23 @@ def bake_all(split, force=False):
     for s in sorted(pred):
         player_path = os.path.join(out_dir, f"{s:03d}.parquet")
         forecast_path = os.path.join(out_dir, f"{s:03d}_forecast.parquet")
-        if os.path.exists(player_path) and os.path.exists(forecast_path):
-            if not force:
-                continue
-            # A forced schema migration can resume safely after interruption.
-            if {"x0", "y0"}.issubset(pd.read_parquet(forecast_path).columns):
-                continue
-        t = player_frame_table(s, split)
-        t["window"] = (t.frame - 1) // WIN
-        key = list(zip(t.team, t.window))
-        t["press_pred"] = [pred[s].get(k, "") for k in key]
-        t["press_gt"] = [gt[s].get(k, "") for k in key]
-        t.to_parquet(player_path)
-        forecast_table(s, split).to_parquet(forecast_path)
-        print(f"baked {split} {s:03d} ({len(t)} rows)")
+        player_current = os.path.exists(player_path)
+        forecast_current = os.path.exists(forecast_path) and {"x0", "y0"}.issubset(
+            pd.read_parquet(forecast_path).columns
+        )
+        if player_current and forecast_current and not force:
+            continue
+        if force or not player_current:
+            t = player_frame_table(s, split)
+            t["window"] = (t.frame - 1) // WIN
+            key = list(zip(t.team, t.window))
+            t["press_pred"] = [pred[s].get(k, "") for k in key]
+            t["press_gt"] = [gt[s].get(k, "") for k in key]
+            t.to_parquet(player_path)
+            print(f"baked player data {split} {s:03d} ({len(t)} rows)")
+        if force or not forecast_current:
+            forecast_table(s, split).to_parquet(forecast_path)
+            print(f"baked forecast data {split} {s:03d}")
 
 if __name__ == "__main__":
     args = sys.argv[1:]

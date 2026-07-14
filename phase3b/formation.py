@@ -1,4 +1,7 @@
-import glob, os, pandas as pd
+import glob, os, sys, pandas as pd
+
+if __package__ in (None, ""):
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from phase3b.gt_labels import formation_label
 
 def report(split="valid", gt_root="data/SoccerNetGS"):
@@ -17,4 +20,4 @@ def report(split="valid", gt_root="data/SoccerNetGS"):
     return df
 
 if __name__ == "__main__":
-    report()
+    report(sys.argv[1] if len(sys.argv) > 1 else "valid")

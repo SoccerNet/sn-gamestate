@@ -152,6 +152,8 @@ AGENTS.md
 *.pklz
 *.pt
 dashboard/data/
+!dashboard/demo/
+!dashboard/demo/**
 sweep/
 thesis_results/
 tmp/

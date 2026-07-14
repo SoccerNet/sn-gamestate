@@ -1,0 +1,23 @@
+{
+  "architecture": "gat",
+  "test_examples": 98,
+  "test_macro_f1": 0.400172,
+  "confusion_rows_reference_cols_prediction": [
+    [
+      34,
+      16,
+      1
+    ],
+    [
+      12,
+      16,
+      1
+    ],
+    [
+      9,
+      8,
+      1
+    ]
+  ],
+  "target": "GT-derived geometric formation proxy"
+}

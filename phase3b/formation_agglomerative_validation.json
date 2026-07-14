@@ -1,0 +1,9 @@
+{
+  "method": "agglomerative X-depth bands + template matching",
+  "window": "one complete uninterrupted 750-frame / ~25-second clip",
+  "min_track_frames": 120,
+  "holdout_examples": 12,
+  "holdout_macro_f1": 0.398291,
+  "holdout_accuracy": 0.416667,
+  "target": "GT-derived geometric formation proxy"
+}
