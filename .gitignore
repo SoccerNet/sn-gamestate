@@ -142,3 +142,19 @@ dmypy.json
 .pyre/
 .idea/
 .DS_Store
+
+# Local research artefacts and third-party data (not for source control)
+.firecrawl/
+.playwright-mcp/
+AGENTS.md
+*.pdf
+*.mp4
+*.pklz
+*.pt
+dashboard/data/
+sweep/
+thesis_results/
+tmp/
+dash-*.png
+docs/hex/
+docs/superpowers/
